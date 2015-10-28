@@ -1,0 +1,176 @@
+{
+  "name": "PDFresource",
+  "lowCaseName": "pdfresource",
+  "description": "Convert MODX resources to PDF files using mPDF",
+  "author": "Thomas Jakobi",
+  "version": "1.1.0",
+  "package": {
+    "elements": {
+      "chunks": [
+        {
+          "name": "tplPDF",
+          "file": "tplpdf.html"
+        },
+        {
+          "name": "tplCSS",
+          "file": "tplcss.css"
+        }
+      ],
+      "plugins": [
+        {
+          "name": "PDFresource",
+          "file": "pdfresource.plugin.php",
+          "description": "Convert MODX resources to PDF during saving or rendering the resource.",
+          "events": [
+            "OnDocFormSave",
+            "OnWebPagePrerender"
+          ]
+        }
+      ],
+      "tvs": [
+        {
+          "name": "create_pdf",
+          "caption": "Create PDF",
+          "description": "Create PDF while saving this resouce",
+          "type": "checkbox",
+          "inputOptionValues": "Yes==1",
+          "defaultValue": "1",
+          "category": "PDF"
+        },
+        {
+          "name": "pdf_options",
+          "value": "",
+          "caption": "PDF Options",
+          "description": "JSON encoded options for the PDF generation",
+          "type": "textarea",
+          "category": "PDF"
+        }
+      ],
+      "categories": [
+        {
+          "name": "PDF"
+        }
+      ]
+    },
+    "systemSettings": [
+      {
+        "key": "mode",
+        "type": "textfield",
+        "area": "pdf",
+        "value": ""
+      },
+      {
+        "key": "format",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "A4"
+      },
+      {
+        "key": "defaultFontSize",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "0"
+      },
+      {
+        "key": "defaultFont",
+        "type": "textfield",
+        "area": "pdf",
+        "value": ""
+      },
+      {
+        "key": "mgl",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "15"
+      },
+      {
+        "key": "mgr",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "15"
+      },
+      {
+        "key": "mgt",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "16"
+      },
+      {
+        "key": "mgb",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "16"
+      },
+      {
+        "key": "mgh",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "9"
+      },
+      {
+        "key": "mgf",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "9"
+      },
+      {
+        "key": "orientation",
+        "type": "textfield",
+        "area": "pdf",
+        "value": "P"
+      },
+      {
+        "key": "pdfTv",
+        "type": "textfield",
+        "area": "resource",
+        "value": "create_pdf"
+      },
+      {
+        "key": "pdfTvOptions",
+        "type": "textfield",
+        "area": "resource",
+        "value": "pdf_options"
+      },
+      {
+        "key": "pdfTpl",
+        "type": "textfield",
+        "area": "template",
+        "value": "tplPDF"
+      },
+      {
+        "key": "cssTpl",
+        "type": "textfield",
+        "area": "template",
+        "value": "tplCSS"
+      },
+      {
+        "key": "processTVs",
+        "type": "combo-boolean",
+        "area": "template",
+        "value": true
+      },
+      {
+        "key": "tvPrefix",
+        "type": "textfield",
+        "area": "template",
+        "value": "tv."
+      }
+    ]
+  },
+  "build": {
+    "readme": "docs/readme.txt",
+    "license": "docs/license.txt",
+    "changelog": "docs/changelog.txt",
+    "attributes": {
+      "chunks": {
+        "update_object": false
+      },
+      "tvs": {
+        "update_object": false
+      }
+    },
+    "resolver": {
+      "after": "create_folders.resolver.php"
+    }
+  }
+}
