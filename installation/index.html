@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Installation - PDFresource</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">PDFresource</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href="./">Installation</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../usage/">Usage</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../usage/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/Jako/PDFresource">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#install-from-modx-extras">Install from MODX Extras</a></li>
+        
+    
+        <li class="main "><a href="#manual-installation">Manual installation</a></li>
+        
+    
+        <li class="main "><a href="#build-it-from-source">Build it from source</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="install-from-modx-extras">Install from MODX Extras</h2>
+<p>Search for PDFresource in the Package Manager of a MODX installation and install it in there.</p>
+<h2 id="manual-installation">Manual installation</h2>
+<p>If you can't access the MODX Extras Repository in your MODX installation, you can manually install PDFresource.</p>
+<ul>
+<li>Download the transport package from <a href="http://modx.com/extras/package/pdfresource">MODX Extras</a>
+  (or one of the pre built transport packages in <a href="https://github.com/Jako/PDFresource/tree/master/_packages">_packages</a>)</li>
+<li>Upload the zip file to your MODX installation's <code>core/packages</code> folder.</li>
+<li>In the MODX Manager, navigate to the Package Manager page, and select 'Search locally for packages' from the dropdown 
+  button.</li>
+<li>PDFresource should now show up in the list of available packages. Click the corresponding 'Install' button and follow 
+  instructions to complete the installation.</li>
+</ul>
+<h2 id="build-it-from-source">Build it from source</h2>
+<p>To build and install the package from source you could use <a href="https://github.com/TheBoxer/Git-Package-Management">Git Package Management</a>. 
+The GitHub repository of PDFresource contains a <a href="https://github.com/Jako/PDFresource/blob/master/_build/config.json">config.json</a> 
+to build that package locally. After downloading the github repository, you have to change into the <code>core/components/pdfresource</code> folder 
+and install mpdf with composer by invoking <code>composer install</code>. Use this option, if you want to debug PDFresource and/or contribute 
+bugfixes and enhancements.</p>
+<!-- Piwik -->
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.partout.info/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 9999]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+<noscript><p><img src="//piwik.partout.info/piwik.php?idsite=9999" style="border:0;" alt="" /></p></noscript>
+
+<!-- End Piwik Code --></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

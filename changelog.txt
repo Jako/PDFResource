@@ -1,0 +1,8 @@
+Changelog
+=========
+
+- 1.1.0
+    - Create not existing PDF files during OnWebPagePrerender
+
+- 1.0.0
+    - Initial Release for MODX Revolution
