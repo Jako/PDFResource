@@ -120,6 +120,12 @@
         "value": "P"
       },
       {
+        "key": "customFonts",
+        "type": "textarea",
+        "area": "pdf",
+        "value": ""
+      },
+      {
         "key": "pdfTv",
         "type": "textfield",
         "area": "resource",

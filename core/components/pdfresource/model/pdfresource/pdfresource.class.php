@@ -118,6 +118,7 @@ class PDFresource
             'mgb' => $this->getOption('mgb'),
             'mgf' => $this->getOption('mgf'),
             'orientation' => $this->getOption('orientation'),
+            'customFonts' => $this->getOption('customFonts'),
         );
 
         // Init mPDF
@@ -164,6 +165,7 @@ class PDFresource
             'mgb' => $this->getOption('mgb'),
             'mgf' => $this->getOption('mgf'),
             'orientation' => $this->getOption('orientation'),
+            'customFonts' => $this->getOption('customFonts'),
         ));
     }
 

@@ -29,6 +29,7 @@ pdfresource.pdfTv | Name ot the template variable that activates the PDF generat
 pdfresource.pdfTvTpl | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change.
 pdfresource.processTVs | Process template variables during PDF generation.
 pdfresource.tvPrefix | Template variable prefix in the template chunk.
+pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.
 
 The following MODX system settings have to be created to use them:
 
@@ -58,6 +59,23 @@ The content of the PDF is filled with the chunk defined by `pdfresource.pdfTpl` 
 ### PDF styles template
 
 The style of the PDF is set with the chunk defined by `pdfresource.cssTpl` MODX system setting (or on resource base by the `pdf_options` template variable). By default PDFresource uses the `tplCSS` chunk. There are some limitations with mPDF and CSS (i.e. `position: absolute` works only with elements on root level).
+
+### Custom fonts
+
+To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting `pdfresource.customFonts`. See [Fonts](http://mpdf1.com/manual/index.php?tid=501) in the mPDF documentation a the full description. 
+
+#### Example
+
+```
+{
+  "frutiger": {
+    "R": "Frutiger-Normal.ttf",
+    "I": "FrutigerObl-Normal.ttf"
+  }
+}
+```
+
+Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
 
 ### Linking to a generated PDF
 
