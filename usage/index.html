@@ -110,6 +110,8 @@
         
             <li><a href="#pdf-styles-template">PDF styles template</a></li>
         
+            <li><a href="#custom-fonts">Custom fonts</a></li>
+        
             <li><a href="#linking-to-a-generated-pdf">Linking to a generated PDF</a></li>
         
     
@@ -133,7 +135,7 @@
 <tbody>
 <tr>
 <td>pdfresource.mode</td>
-<td>mPDF mode, see <a href="http://mpdf1.com/manual/">mPDF documentation</a></td>
+<td>mPDF mode, see <a href="http://mpdf1.com/manual/index.php?tid=184">mode parameter</a> and <a href="http://mpdf1.com/manual/index.php?tid=504">choosing a configuration</a> in the mPDF documentation for possible values.</td>
 </tr>
 <tr>
 <td>pdfresource.format</td>
@@ -199,6 +201,10 @@
 <td>pdfresource.tvPrefix</td>
 <td>Template variable prefix in the template chunk.</td>
 </tr>
+<tr>
+<td>pdfresource.customFonts</td>
+<td>JSON encoded object of custom fonts, see <a href="#custom-fonts">Custom fonts</a> for an example. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</td>
+</tr>
 </tbody>
 </table>
 <p>The following MODX system settings have to be created to use them:</p>
@@ -234,6 +240,18 @@
 <p>The content of the PDF is filled with the chunk defined by <code>pdfresource.pdfTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFresource uses the <code>tplPDF</code> chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.</p>
 <h3 id="pdf-styles-template">PDF styles template</h3>
 <p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFresource uses the <code>tplCSS</code> chunk. There are some limitations with mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
+<h3 id="custom-fonts">Custom fonts</h3>
+<p>To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting <code>pdfresource.customFonts</code>. See <a href="http://mpdf1.com/manual/index.php?tid=501">Fonts</a> in the mPDF documentation a the full description. </p>
+<h4 id="example_1">Example</h4>
+<pre><code>{
+  &quot;frutiger&quot;: {
+    &quot;R&quot;: &quot;Frutiger-Normal.ttf&quot;,
+    &quot;I&quot;: &quot;FrutigerObl-Normal.ttf&quot;
+  }
+}
+</code></pre>
+
+<p>Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';</p>
 <h3 id="linking-to-a-generated-pdf">Linking to a generated PDF</h3>
 <p>All generated PDF files are saved with the aliaspath of the generating resource. So if you want to create a link to that PDF file, you could use the following code:</p>
 <pre><code>&lt;a href=&quot;/assets/pdf/[[~[[*parent]]]][[*alias]].pdf&quot;&gt;PDF&lt;/a&gt;
