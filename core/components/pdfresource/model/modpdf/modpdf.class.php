@@ -81,17 +81,17 @@ class modPDF extends mPDF
         ), $options);
 
         // Init mPDF options
-        $mode = $modx->getOption('mode', $options, '');
-        $format = $modx->getOption('format', $options, 'A4');
-        $default_font_size = intval($modx->getOption('defaultFontSize', $options, 0));
-        $default_font = $modx->getOption('defaultFont', $options, '');
-        $mgl = intval($modx->getOption('mgl', $options, 15));
-        $mgr = intval($modx->getOption('mgr', $options, 15));
-        $mgt = intval($modx->getOption('mgt', $options, 16));
-        $mgb = intval($modx->getOption('mgb', $options, 16));
-        $mgh = intval($modx->getOption('mgb', $options, 9));
-        $mgf = intval($modx->getOption('mgf', $options, 9));
-        $orientation = $modx->getOption('orientation', $options, 'P');
+        $mode = $this->modx->getOption('mode', $options, '');
+        $format = $this->modx->getOption('format', $options, 'A4');
+        $default_font_size = intval($this->modx->getOption('defaultFontSize', $options, 0));
+        $default_font = $this->modx->getOption('defaultFont', $options, '');
+        $mgl = intval($this->modx->getOption('mgl', $options, 15));
+        $mgr = intval($this->modx->getOption('mgr', $options, 15));
+        $mgt = intval($this->modx->getOption('mgt', $options, 16));
+        $mgb = intval($this->modx->getOption('mgb', $options, 16));
+        $mgh = intval($this->modx->getOption('mgb', $options, 9));
+        $mgf = intval($this->modx->getOption('mgf', $options, 9));
+        $orientation = $this->modx->getOption('orientation', $options, 'P');
 
         parent::mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf, $orientation);
     }
