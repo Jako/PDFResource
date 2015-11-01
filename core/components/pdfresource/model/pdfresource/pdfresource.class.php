@@ -76,7 +76,7 @@ class PDFresource
         $pdfUrl = $this->getOption('pdf_url', $options, $this->modx->getOption('assets_url') . 'pdf/');
 
         // Load some default paths for easier management
-        $this->options = array_merge(array(
+        $this->options = array(
             'namespace' => $this->namespace,
             'version' => $this->version,
             'assetsPath' => $assetsPath,
@@ -97,7 +97,7 @@ class PDFresource
             'connectorUrl' => $assetsUrl . 'connector.php',
             'pdfPath' => $pdfPath,
             'pdfUrl' => $pdfUrl,
-        ), $options);
+        );
 
         // Autoload composer classes
         require $this->getOption('corePath') . 'vendor/autoload.php';
@@ -106,6 +106,19 @@ class PDFresource
             $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
             return;
         }
+
+        $options = array(
+            'mode' => $this->getOption('mode'),
+            'format' => $this->getOption('format'),
+            'defaultFontSize' => $this->getOption('defaultFontSize'),
+            'defaultFont' => $this->getOption('defaultFont'),
+            'mgl' => $this->getOption('mgl'),
+            'mgr' => $this->getOption('mgr'),
+            'mgt' => $this->getOption('mgt'),
+            'mgb' => $this->getOption('mgb'),
+            'mgf' => $this->getOption('mgf'),
+            'orientation' => $this->getOption('orientation'),
+        );
 
         // Init mPDF
         $this->pdf = new modPDF($modx, $options);
@@ -140,18 +153,18 @@ class PDFresource
      */
     public function initPDF($options)
     {
-        $this->pdf = new mPDF(
-            $this->getOption('mode', $options),
-            $this->getOption('format', $options),
-            $this->getOption('defaultFontSize', $options),
-            $this->getOption('defaultFont', $options),
-            $this->getOption('mgl', $options),
-            $this->getOption('mgr', $options),
-            $this->getOption('mgt', $options),
-            $this->getOption('mgb', $options),
-            $this->getOption('mgf', $options),
-            $this->getOption('orientation', $options)
-        );
+        $this->pdf = new modPDF($this->modx, array(
+            'mode' => $this->getOption('mode'),
+            'format' => $this->getOption('format'),
+            'defaultFontSize' => $this->getOption('defaultFontSize'),
+            'defaultFont' => $this->getOption('defaultFont'),
+            'mgl' => $this->getOption('mgl'),
+            'mgr' => $this->getOption('mgr'),
+            'mgt' => $this->getOption('mgt'),
+            'mgb' => $this->getOption('mgb'),
+            'mgf' => $this->getOption('mgf'),
+            'orientation' => $this->getOption('orientation'),
+        ));
     }
 
     /**
