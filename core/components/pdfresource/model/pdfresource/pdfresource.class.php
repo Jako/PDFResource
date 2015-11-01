@@ -45,9 +45,19 @@ class PDFresource
 
     /**
      * Template cache
-     * @var array $tplCache
+     * @var array $_tplCache
      */
     private $_tplCache;
+
+    /**
+     * Valid binding types
+     * @var array $_validTypes
+     */
+    private $_validTypes = array(
+        '@CHUNK',
+        '@FILE',
+        '@INLINE'
+    );
 
     /**
      * PDFresource constructor
@@ -223,17 +233,16 @@ class PDFresource
     }
 
     /**
-     * @param $_validTypes
      * @param $type
      * @param $source
      * @param null $properties
      * @return bool
      */
-    private function parseChunk($_validTypes, $type, $source, $properties = null)
+    private function parseChunk($type, $source, $properties = null)
     {
         $output = false;
 
-        if (!is_string($type) || !in_array($type, $_validTypes)) {
+        if (!is_string($type) || !in_array($type, $this->_validTypes)) {
             $type = $this->modx->getOption('tplType', $properties, '@CHUNK');
         }
 
@@ -297,12 +306,6 @@ class PDFresource
      */
     public function getChunk($tpl, $properties = null)
     {
-        $_validTypes = array(
-            '@CHUNK',
-            '@FILE',
-            '@INLINE'
-        );
-
         $output = false;
         if (!empty($tpl)) {
             $bound = array(
@@ -313,14 +316,14 @@ class PDFresource
                 $endPos = strpos($tpl, ' ');
                 if ($endPos > 2 && $endPos < 10) {
                     $tt = substr($tpl, 0, $endPos);
-                    if (in_array($tt, $_validTypes)) {
+                    if (in_array($tt, $this->_validTypes)) {
                         $bound['type'] = $tt;
                         $bound['value'] = substr($tpl, $endPos + 1);
                     }
                 }
             }
             if (is_array($bound) && isset($bound['type']) && isset($bound['value'])) {
-                $output = $this->parseChunk($_validTypes, $bound['type'], $bound['value'], $properties);
+                $output = $this->parseChunk($bound['type'], $bound['value'], $properties);
             }
         }
         return $output;
