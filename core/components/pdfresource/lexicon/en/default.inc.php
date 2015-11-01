@@ -11,7 +11,7 @@ $_lang['area_resource'] = 'Resource';
 $_lang['area_template'] = 'Template';
 
 $_lang['setting_pdfresource.mode'] = 'mPDF mode';
-$_lang['setting_pdfresource.mode_desc'] = 'see <a href="http://mpdf1.com/manual/" target="_blank">mPDF documentation</a>';
+$_lang['setting_pdfresource.mode_desc'] = 'See <a href="http://mpdf1.com/manual/index.php?tid=184" target="_blank">mode parameter</a> and <a href="http://mpdf1.com/manual/index.php?tid=504" target="_blank">choosing a configuration</a> in the mPDF documentation for possible values.';
 $_lang['setting_pdfresource.format'] = 'PDF page size';
 $_lang['setting_pdfresource.format_desc'] = 'If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L)';
 $_lang['setting_pdfresource.defaultFontSize'] = 'PDF default font size';

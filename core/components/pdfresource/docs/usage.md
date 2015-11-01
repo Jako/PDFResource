@@ -46,10 +46,10 @@ All these options could be changed on resource base in a template variable `pdf_
   (function() {
     var u="//piwik.partout.info/";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 9999]);
+    _paq.push(['setSiteId', 18]);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//piwik.partout.info/piwik.php?idsite=9999" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//piwik.partout.info/piwik.php?idsite=18" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
