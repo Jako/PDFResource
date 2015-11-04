@@ -98,31 +98,6 @@ class PDFresource
             'pdfPath' => $pdfPath,
             'pdfUrl' => $pdfUrl,
         );
-
-        // Autoload composer classes
-        require $this->getOption('corePath') . 'vendor/autoload.php';
-
-        if (!$this->modx->loadClass('modpdf.modpdf', $this->options['modelPath'], true, true)) {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
-            return;
-        }
-
-        $options = array(
-            'mode' => $this->getOption('mode'),
-            'format' => $this->getOption('format'),
-            'defaultFontSize' => $this->getOption('defaultFontSize'),
-            'defaultFont' => $this->getOption('defaultFont'),
-            'mgl' => $this->getOption('mgl'),
-            'mgr' => $this->getOption('mgr'),
-            'mgt' => $this->getOption('mgt'),
-            'mgb' => $this->getOption('mgb'),
-            'mgf' => $this->getOption('mgf'),
-            'orientation' => $this->getOption('orientation'),
-            'customFonts' => $this->getOption('customFonts'),
-        );
-
-        // Init mPDF
-        $this->pdf = new modPDF($modx, $options);
     }
 
     /**
@@ -154,6 +129,14 @@ class PDFresource
      */
     public function initPDF($options)
     {
+        // Autoload composer classes
+        require $this->getOption('corePath') . 'vendor/autoload.php';
+
+        if (!$this->modx->loadClass('modpdf.modpdf', $this->options['modelPath'], true, true)) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
+            return;
+        }
+
         $this->pdf = new modPDF($this->modx, array(
             'mode' => $this->getOption('mode'),
             'format' => $this->getOption('format'),

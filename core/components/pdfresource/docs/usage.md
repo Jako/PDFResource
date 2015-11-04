@@ -29,7 +29,8 @@ pdfresource.pdfTv | Name ot the template variable that activates the PDF generat
 pdfresource.pdfTvTpl | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change.
 pdfresource.processTVs | Process template variables during PDF generation.
 pdfresource.tvPrefix | Template variable prefix in the template chunk.
-pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.
+pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
+pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender.
 
 The following MODX system settings have to be created to use them:
 
@@ -75,14 +76,14 @@ To use custom fonts in your PDF files, you have to add them as JSON encoded obje
 }
 ```
 
-Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
+Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
 
 ### Linking to a generated PDF
 
 All generated PDF files are saved with the aliaspath of the generating resource. So if you want to create a link to that PDF file, you could use the following code:
 
 ```
-<a href="/assets/pdf/[[~[[*parent]]]][[*alias]].pdf">PDF</a>
+<a href="[[*id:pdfresourcelink]]">PDF</a>
 ```
 
 <!-- Piwik -->

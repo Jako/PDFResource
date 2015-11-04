@@ -1,6 +1,12 @@
 Changelog
 =========
 
+- 1.2.2
+    - Load mPDF/modPDF class only if needed for less memory usage
+    - Added pdfresource.generateOnPrerender system setting
+- 1.2.1
+    - Check if the create pdf template variable is assigned to the template
+    - Modified alias path generation
 - 1.2.0
     - Add custom fonts by pdfresource.customFonts system setting
 

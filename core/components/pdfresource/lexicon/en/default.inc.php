@@ -38,6 +38,5 @@ $_lang['setting_pdfresource.tvPrefix'] = 'Template variable prefix';
 $_lang['setting_pdfresource.tvPrefix_desc'] = 'Template variable prefix for the placeholders in the PDF content chunk.';
 $_lang['setting_pdfresource.customFonts'] = 'Custom Fonts';
 $_lang['setting_pdfresource.customFonts_desc'] = 'JSON encoded object of custom fonts, see <a href="http://mpdf1.com/manual/index.php?tid=501">Fonts</a> in the mPDF documentation for the array format. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
-
-
-
+$_lang['setting_pdfresource.generateOnPrerender'] = 'Generate PDF on prerender';
+$_lang['setting_pdfresource.generateOnPrerender_desc'] = 'Generate not existing PDF files during OnWebPagePrerender.';
