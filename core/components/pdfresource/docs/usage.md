@@ -4,33 +4,40 @@
 
 So after the installation you only have to assign the template variable `create_pdf` to the templates of the resources that should be converted to PDF and check that template variable in the resource (checked by default).
 
+### PDF generation on the fly
+
+To generate PDF files on the fly with *PDFresource* you have to assign the template variable `live_pdf` to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.
+ 
+**Caution:** This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.
+
 ### PDF options
 
 By default the PDF content and the CSS code for the PDF could be changed with the chunks `tplPDF` and `tplCSS`. Some other PDF options (pagesize, margins etc.) could be set in MODX system setting.
 
 The following MODX system settings are available in the namespace `pdfresource`:
 
-Key | Description
-----|------------
-pdfresource.mode | mPDF mode, see [mode parameter](http://mpdf1.com/manual/index.php?tid=184) and [choosing a configuration](http://mpdf1.com/manual/index.php?tid=504) in the mPDF documentation for possible values.
-pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).
-pdfresource.defaultFontSize | PDF default font size
-pdfresource.defaultFont | PDF default font
-pdfresource.mgl | PDF margin left
-pdfresource.mgr | PDF margin right 
-pdfresource.mgt | PDF margin top 
-pdfresource.mgb | PDF margin bottom 
-pdfresource.mgh | PDF margin header
-pdfresource.mgf | PDF margin footer
-pdfresource.orientation | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).
-pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file.
-pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.
-pdfresource.pdfTv | Name ot the template variable that activates the PDF generation.
-pdfresource.pdfTvTpl | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change.
-pdfresource.processTVs | Process template variables during PDF generation.
-pdfresource.tvPrefix | Template variable prefix in the template chunk.
-pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
-pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender.
+Key | Description | Default
+----|-------------|--------
+pdfresource.mode | mPDF mode, see [mode parameter](http://mpdf1.com/manual/index.php?tid=184) and [choosing a configuration](http://mpdf1.com/manual/index.php?tid=504) in the mPDF documentation for possible values. | -
+pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
+pdfresource.defaultFontSize | PDF default font size | 0
+pdfresource.defaultFont | PDF default font | -
+pdfresource.mgl | PDF margin left | 15
+pdfresource.mgr | PDF margin right | 15
+pdfresource.mgt | PDF margin top | 16
+pdfresource.mgb | PDF margin bottom | 16
+pdfresource.mgh | PDF margin header | 9
+pdfresource.mgf | PDF margin footer | 9
+pdfresource.orientation | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | P
+pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file. | tplPDF
+pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file. | tplCSS
+pdfresource.pdfTv | Name ot the template variable that activates the PDF generation. | create_pdf
+pdfresource.pdfTvLive | Name of the template variable that activates the on the fly PDF generation. | live_pdf
+pdfresource.pdfTvOptions | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change. | pdf_options
+pdfresource.processTVs | Process template variables during PDF generation. | true
+pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
+pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
+pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
 
 The following MODX system settings have to be created to use them:
 

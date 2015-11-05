@@ -43,6 +43,18 @@ switch ($eventName) {
         }
         break;
     case 'OnWebPagePrerender':
+        // Generate the PDF on the fly once if it does not exist and live_pdf template variable is checked
+        $createPDF = intval($modx->resource->getTVValue($pdfresource->getOption('pdfTvLive', null, 'live_pdf')));
+        if ($createPDF) {
+            $aliasPath = $modx->resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '/', $modx->makeUrl($modx->resource->get('parent'))) : '';
+            if ($createPDF) {
+                header('Content-Type: application/pdf');
+                header('Content-Disposition:inline;filename=' . $modx->resource->get('alias'). '.pdf');
+                echo $pdfresource->createPDF($modx->resource, false);
+                exit;
+            }
+        }
+        // Generate the PDF once if it does not exist, create_pdf template variable is assigned and system setting generateOnPrerender is enabled
         if ($pdfresource->getOption('generateOnPrerender')) {
             $c = $modx->newQuery('modTemplateVarTemplate');
             $c->leftJoin('modTemplateVar', 'modTemplateVar', array('modTemplateVarTemplate.tmplvarid = modTemplateVar.id'));
@@ -52,6 +64,7 @@ switch ($eventName) {
                 'modTemplateVar.name' => $pdfresource->getOption('pdfTv', null, 'create_pdf'),
                 'modTemplateVarTemplate.templateid' => $modx->resource->get('template')
             ));
+            // Check if the template variable is assigned, since it is enabled by default
             $assigned = $modx->getObject('modTemplateVarTemplate', $c);
             if ($assigned) {
                 $aliasPath = $modx->resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '/', $modx->makeUrl($modx->resource->get('parent'))) : '';
@@ -61,7 +74,6 @@ switch ($eventName) {
                 }
             }
         }
-        break;
 }
 
 return;

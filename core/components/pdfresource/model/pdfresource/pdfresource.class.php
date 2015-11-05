@@ -154,7 +154,8 @@ class PDFresource
 
     /**
      * @param modResource $resource
-     * @param string $aliasPath
+     * @param string|boolean $aliasPath
+     * @return string
      */
     public function createPDF($resource, $aliasPath)
     {
@@ -165,7 +166,7 @@ class PDFresource
                 return;
             };
         }
-        if (!@is_dir($this->getOption('pdfPath') . $aliasPath)) {
+        if ($aliasPath && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!@mkdir($this->getOption('pdfPath') . $aliasPath, $this->modx->getOption('new_folder_permissions', null, 0775))) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFresource');
                 return;
@@ -227,7 +228,11 @@ class PDFresource
         $this->pdf->WriteHTML($css, 1);
         $this->pdf->WriteHTML($html, 2);
 
-        $this->pdf->Output($this->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf', 'F');
+        if ($aliasPath) {
+            return $this->pdf->Output($this->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf', 'F');
+        } else {
+            return $this->pdf->Output('', 'S');
+        }
     }
 
     /**
