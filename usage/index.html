@@ -67,6 +67,12 @@
                 </li>
             
             
+            
+                <li >
+                    <a href="../donate/">Donate</a>
+                </li>
+            
+            
             </ul>
 
             <!-- Search, Navigation and Repo links -->
@@ -76,8 +82,8 @@
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li class="disabled">
-                    <a rel="prev" >
+                <li >
+                    <a rel="prev" href="../donate/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -102,6 +108,8 @@
     
         <li class="main active"><a href="#usage">Usage</a></li>
         
+            <li><a href="#pdf-generation-on-the-fly">PDF generation on the fly</a></li>
+        
             <li><a href="#pdf-options">PDF options</a></li>
         
             <li><a href="#resource-based-pdf-options">Resource based PDF options</a></li>
@@ -122,6 +130,9 @@
 <h1 id="usage">Usage</h1>
 <p><em>PDFresource</em> works out of the box and creates PDF files from all resources, that have the template variable <code>create_pdf</code> assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to <code>{assets_url}/pdf/</code></p>
 <p>So after the installation you only have to assign the template variable <code>create_pdf</code> to the templates of the resources that should be converted to PDF and check that template variable in the resource (checked by default).</p>
+<h3 id="pdf-generation-on-the-fly">PDF generation on the fly</h3>
+<p>To generate PDF files on the fly with <em>PDFresource</em> you have to assign the template variable <code>live_pdf</code> to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.</p>
+<p><strong>Caution:</strong> This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.</p>
 <h3 id="pdf-options">PDF options</h3>
 <p>By default the PDF content and the CSS code for the PDF could be changed with the chunks <code>tplPDF</code> and <code>tplCSS</code>. Some other PDF options (pagesize, margins etc.) could be set in MODX system setting.</p>
 <p>The following MODX system settings are available in the namespace <code>pdfresource</code>:</p>
@@ -130,84 +141,109 @@
 <tr>
 <th>Key</th>
 <th>Description</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>pdfresource.mode</td>
 <td>mPDF mode, see <a href="http://mpdf1.com/manual/index.php?tid=184">mode parameter</a> and <a href="http://mpdf1.com/manual/index.php?tid=504">choosing a configuration</a> in the mPDF documentation for possible values.</td>
+<td>-</td>
 </tr>
 <tr>
 <td>pdfresource.format</td>
 <td>PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).</td>
+<td>A4</td>
 </tr>
 <tr>
 <td>pdfresource.defaultFontSize</td>
 <td>PDF default font size</td>
+<td>0</td>
 </tr>
 <tr>
 <td>pdfresource.defaultFont</td>
 <td>PDF default font</td>
+<td>-</td>
 </tr>
 <tr>
 <td>pdfresource.mgl</td>
 <td>PDF margin left</td>
+<td>15</td>
 </tr>
 <tr>
 <td>pdfresource.mgr</td>
 <td>PDF margin right</td>
+<td>15</td>
 </tr>
 <tr>
 <td>pdfresource.mgt</td>
 <td>PDF margin top</td>
+<td>16</td>
 </tr>
 <tr>
 <td>pdfresource.mgb</td>
 <td>PDF margin bottom</td>
+<td>16</td>
 </tr>
 <tr>
 <td>pdfresource.mgh</td>
 <td>PDF margin header</td>
+<td>9</td>
 </tr>
 <tr>
 <td>pdfresource.mgf</td>
 <td>PDF margin footer</td>
+<td>9</td>
 </tr>
 <tr>
 <td>pdfresource.orientation</td>
 <td>PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).</td>
+<td>P</td>
 </tr>
 <tr>
 <td>pdfresource.pdfTpl</td>
 <td>Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file.</td>
+<td>tplPDF</td>
 </tr>
 <tr>
 <td>pdfresource.cssTpl</td>
 <td>Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.</td>
+<td>tplCSS</td>
 </tr>
 <tr>
 <td>pdfresource.pdfTv</td>
 <td>Name ot the template variable that activates the PDF generation.</td>
+<td>create_pdf</td>
 </tr>
 <tr>
-<td>pdfresource.pdfTvTpl</td>
+<td>pdfresource.pdfTvLive</td>
+<td>Name of the template variable that activates the on the fly PDF generation.</td>
+<td>live_pdf</td>
+</tr>
+<tr>
+<td>pdfresource.pdfTvOptions</td>
 <td>Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change.</td>
+<td>pdf_options</td>
 </tr>
 <tr>
 <td>pdfresource.processTVs</td>
 <td>Process template variables during PDF generation.</td>
+<td>true</td>
 </tr>
 <tr>
 <td>pdfresource.tvPrefix</td>
 <td>Template variable prefix in the template chunk.</td>
+<td>.tv</td>
 </tr>
 <tr>
 <td>pdfresource.customFonts</td>
 <td>JSON encoded object of custom fonts, see <a href="#custom-fonts">Custom fonts</a> for an example. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</td>
+<td>-</td>
 </tr>
 <tr>
 <td>pdfresource.generateOnPrerender</td>
-<td>Generate not existing PDF files during OnWebPagePrerender.</td>
+<td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
+<td>false</td>
 </tr>
 </tbody>
 </table>
