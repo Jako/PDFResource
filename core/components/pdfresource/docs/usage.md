@@ -44,10 +44,10 @@ pdfresource.ownerPassword | Password for full access and permissions to the gene
 
 The following MODX system settings have to be created to use them:
 
-Key | Description
-----|------------
-pdfresource.author | Author of the PDF file (defaults to `site_name` system setting).
-pdfresource.creator | Creator of the PDF file (defaults to `site_url` system setting + ` powered by PDFresource/mPDF`).
+Key | Description | Default
+----|-------------|--------
+pdfresource.author | Author of the PDF file | `site_name` system setting
+pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFresource/mPDF`
 
 ### Resource based PDF options
 
