@@ -38,13 +38,16 @@ pdfresource.processTVs | Process template variables during PDF generation. | tru
 pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
 pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
 pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
+pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation for possible values. | []
+pdfresource.userPassword | Password required to open the generated PDF. | -
+pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
 
 The following MODX system settings have to be created to use them:
 
 Key | Description
 ----|------------
-pdfresource.creator | Author of the PDF file (defaults to `site_name` system setting).
-pdfresource.author | Creator of the PDF file (defaults to `site_url` system setting + ` powered by PDFresource/mPDF`).
+pdfresource.author | Author of the PDF file (defaults to `site_name` system setting).
+pdfresource.creator | Creator of the PDF file (defaults to `site_url` system setting + ` powered by PDFresource/mPDF`).
 
 ### Resource based PDF options
 
@@ -84,6 +87,20 @@ To use custom fonts in your PDF files, you have to add them as JSON encoded obje
 ```
 
 Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
+
+### PDF Permissions
+
+The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. 
+
+A list of permissions could be found at [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation. By default all permissions are denied if the file is encrypted. 
+
+The following example JSON will grant copying and printing (low-res) to the end-user of the generated PDF.
+
+#### Example
+
+```
+["copy", "print"]
+```
 
 ### Linking to a generated PDF
 

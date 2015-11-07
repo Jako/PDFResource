@@ -34,10 +34,11 @@ switch ($eventName) {
             $modx->switchContext('mgr');
 
             $createPDF = intval($resource->getTVValue($pdfresource->getOption('pdfTv', null, 'create_pdf')));
-            if (!$createPDF) {
+            if (!$createPDF && file_exists($pdfresource->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf')) {
                 @unlink($pdfresource->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf');
             } else {
                 $modx->invokeEvent('OnHandleRequest', array()); // call ClientConfig if installed
+                $modx->resource = &$resource;
                 $pdfresource->createPDF($resource, $aliasPath);
             }
         }
@@ -46,10 +47,9 @@ switch ($eventName) {
         // Generate the PDF on the fly once if it does not exist and live_pdf template variable is checked
         $createPDF = intval($modx->resource->getTVValue($pdfresource->getOption('pdfTvLive', null, 'live_pdf')));
         if ($createPDF) {
-            $aliasPath = $modx->resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '/', $modx->makeUrl($modx->resource->get('parent'))) : '';
             if ($createPDF) {
                 header('Content-Type: application/pdf');
-                header('Content-Disposition:inline;filename=' . $modx->resource->get('alias'). '.pdf');
+                header('Content-Disposition:inline;filename=' . $modx->resource->get('alias') . '.pdf');
                 echo $pdfresource->createPDF($modx->resource, false);
                 exit;
             }

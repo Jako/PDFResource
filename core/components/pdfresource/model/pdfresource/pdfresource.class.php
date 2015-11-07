@@ -153,6 +153,8 @@ class PDFresource
     }
 
     /**
+     * Create a PDF with the options set in the class
+     *
      * @param modResource $resource
      * @param string|boolean $aliasPath
      * @return string
@@ -225,6 +227,18 @@ class PDFresource
         $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
         $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFresource/mPDF'));
 
+        // Password protection
+        $userPassword = $this->getOption('userPassword', $pdfOptions, '');
+        $ownerPassword = $this->getOption('ownerPassword', $pdfOptions, '');
+        $permissions = $this->modx->fromJSON($this->getOption('permissions', $pdfOptions, ''));
+        if ($userPassword || $ownerPassword) {
+            // Set default permissions if needed
+            $permissions = ($permissions) ? $permissions : array();
+            // Random owner password if needed
+            $ownerPassword = ($ownerPassword) ? $ownerPassword : null;
+            $this->pdf->SetProtection($permissions, $userPassword, $ownerPassword, 128);
+        }
+
         $this->pdf->WriteHTML($css, 1);
         $this->pdf->WriteHTML($html, 2);
 
@@ -236,6 +250,9 @@ class PDFresource
     }
 
     /**
+     * Parse a chunk (with template bindings)
+     * Modified parseTplElement method from getResources package (https://github.com/opengeek/getResources)
+     *
      * @param $type
      * @param $source
      * @param null $properties
@@ -303,6 +320,9 @@ class PDFresource
     }
 
     /**
+     * Get and parse a chunk (with template bindings)
+     * Modified parseTpl method from getResources package (https://github.com/opengeek/getResources)
+     *
      * @param $tpl
      * @param null $properties
      * @return bool
