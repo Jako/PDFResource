@@ -312,7 +312,7 @@
 <h3 id="pdf-permissions">PDF Permissions</h3>
 <p>The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. </p>
 <p>A list of permissions could be found at <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation. By default all permissions are denied if the file is encrypted. </p>
-<p>The following example JSON will permit copying and printing (low-res) for the generated PDF if an user and/or an owner password is set.</p>
+<p>The following example JSON will grant copying and printing (low-res) to the end-user of the generated PDF.</p>
 <h4 id="example_2">Example</h4>
 <pre><code>[&quot;copy&quot;, &quot;print&quot;]
 </code></pre>
