@@ -1,6 +1,9 @@
 Changelog
 =========
 
+- 1.4.0
+    - PDF password protection
+
 - 1.3.0
     - Create PDF files on the fly by assigning and checking the template
       variable live_pdf

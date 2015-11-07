@@ -120,6 +120,8 @@
         
             <li><a href="#custom-fonts">Custom fonts</a></li>
         
+            <li><a href="#pdf-permissions">PDF Permissions</a></li>
+        
             <li><a href="#linking-to-a-generated-pdf">Linking to a generated PDF</a></li>
         
     
@@ -245,6 +247,21 @@
 <td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
 <td>false</td>
 </tr>
+<tr>
+<td>pdfresource.permissions</td>
+<td>JSON encoded array of permissions granted to the end-user of the PDF file. See <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation for possible values.</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>pdfresource.userPassword</td>
+<td>Password required to open the generated PDF.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>pdfresource.ownerPassword</td>
+<td>Password for full access and permissions to the generated PDF.</td>
+<td>-</td>
+</tr>
 </tbody>
 </table>
 <p>The following MODX system settings have to be created to use them:</p>
@@ -257,11 +274,11 @@
 </thead>
 <tbody>
 <tr>
-<td>pdfresource.creator</td>
+<td>pdfresource.author</td>
 <td>Author of the PDF file (defaults to <code>site_name</code> system setting).</td>
 </tr>
 <tr>
-<td>pdfresource.author</td>
+<td>pdfresource.creator</td>
 <td>Creator of the PDF file (defaults to <code>site_url</code> system setting + <code>powered by PDFresource/mPDF</code>).</td>
 </tr>
 </tbody>
@@ -292,6 +309,14 @@
 </code></pre>
 
 <p>Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
+<h3 id="pdf-permissions">PDF Permissions</h3>
+<p>The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. </p>
+<p>A list of permissions could be found at <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation. By default all permissions are denied if the file is encrypted. </p>
+<p>The following example JSON will permit copying and printing (low-res) for the generated PDF if an user and/or an owner password is set.</p>
+<h4 id="example_2">Example</h4>
+<pre><code>[&quot;copy&quot;, &quot;print&quot;]
+</code></pre>
+
 <h3 id="linking-to-a-generated-pdf">Linking to a generated PDF</h3>
 <p>All generated PDF files are saved with the aliaspath of the generating resource. So if you want to create a link to that PDF file, you could use the following code:</p>
 <pre><code>&lt;a href=&quot;[[*id:pdfresourcelink]]&quot;&gt;PDF&lt;/a&gt;
