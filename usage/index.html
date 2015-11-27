@@ -328,17 +328,18 @@
 </code></pre>
 
 <h3 id="other-mpdf-options">Other mPDF options</h3>
-<p>If you want to call other methods of mPDF to set the PDF file options, you first have to fill the MODX system setting <code>pdfresource.mPDFMethods</code> with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in <code>pdf_options</code> template variable (JSON encoded array). The parameters of that method have to be set by an JSON encoded array.</p>
+<p>If you want to set other mPDF options to modify the PDF file creation, you could call the <a href="http://mpdf1.com/manual/index.php?tid=184">mPDF class methods</a> with callbacks.</p>
+<p>To use the callbacs, you first have to fill the MODX system setting <code>pdfresource.mPDFMethods</code> with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in <code>pdf_options</code> template variable. The method parameters have to be set by an JSON encoded array.</p>
 <h4 id="example_3">Example</h4>
-<p>Set the MODX system setting pdfresource.mPDFMethods to</p>
+<p>To call the mPDF method <code>SetHTMLFooter</code> you have to set the MODX system setting <code>pdfresource.mPDFMethods</code> to</p>
 <pre><code>[&quot;SetHTMLFooter&quot;]
 </code></pre>
 
-<p>Create a MODX system setting <code>pdfresource.SetHTMLFooter</code> and fill it with</p>
+<p>After that you have to create a MODX system setting <code>pdfresource.SetHTMLFooter</code> and fill it with</p>
 <pre><code>[&quot;&lt;div align='right' style='font-size: 8pt;'&gt;{PAGENO}&lt;/div&gt;&lt;div align='center' style='font-size: 8pt; font-style: italic;'&gt;&lt;hr&gt;My footer text.&lt;/div&gt;&quot;]
 </code></pre>
 
-<p>or fill the PDF Options template variable of a resource with</p>
+<p>or fill the <code>PDF Options</code> template variable of a resource with</p>
 <pre><code>{
   &quot;SetHTMLFooter&quot;: [
     &quot;&lt;div align='right' style='font-size: 8pt;'&gt;{PAGENO}&lt;/div&gt;&lt;div align='center' style='font-size: 8pt; font-style: italic;'&gt;&lt;hr&gt;My footer text.&lt;/div&gt;&quot;
