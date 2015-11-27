@@ -41,6 +41,7 @@ pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPa
 pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation for possible values. | []
 pdfresource.userPassword | Password required to open the generated PDF. | -
 pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
+pdfresource.mPDFMethods | JSON encoded array of callable mPDF method names. | []
 
 The following MODX system settings have to be created to use them:
 
@@ -88,7 +89,7 @@ To use custom fonts in your PDF files, you have to add them as JSON encoded obje
 
 Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
 
-### PDF Permissions
+### PDF permissions
 
 The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. 
 
@@ -102,9 +103,40 @@ The following example JSON will grant copying and printing (low-res) to the end-
 ["copy", "print"]
 ```
 
+### Other mPDF options
+
+If you want to set other mPDF options to modify the PDF file creation, you could call the [mPDF class methods](http://mpdf1.com/manual/index.php?tid=184) with callbacks.
+
+To use the callbacs, you first have to fill the MODX system setting `pdfresource.mPDFMethods` with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in `pdf_options` template variable. The method parameters have to be set by an JSON encoded array.
+
+#### Example
+
+To call the mPDF method `SetHTMLFooter` you have to set the MODX system setting `pdfresource.mPDFMethods` to
+
+```
+["SetHTMLFooter"]
+```
+
+After that you have to create a MODX system setting `pdfresource.SetHTMLFooter` and fill it with
+
+```
+["<div align='right' style='font-size: 8pt;'>{PAGENO}</div><div align='center' style='font-size: 8pt; font-style: italic;'><hr>My footer text.</div>"]
+```
+
+or fill the `PDF Options` template variable of a resource with
+
+```
+{
+  "SetHTMLFooter": [
+    "<div align='right' style='font-size: 8pt;'>{PAGENO}</div><div align='center' style='font-size: 8pt; font-style: italic;'><hr>My footer text.</div>"
+  ]
+}
+```
+
+
 ### Linking to a generated PDF
 
-All generated PDF files are saved with the aliaspath of the generating resource. So if you want to create a link to that PDF file, you could use the following code:
+All generated static PDF files are saved with the aliaspath of the generating resource. If you want to create a link to that PDF file, you could use the following code:
 
 ```
 <a href="[[*id:pdfresourcelink]]">PDF</a>

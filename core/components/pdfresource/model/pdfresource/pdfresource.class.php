@@ -125,6 +125,8 @@ class PDFresource
     }
 
     /**
+     * Initialize the modPDF class
+     *
      * @param array $options
      */
     public function initPDF($options)
@@ -237,6 +239,17 @@ class PDFresource
             // Random owner password if needed
             $ownerPassword = ($ownerPassword) ? $ownerPassword : null;
             $this->pdf->SetProtection($permissions, $userPassword, $ownerPassword, 128);
+        }
+
+        // Call additional mPDF methods
+        $mpdfMethods = $this->modx->fromJSON($this->getOption('mPDFMethods', $pdfOptions, ''));
+        $mpdfMethods = (is_array($mpdfMethods)) ? $mpdfMethods : array();
+        foreach ($mpdfMethods as $methodName) {
+            $value = $this->getOption($methodName, $pdfOptions, '');
+            $value = (is_array($value)) ? $value : $this->modx->fromJSON($value);
+            if ($value && method_exists($this->pdf, $methodName)) {
+                call_user_func_array(array($this->pdf, $methodName), $value);
+            }
         }
 
         $this->pdf->WriteHTML($css, 1);
