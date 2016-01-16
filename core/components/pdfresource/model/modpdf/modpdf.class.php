@@ -95,8 +95,8 @@ class modPDF extends mPDF
 
         parent::mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf, $orientation);
 
-        $customFonts = $this->modx->fromJSON($this->modx->getOption('customFonts', $options, ''));
-        
+        $customFonts = $this->modx->fromJSON($this->modx->getOption('customFonts', $options, '[]'));
+
         if (is_array($customFonts)) {
             foreach($customFonts as $f => $fs) {
                 $this->fontdata[$f] = $fs;
@@ -106,7 +106,7 @@ class modPDF extends mPDF
                 if (isset($fs['BI']) && $fs['BI']) { $this->available_unifonts[] = $f.'BI'; }
             }
         } else {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'customFonts does not contain an array.', '', 'PDFresource');
+            $this->modx->log(modX::LOG_LEVEL_ERROR, 'customFonts does not contain an array.', '', 'modPDF');
         }
 
         $this->default_available_fonts = $this->available_unifonts;
@@ -141,9 +141,7 @@ class modPDF extends mPDF
      */
     function Error($msg)
     {
-        $this->modx->log(modX::LOG_LEVEL_ERROR, $msg, '', 'PDFresource');
+        $this->modx->log(modX::LOG_LEVEL_ERROR, $msg, '', 'modPDF');
         parent::Error($msg);
     }
-
-
 }
