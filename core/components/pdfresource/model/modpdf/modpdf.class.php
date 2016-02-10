@@ -41,7 +41,7 @@ class modPDF extends mPDF
     public $options = array();
 
     /**
-     * PDFresource constructor
+     * PDFResource constructor
      *
      * @param modX $modx A reference to the modX instance.
      * @param array $options An array of options. Optional.

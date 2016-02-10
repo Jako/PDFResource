@@ -1,6 +1,6 @@
 <?php
 /**
- * PDFresource
+ * PDFResource
  *
  * Copyright 2015 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
@@ -9,9 +9,9 @@
  */
 
 /**
- * Class PDFresource
+ * Class PDFResource
  */
-class PDFresource
+class PDFResource
 {
     /**
      * A reference to the modX instance
@@ -60,7 +60,7 @@ class PDFresource
     );
 
     /**
-     * PDFresource constructor
+     * PDFResource constructor
      *
      * @param modX $modx A reference to the modX instance.
      * @param array $options An array of options. Optional.
@@ -166,13 +166,13 @@ class PDFresource
         // Create folders
         if (!@is_dir($this->getOption('pdfPath'))) {
             if (!@mkdir($this->getOption('pdfPath'), $this->modx->getOption('new_folder_permissions', null, 0775))) {
-                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFresource');
+                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
                 return;
             };
         }
         if ($aliasPath && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!@mkdir($this->getOption('pdfPath') . $aliasPath, $this->modx->getOption('new_folder_permissions', null, 0775))) {
-                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFresource');
+                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return;
             };
         }
@@ -227,7 +227,7 @@ class PDFresource
 
         $this->pdf->SetTitle($resource->get('pagetitle'));
         $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
-        $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFresource/mPDF'));
+        $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFResource/mPDF'));
 
         // Password protection
         $userPassword = $this->getOption('userPassword', $pdfOptions, '');

@@ -1,5 +1,5 @@
 {
-  "name": "PDFresource",
+  "name": "PDFResource",
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
@@ -18,13 +18,13 @@
       ],
       "snippets": [
         {
-          "name": "PDFresourceLink",
+          "name": "PDFResourceLink",
           "file": "pdfresourcelink.snippet.php"
         }
       ],
       "plugins": [
         {
-          "name": "PDFresource",
+          "name": "PDFResource",
           "file": "pdfresource.plugin.php",
           "description": "Convert MODX resources to PDF during saving or rendering the resource.",
           "events": [

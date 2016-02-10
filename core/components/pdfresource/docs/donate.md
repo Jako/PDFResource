@@ -1,9 +1,9 @@
-## Support PDFresource
+## Support PDFResource
 
-*PDFresource* is and always will be free and open-source, but it still requires some man-hours of development and bug-fixing 
+*PDFResource* is and always will be free and open-source, but it still requires some man-hours of development and bug-fixing 
 between the releases.
 
-Please support the ongoing and past development of *PDFresource* by making a donation below.
+Please support the ongoing and past development of *PDFResource* by making a donation below.
 
 <div style="margin-bottom: 2em">
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: inline-block; vertical-align: middle;">

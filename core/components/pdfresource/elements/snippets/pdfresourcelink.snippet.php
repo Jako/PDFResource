@@ -1,6 +1,6 @@
 <?php
 /**
- * PDFresourceLink
+ * PDFResourceLink
  *
  * Copyright 2015 by Thomas Jakobi <thomas.jakobi@partout.info>
  *

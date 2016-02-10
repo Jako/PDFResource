@@ -1,12 +1,12 @@
 # Usage
 
-*PDFresource* works out of the box and creates PDF files from all resources, that have the template variable `create_pdf` assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to `{assets_url}/pdf/`
+*PDFResource* works out of the box and creates PDF files from all resources, that have the template variable `create_pdf` assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to `{assets_url}/pdf/`
 
 So after the installation you only have to assign the template variable `create_pdf` to the templates of the resources that should be converted to PDF and check that template variable in the resource (checked by default).
 
 ### PDF generation on the fly
 
-To generate PDF files on the fly with *PDFresource* you have to assign the template variable `live_pdf` to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.
+To generate PDF files on the fly with *PDFResource* you have to assign the template variable `live_pdf` to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.
  
 **Caution:** This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.
 
@@ -37,7 +37,7 @@ pdfresource.pdfTvOptions | Name of the template variable that change the options
 pdfresource.processTVs | Process template variables during PDF generation. | true
 pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
 pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
-pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
+pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
 pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation for possible values. | []
 pdfresource.userPassword | Password required to open the generated PDF. | -
 pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
@@ -48,7 +48,7 @@ The following MODX system settings have to be created to use them:
 Key | Description | Default
 ----|-------------|--------
 pdfresource.author | Author of the PDF file | `site_name` system setting
-pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFresource/mPDF`
+pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFResource/mPDF`
 
 ### Resource based PDF options
 
@@ -66,11 +66,11 @@ All these options could be modified on resource base in a template variable `pdf
 
 ### PDF content template
 
-The content of the PDF is filled with the chunk defined by `pdfresource.pdfTpl` MODX system setting (or on resource base by the `pdf_options` template variable). By default PDFresource uses the `tplPDF` chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.
+The content of the PDF is filled with the chunk defined by `pdfresource.pdfTpl` MODX system setting (or on resource base by the `pdf_options` template variable). By default PDFResource uses the `tplPDF` chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.
 
 ### PDF styles template
 
-The style of the PDF is set with the chunk defined by `pdfresource.cssTpl` MODX system setting (or on resource base by the `pdf_options` template variable). By default PDFresource uses the `tplCSS` chunk. There are some limitations with mPDF and CSS (i.e. `position: absolute` works only with elements on root level).
+The style of the PDF is set with the chunk defined by `pdfresource.cssTpl` MODX system setting (or on resource base by the `pdf_options` template variable). By default PDFResource uses the `tplCSS` chunk. There are some limitations with mPDF and CSS (i.e. `position: absolute` works only with elements on root level).
 
 ### Custom fonts
 

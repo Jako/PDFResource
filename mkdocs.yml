@@ -1,8 +1,8 @@
-site_name: PDFresource
+site_name: PDFResource
 docs_dir: core/components/pdfresource/docs
 site_dir: _build/site
 
-repo_url: https://github.com/Jako/PDFresource
+repo_url: https://github.com/Jako/PDFResource
 
 pages:
 - Home: 'index.md'

@@ -1,6 +1,6 @@
-# PDFresource
+# PDFResource
 
-PDFresource is a MODX Revolution extra that converts resources to PDF files using [mPDF](http://www.mpdf1.com/).
+PDFResource is a MODX Revolution extra that converts resources to PDF files using [mPDF](http://www.mpdf1.com/).
 
 ### Requirements
 

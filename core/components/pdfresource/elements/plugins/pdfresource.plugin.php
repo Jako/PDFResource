@@ -1,19 +1,19 @@
 <?php
 /**
- * PDFresource
+ * PDFResource
  *
  * Copyright 2015 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package pdfresource
  * @subpackage plugin
  *
- * PDFresource plugin
+ * PDFResource plugin
  */
 
 /** @var modX $modx */
 /** @var array $scriptProperties */
 $pdfresourceCorePath = $modx->getOption('pdfresource.core_path', null, $modx->getOption('core_path') . 'components/pdfresource/');
-$pdfresource = $modx->getService('pdfresource', 'PDFresource', $pdfresourceCorePath . 'model/pdfresource/', $scriptProperties);
+$pdfresource = $modx->getService('pdfresource', 'PDFResource', $pdfresourceCorePath . 'model/pdfresource/', $scriptProperties);
 
 $eventName = $modx->event->name;
 switch ($eventName) {

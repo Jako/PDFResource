@@ -5,7 +5,7 @@
  * @package pdfresource
  * @subpackage lexicon
  */
-$_lang['pdfresource'] = 'PDFresource';
+$_lang['pdfresource'] = 'PDFResource';
 $_lang['area_pdf'] = 'PDF';
 $_lang['area_resource'] = 'Resource';
 $_lang['area_template'] = 'Template';
