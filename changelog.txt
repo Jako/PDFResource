@@ -1,9 +1,9 @@
-Changelog
-=========
+Changelog for PDFResource
+=========================
 
 - 1.5.0
-    - Possibility to set all mPDF options by calling mPDF class methods with
-      callbacks
+    - Set all mPDF options by calling mPDF class methods with callbacks
+    - Improved error logging
 
 - 1.4.0
     - PDF password protection

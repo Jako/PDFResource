@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Usage - PDFresource</title>
+	<title>Usage - PDFResource</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">PDFresource</a>
+            <a class="navbar-brand" href="..">PDFResource</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -89,7 +89,7 @@
                 </li>
                 
                 <li>
-                    <a href="https://github.com/Jako/PDFresource">
+                    <a href="https://github.com/Jako/PDFResource">
                         
                             <i class="fa fa-github"></i>
                         
@@ -132,10 +132,10 @@
             <div class="col-md-9" role="main">
 
 <h1 id="usage">Usage</h1>
-<p><em>PDFresource</em> works out of the box and creates PDF files from all resources, that have the template variable <code>create_pdf</code> assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to <code>{assets_url}/pdf/</code></p>
+<p><em>PDFResource</em> works out of the box and creates PDF files from all resources, that have the template variable <code>create_pdf</code> assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to <code>{assets_url}/pdf/</code></p>
 <p>So after the installation you only have to assign the template variable <code>create_pdf</code> to the templates of the resources that should be converted to PDF and check that template variable in the resource (checked by default).</p>
 <h3 id="pdf-generation-on-the-fly">PDF generation on the fly</h3>
-<p>To generate PDF files on the fly with <em>PDFresource</em> you have to assign the template variable <code>live_pdf</code> to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.</p>
+<p>To generate PDF files on the fly with <em>PDFResource</em> you have to assign the template variable <code>live_pdf</code> to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.</p>
 <p><strong>Caution:</strong> This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.</p>
 <h3 id="pdf-options">PDF options</h3>
 <p>By default the PDF content and the CSS code for the PDF could be changed with the chunks <code>tplPDF</code> and <code>tplCSS</code>. Some other PDF options (pagesize, margins etc.) could be set in MODX system setting.</p>
@@ -246,7 +246,7 @@
 </tr>
 <tr>
 <td>pdfresource.generateOnPrerender</td>
-<td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFresource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
+<td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
 <td>false</td>
 </tr>
 <tr>
@@ -289,7 +289,7 @@
 <tr>
 <td>pdfresource.creator</td>
 <td>Creator of the PDF file</td>
-<td><code>site_url</code> system setting + <code>powered by PDFresource/mPDF</code></td>
+<td><code>site_url</code> system setting + <code>powered by PDFResource/mPDF</code></td>
 </tr>
 </tbody>
 </table>
@@ -304,9 +304,9 @@
 </code></pre>
 
 <h3 id="pdf-content-template">PDF content template</h3>
-<p>The content of the PDF is filled with the chunk defined by <code>pdfresource.pdfTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFresource uses the <code>tplPDF</code> chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.</p>
+<p>The content of the PDF is filled with the chunk defined by <code>pdfresource.pdfTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFResource uses the <code>tplPDF</code> chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.</p>
 <h3 id="pdf-styles-template">PDF styles template</h3>
-<p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFresource uses the <code>tplCSS</code> chunk. There are some limitations with mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
+<p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFResource uses the <code>tplCSS</code> chunk. There are some limitations with mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
 <h3 id="custom-fonts">Custom fonts</h3>
 <p>To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting <code>pdfresource.customFonts</code>. See <a href="http://mpdf1.com/manual/index.php?tid=501">Fonts</a> in the mPDF documentation a the full description. </p>
 <h4 id="example_1">Example</h4>

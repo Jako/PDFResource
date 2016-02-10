@@ -1,7 +1,7 @@
-PDFresource
+PDFResource
 ===========
 
-PDFresource is a MODX Revolution extra that converts resources to PDF files using mPDF (http://www.mpdf1.com/).
+PDFResource is a MODX Revolution extra that converts resources to PDF files using mPDF (http://www.mpdf1.com/).
 
 Usage
 -----
@@ -9,8 +9,8 @@ Install via package manager, assign the needed template variables to the resourc
 
 Documentation
 -------------
-http://jako.github.io/PDFresource/
+http://jako.github.io/PDFResource/
 
 GitHub Repository
 -----------------
-https://github.com/Jako/PDFresource
+https://github.com/Jako/PDFResource
