@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "package": {
     "elements": {
       "chunks": [

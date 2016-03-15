@@ -140,17 +140,18 @@ class PDFResource
         }
 
         $this->pdf = new modPDF($this->modx, array(
-            'mode' => $this->getOption('mode'),
-            'format' => $this->getOption('format'),
-            'defaultFontSize' => $this->getOption('defaultFontSize'),
-            'defaultFont' => $this->getOption('defaultFont'),
-            'mgl' => $this->getOption('mgl'),
-            'mgr' => $this->getOption('mgr'),
-            'mgt' => $this->getOption('mgt'),
-            'mgb' => $this->getOption('mgb'),
-            'mgf' => $this->getOption('mgf'),
-            'orientation' => $this->getOption('orientation'),
-            'customFonts' => $this->getOption('customFonts'),
+            'mode' => $this->getOption('mode', $options),
+            'format' => $this->getOption('format', $options),
+            'defaultFontSize' => $this->getOption('defaultFontSize', $options),
+            'defaultFont' => $this->getOption('defaultFont', $options),
+            'mgl' => $this->getOption('mgl', $options),
+            'mgr' => $this->getOption('mgr', $options),
+            'mgt' => $this->getOption('mgt', $options),
+            'mgb' => $this->getOption('mgb', $options),
+            'mgh' => $this->getOption('mgh', $options),
+            'mgf' => $this->getOption('mgf', $options),
+            'orientation' => $this->getOption('orientation', $options),
+            'customFonts' => $this->getOption('customFonts')
         ));
     }
 
