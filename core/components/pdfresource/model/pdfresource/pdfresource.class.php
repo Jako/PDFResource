@@ -151,7 +151,7 @@ class PDFResource
             'mgh' => $this->getOption('mgh', $options),
             'mgf' => $this->getOption('mgf', $options),
             'orientation' => $this->getOption('orientation', $options),
-            'customFonts' => $this->getOption('customFonts')
+            'customFonts' => $this->getOption('customFonts', $options)
         ));
     }
 
@@ -195,7 +195,7 @@ class PDFResource
             /** @var modTemplateVar $tv */
             $placeholder[$tvPrefix . $tv->get('name')] = ($processTVs) ? $tv->renderOutput($id) : $tv->getValue($id);
             if ($tv->get('name') == $optionsTV && $tv->getValue($id) != '') {
-                $pdfOptions = $this->modx->fromJSON($tv->getValue($id));
+                $pdfOptions = json_decode($tv->getValue($id), true);
                 if ($pdfOptions) {
                     $pdfTpl = $this->modx->getOption('pdfTpl', $pdfOptions, $pdfTpl);
                     $cssTpl = $this->modx->getOption('cssTpl', $pdfOptions, $cssTpl);
@@ -223,7 +223,8 @@ class PDFResource
             'mgb' => intval($this->getOption('mgb', $pdfOptions, 7)),
             'mgh' => intval($this->getOption('mgh', $pdfOptions, 10)),
             'mgf' => intval($this->getOption('mgf', $pdfOptions, 10)),
-            'orientation' => $this->getOption('orientation', $pdfOptions, 'P')
+            'orientation' => $this->getOption('orientation', $pdfOptions, 'P'),
+            'customFonts' => $this->getOption('customFonts', $pdfOptions, '[]')
         ));
 
         $this->pdf->SetTitle($resource->get('pagetitle'));
@@ -233,7 +234,7 @@ class PDFResource
         // Password protection
         $userPassword = $this->getOption('userPassword', $pdfOptions, '');
         $ownerPassword = $this->getOption('ownerPassword', $pdfOptions, '');
-        $permissions = $this->modx->fromJSON($this->getOption('permissions', $pdfOptions, ''));
+        $permissions = json_decode($this->getOption('permissions', $pdfOptions, ''), true);
         if ($userPassword || $ownerPassword) {
             // Set default permissions if needed
             $permissions = ($permissions) ? $permissions : array();
@@ -243,11 +244,11 @@ class PDFResource
         }
 
         // Call additional mPDF methods
-        $mpdfMethods = $this->modx->fromJSON($this->getOption('mPDFMethods', $pdfOptions, ''));
+        $mpdfMethods = json_decode($this->getOption('mPDFMethods', $pdfOptions, ''), true);
         $mpdfMethods = (is_array($mpdfMethods)) ? $mpdfMethods : array();
         foreach ($mpdfMethods as $methodName) {
             $value = $this->getOption($methodName, $pdfOptions, '');
-            $value = (is_array($value)) ? $value : $this->modx->fromJSON($value);
+            $value = (is_array($value)) ? $value : json_decode($value, true);
             if ($value && method_exists($this->pdf, $methodName)) {
                 call_user_func_array(array($this->pdf, $methodName), $value);
             }

@@ -95,7 +95,8 @@ class modPDF extends mPDF
 
         parent::mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf, $orientation);
 
-        $customFonts = $this->modx->fromJSON($this->modx->getOption('customFonts', $options, '[]'));
+        $customFonts = $this->modx->getOption('customFonts', $options, '[]');
+        $customFonts = (!is_array($customFonts)) ? json_decode($customFonts, true) : $customFonts;
 
         if (is_array($customFonts)) {
             foreach($customFonts as $f => $fs) {
