@@ -89,7 +89,7 @@ class modPDF extends mPDF
         $mgr = intval($this->modx->getOption('mgr', $options, 15));
         $mgt = intval($this->modx->getOption('mgt', $options, 16));
         $mgb = intval($this->modx->getOption('mgb', $options, 16));
-        $mgh = intval($this->modx->getOption('mgb', $options, 9));
+        $mgh = intval($this->modx->getOption('mgh', $options, 9));
         $mgf = intval($this->modx->getOption('mgf', $options, 9));
         $orientation = $this->modx->getOption('orientation', $options, 'P');
 

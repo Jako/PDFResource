@@ -1,6 +1,8 @@
 Changelog for PDFResource
 =========================
 
+- 1.5.2
+    - Bugfix for wrong PDF margin header
 - 1.5.1
     - Bugfix for resource based PDF options
 - 1.5.0
