@@ -168,13 +168,13 @@ class PDFResource
         if (!@is_dir($this->getOption('pdfPath'))) {
             if (!@mkdir($this->getOption('pdfPath'), $this->modx->getOption('new_folder_permissions', null, 0775))) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
-                return;
+                return '';
             };
         }
         if ($aliasPath && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!@mkdir($this->getOption('pdfPath') . $aliasPath, $this->modx->getOption('new_folder_permissions', null, 0775))) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
-                return;
+                return '';
             };
         }
 
