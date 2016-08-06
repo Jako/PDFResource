@@ -23,12 +23,12 @@ if ($object->xpdo) {
             foreach ($folders as $folder) {
                 if (!file_exists($folder)) {
                     if (!@mkdir($folder)) {
-                        $modx->log(modX::LOG_LEVEL_ERROR, 'Folder "' . $folder . '" could not be created');
+                        $modx->log(modX::LOG_LEVEL_ERROR, 'Folder "' . $folder . '" could not be created.');
                     }
                 }
             }
             break;
     }
 }
-$modx->log(xPDO::LOG_LEVEL_INFO, 'pdfResource custom folders were created.');
+$modx->log(xPDO::LOG_LEVEL_INFO, 'PDFResource custom folders were created.');
 return true;
