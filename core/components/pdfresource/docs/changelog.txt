@@ -1,6 +1,8 @@
 Changelog for PDFResource
 =========================
 
+- 1.5.3
+    - Update mPDF to 1.6.1
 - 1.5.2
     - Bugfix for wrong PDF margin header
 - 1.5.1
