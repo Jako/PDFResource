@@ -18,7 +18,7 @@ The following MODX system settings are available in the namespace `pdfresource`:
 
 Key | Description | Default
 ----|-------------|--------
-pdfresource.mode | mPDF mode, see [mode parameter](http://mpdf1.com/manual/index.php?tid=184) and [choosing a configuration](http://mpdf1.com/manual/index.php?tid=504) in the mPDF documentation for possible values. | -
+pdfresource.mode | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -
 pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
 pdfresource.defaultFontSize | PDF default font size | 0
 pdfresource.defaultFont | PDF default font | -
@@ -38,7 +38,7 @@ pdfresource.processTVs | Process template variables during PDF generation. | tru
 pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
 pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
 pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
-pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation for possible values. | []
+pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation for possible values. | []
 pdfresource.userPassword | Password required to open the generated PDF. | -
 pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
 pdfresource.mPDFMethods | JSON encoded array of callable mPDF method names. | []
@@ -74,7 +74,7 @@ The style of the PDF is set with the chunk defined by `pdfresource.cssTpl` MODX 
 
 ### Custom fonts
 
-To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting `pdfresource.customFonts`. See [Fonts](http://mpdf1.com/manual/index.php?tid=501) in the mPDF documentation a the full description. 
+To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting `pdfresource.customFonts`. See [Fonts](https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example) in the mPDF documentation a the full description. 
 
 #### Example
 
@@ -93,7 +93,7 @@ Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mp
 
 The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. 
 
-A list of permissions could be found at [permissions](http://mpdf1.com/manual/index.php?tid=129) in the mPDF documentation. By default all permissions are denied if the file is encrypted. 
+A list of permissions could be found at [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation. By default all permissions are denied if the file is encrypted. 
 
 The following example JSON will grant copying and printing (low-res) to the end-user of the generated PDF.
 
@@ -105,7 +105,7 @@ The following example JSON will grant copying and printing (low-res) to the end-
 
 ### Other mPDF options
 
-If you want to set other mPDF options to modify the PDF file creation, you could call the [mPDF class methods](http://mpdf1.com/manual/index.php?tid=184) with callbacks.
+If you want to set other mPDF options to modify the PDF file creation, you could call the [mPDF class methods](https://mpdf.github.io/reference/mpdf-functions/overview.html) with callbacks.
 
 To use the callbacs, you first have to fill the MODX system setting `pdfresource.mPDFMethods` with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in `pdf_options` template variable. The method parameters have to be set by an JSON encoded array.
 

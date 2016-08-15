@@ -2,7 +2,7 @@
 /**
  * PDFResource
  *
- * Copyright 2015 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2015-2016 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package pdfresource
  * @subpackage classfile
@@ -29,7 +29,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '1.0.0';
+    public $version = '1.5.4';
 
     /**
      * The class options

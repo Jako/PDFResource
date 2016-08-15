@@ -1,6 +1,6 @@
 # PDFResource
 
-PDFResource is a MODX Revolution extra that converts resources to PDF files using [mPDF](http://www.mpdf1.com/).
+PDFResource is a MODX Revolution extra that converts resources to PDF files using [mPDF](https://mpdf.github.io/).
 
 ### Requirements
 
@@ -9,8 +9,8 @@ PDFResource is a MODX Revolution extra that converts resources to PDF files usin
 
 ### Features
 
-* Create a static PDF file of a MODX resource with [mPDF](http://www.mpdf1.com/) during saving or on viewing the resource.
-* Create a PDF file of a MODX resource on the fly with [mPDF](http://www.mpdf1.com/).
+* Create a static PDF file of a MODX resource with [mPDF](https://mpdf.github.io/) during saving or on viewing the resource.
+* Create a PDF file of a MODX resource on the fly with [mPDF](https://mpdf.github.io/).
 * The options for the generated PDF could be set in MODX system settings and on resource base. 
 
 <!-- Piwik -->

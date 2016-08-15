@@ -11,7 +11,7 @@ $_lang['area_resource'] = 'Resource';
 $_lang['area_template'] = 'Template';
 
 $_lang['setting_pdfresource.mode'] = 'mPDF mode';
-$_lang['setting_pdfresource.mode_desc'] = 'See <a href="http://mpdf1.com/manual/index.php?tid=184" target="_blank">mode parameter</a> and <a href="http://mpdf1.com/manual/index.php?tid=504" target="_blank">choosing a configuration</a> in the mPDF documentation for possible values.';
+$_lang['setting_pdfresource.mode_desc'] = 'See <a href="https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters" target="_blank">mode parameter</a> and <a href="https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html" target="_blank">choosing a configuration</a> in the mPDF documentation for possible values.';
 $_lang['setting_pdfresource.format'] = 'PDF page size';
 $_lang['setting_pdfresource.format_desc'] = 'If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L)';
 $_lang['setting_pdfresource.defaultFontSize'] = 'PDF default font size';
@@ -39,11 +39,11 @@ $_lang['setting_pdfresource.processTVs_desc'] = 'Process template variables duri
 $_lang['setting_pdfresource.tvPrefix'] = 'Template variable prefix';
 $_lang['setting_pdfresource.tvPrefix_desc'] = 'Template variable prefix for the placeholders in the PDF content chunk.';
 $_lang['setting_pdfresource.customFonts'] = 'Custom Fonts';
-$_lang['setting_pdfresource.customFonts_desc'] = 'JSON encoded object of custom fonts, see <a href="http://mpdf1.com/manual/index.php?tid=501">Fonts</a> in the mPDF documentation for the array format. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
+$_lang['setting_pdfresource.customFonts_desc'] = 'JSON encoded object of custom fonts, see <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a> in the mPDF documentation for the array format. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
 $_lang['setting_pdfresource.generateOnPrerender'] = 'Generate PDF on prerender';
 $_lang['setting_pdfresource.generateOnPrerender_desc'] = 'Generate not existing PDF files during OnWebPagePrerender too.';
 $_lang['setting_pdfresource.permissions'] = 'PDF Permissions';
-$_lang['setting_pdfresource.permissions_desc'] = 'JSON encoded array of permissions granted to the end-user of the PDF file. see <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation for possible values.';
+$_lang['setting_pdfresource.permissions_desc'] = 'JSON encoded array of permissions granted to the end-user of the PDF file. see <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation for possible values.';
 $_lang['setting_pdfresource.userPassword'] = 'PDF User Password';
 $_lang['setting_pdfresource.permissions_desc'] = 'Password required to open the generated PDF.';
 $_lang['setting_pdfresource.ownerPassword'] = 'PDF Owner Password';
