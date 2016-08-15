@@ -77,6 +77,11 @@
 
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
                 <li >
                     <a rel="next" href="../installation/">
                         <i class="fa fa-arrow-left"></i> Previous
@@ -151,7 +156,7 @@
 <tbody>
 <tr>
 <td>pdfresource.mode</td>
-<td>mPDF mode, see <a href="http://mpdf1.com/manual/index.php?tid=184">mode parameter</a> and <a href="http://mpdf1.com/manual/index.php?tid=504">choosing a configuration</a> in the mPDF documentation for possible values.</td>
+<td>mPDF mode, see <a href="https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters">mode parameter</a> and <a href="https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html">choosing a configuration</a> in the mPDF documentation for possible values.</td>
 <td>-</td>
 </tr>
 <tr>
@@ -251,7 +256,7 @@
 </tr>
 <tr>
 <td>pdfresource.permissions</td>
-<td>JSON encoded array of permissions granted to the end-user of the PDF file. See <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation for possible values.</td>
+<td>JSON encoded array of permissions granted to the end-user of the PDF file. See <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation for possible values.</td>
 <td>[]</td>
 </tr>
 <tr>
@@ -308,7 +313,7 @@
 <h3 id="pdf-styles-template">PDF styles template</h3>
 <p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFResource uses the <code>tplCSS</code> chunk. There are some limitations with mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
 <h3 id="custom-fonts">Custom fonts</h3>
-<p>To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting <code>pdfresource.customFonts</code>. See <a href="http://mpdf1.com/manual/index.php?tid=501">Fonts</a> in the mPDF documentation a the full description. </p>
+<p>To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting <code>pdfresource.customFonts</code>. See <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a> in the mPDF documentation a the full description. </p>
 <h4 id="example_1">Example</h4>
 <pre><code>{
   &quot;frutiger&quot;: {
@@ -321,14 +326,14 @@
 <p>Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
 <h3 id="pdf-permissions">PDF permissions</h3>
 <p>The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. </p>
-<p>A list of permissions could be found at <a href="http://mpdf1.com/manual/index.php?tid=129">permissions</a> in the mPDF documentation. By default all permissions are denied if the file is encrypted. </p>
+<p>A list of permissions could be found at <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation. By default all permissions are denied if the file is encrypted. </p>
 <p>The following example JSON will grant copying and printing (low-res) to the end-user of the generated PDF.</p>
 <h4 id="example_2">Example</h4>
 <pre><code>[&quot;copy&quot;, &quot;print&quot;]
 </code></pre>
 
 <h3 id="other-mpdf-options">Other mPDF options</h3>
-<p>If you want to set other mPDF options to modify the PDF file creation, you could call the <a href="http://mpdf1.com/manual/index.php?tid=184">mPDF class methods</a> with callbacks.</p>
+<p>If you want to set other mPDF options to modify the PDF file creation, you could call the <a href="https://mpdf.github.io/reference/mpdf-functions/overview.html">mPDF class methods</a> with callbacks.</p>
 <p>To use the callbacs, you first have to fill the MODX system setting <code>pdfresource.mPDFMethods</code> with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in <code>pdf_options</code> template variable. The method parameters have to be set by an JSON encoded array.</p>
 <h4 id="example_3">Example</h4>
 <p>To call the mPDF method <code>SetHTMLFooter</code> you have to set the MODX system setting <code>pdfresource.mPDFMethods</code> to</p>
@@ -381,6 +386,33 @@
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="../js/bootstrap-3.0.3.min.js"></script>
         <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
         <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
