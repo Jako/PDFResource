@@ -1,0 +1,8 @@
+{
+  "name": "PDFResource",
+  "description": "Convert MODX resources to PDF files using mPDF",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-string-replace": "^1.3.0"
+  }
+}
