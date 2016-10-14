@@ -18,7 +18,10 @@ if ($object->xpdo) {
   'create_pdf' => 
   array (
   ),
-  'pdf_options' => 
+  'live_pdf' =>
+  array (
+  ),
+  'pdf_options' =>
   array (
   ),
 );

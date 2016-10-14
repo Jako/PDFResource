@@ -32,7 +32,7 @@ class modPDF extends mPDF
      * The version
      * @var string $version
      */
-    public $version = '1.0.0';
+    public $version = '1.1.0';
 
     /**
      * The class options
@@ -41,7 +41,7 @@ class modPDF extends mPDF
     public $options = array();
 
     /**
-     * PDFResource constructor
+     * modPDF constructor
      *
      * @param modX $modx A reference to the modX instance.
      * @param array $options An array of options. Optional.
@@ -93,7 +93,7 @@ class modPDF extends mPDF
         $mgf = intval($this->modx->getOption('mgf', $options, 9));
         $orientation = $this->modx->getOption('orientation', $options, 'P');
 
-        parent::mPDF($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf, $orientation);
+        parent::__construct($mode, $format, $default_font_size, $default_font, $mgl, $mgr, $mgt, $mgb, $mgh, $mgf, $orientation);
 
         $customFonts = $this->modx->getOption('customFonts', $options, '[]');
         $customFonts = (!is_array($customFonts)) ? json_decode($customFonts, true) : $customFonts;
@@ -143,6 +143,6 @@ class modPDF extends mPDF
     function Error($msg)
     {
         $this->modx->log(modX::LOG_LEVEL_ERROR, $msg, '', 'modPDF');
-        parent::Error($msg);
+        throw new MpdfException($msg);
     }
 }

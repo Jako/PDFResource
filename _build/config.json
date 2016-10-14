@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "package": {
     "elements": {
       "chunks": [
@@ -228,7 +228,9 @@
       }
     },
     "resolver": {
-      "after": "create_folders.resolver.php"
+      "after": [
+        "create_folders.php"
+      ]
     }
   }
 }

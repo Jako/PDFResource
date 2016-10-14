@@ -1,6 +1,8 @@
 Changelog for PDFResource
 =========================
 
+- 1.5.5
+    - Bugfix for PHP version specific issues
 - 1.5.4
     - Change mPDF documentation links to https://mpdf.github.io/
 - 1.5.3
