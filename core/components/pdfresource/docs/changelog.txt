@@ -1,6 +1,8 @@
 Changelog for PDFResource
 =========================
 
+- 1.5.6
+    - Bugfix for creating folders recursive
 - 1.5.5
     - Bugfix for PHP version specific issues
 - 1.5.4
