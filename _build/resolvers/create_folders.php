@@ -20,10 +20,11 @@ if ($object->xpdo) {
                 $corepath . 'vendor/mpdf/mpdf/ttfontdata'
             );
 
+            $cacheManager = $modx->getCacheManager();
             foreach ($folders as $folder) {
-                if (!file_exists($folder)) {
-                    if (!@mkdir($folder, $this->modx->getOption('new_folder_permissions', null, 0775), true)) {
-                        $modx->log(modX::LOG_LEVEL_ERROR, 'Folder "' . $folder . '" could not be created.');
+                if (!file_exists($folder) || !is_dir($folder)) {
+                    if (!$cacheManager->writeTree($targetDir)) {
+                        $modx->log(xPDO::LOG_LEVEL_ERROR, 'Folder "' . $folder . '" could not be created.');
                     }
                 }
             }
