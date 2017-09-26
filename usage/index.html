@@ -1,148 +1,554 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+        <link rel="manifest" href="../assets/images/manifest.json">
+        <link rel="mask-icon" href="../assets/images/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+        <meta name="msapplication-config" content="../assets/images/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.1">
+    
+    
+      
+        <title>Usage - PDFResource</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.css">
+      
+    
+    
+      
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
-
-	<title>Usage - PDFResource</title>
-
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../css/base.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
         
-    </head>
-
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Ubuntu:300,400,400i,700|Ubuntu+Monospace">
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="..">PDFResource</a>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="416"
+    viewBox="0 0 416 416" id="github">
+<path fill="currentColor" d="M207.988,0C93.127,0,0,93.139,0,208.023c0,91.894,59.595,169.854,142.271,197.362c10.389,1.908,14.191-4.514,14.191-10.024
+	c0-4.938-0.175-18.021-0.274-35.378c-57.861,12.559-70.069-27.896-70.069-27.896c-9.466-24.029-23.096-30.427-23.096-30.427
+	c-18.892-12.906,1.422-12.646,1.422-12.646c20.889,1.474,31.861,21.448,31.861,21.448c18.555,31.774,48.683,22.608,60.542,17.284
+	c1.896-13.443,7.271-22.608,13.206-27.81c-46.188-5.25-94.747-23.096-94.747-102.804c0-22.708,8.105-41.274,21.411-55.815
+	c-2.132-5.262-9.278-26.41,2.045-55.055c0,0,17.471-5.588,57.188,21.323c16.599-4.603,34.394-6.935,52.074-7.009
+	c17.657,0.074,35.466,2.406,52.075,7.009c39.717-26.911,57.15-21.323,57.15-21.323c11.348,28.631,4.202,49.779,2.058,55.055
+	c13.331,14.541,21.386,33.107,21.386,55.815c0,79.908-48.646,97.49-94.982,102.642c7.47,6.423,14.128,19.115,14.128,38.521
+	c0,27.81-0.262,50.242-0.262,57.062c0,5.573,3.739,12.032,14.303,10.001C356.456,377.805,416,299.892,416,208.023
+	C416.013,93.139,322.874,0,207.988,0z"/>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="PDFResource" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            Usage
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            
-            
-                <li >
-                    <a href="..">Home</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../installation/">Installation</a>
-                </li>
-            
-            
-            
-                <li class="active">
-                    <a href="./">Usage</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../donate/">Donate</a>
-                </li>
-            
-            
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                <li >
-                    <a rel="next" href="../installation/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../donate/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="https://github.com/Jako/PDFResource">
-                        
-                            <i class="fa fa-github"></i>
-                        
-                        GitHub
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
 
-        <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
+
+  
+
+
+  <a href="https://github.com/Jako/PDFResource" title="Go to repository" class="md-source" data-md-source="github">
     
-        <li class="main active"><a href="#usage">Usage</a></li>
-        
-            <li><a href="#pdf-generation-on-the-fly">PDF generation on the fly</a></li>
-        
-            <li><a href="#pdf-options">PDF options</a></li>
-        
-            <li><a href="#resource-based-pdf-options">Resource based PDF options</a></li>
-        
-            <li><a href="#pdf-content-template">PDF content template</a></li>
-        
-            <li><a href="#pdf-styles-template">PDF styles template</a></li>
-        
-            <li><a href="#custom-fonts">Custom fonts</a></li>
-        
-            <li><a href="#pdf-permissions">PDF permissions</a></li>
-        
-            <li><a href="#other-mpdf-options">Other mPDF options</a></li>
-        
-            <li><a href="#linking-to-a-generated-pdf">Linking to a generated PDF</a></li>
-        
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
     
+    <div class="md-source__repository">
+      Jako/PDFResource
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <div class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </div>
+    PDFResource
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Jako/PDFResource" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Jako/PDFResource
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Description" class="md-nav__link">
+      Description
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Usage
+      </label>
+    
+    <a href="./" title="Usage" class="md-nav__link md-nav__link--active">
+      Usage
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-generation-on-the-fly" title="PDF generation on the fly" class="md-nav__link">
+    PDF generation on the fly
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-options" title="PDF options" class="md-nav__link">
+    PDF options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-based-pdf-options" title="Resource based PDF options" class="md-nav__link">
+    Resource based PDF options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-content-template" title="PDF content template" class="md-nav__link">
+    PDF content template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-styles-template" title="PDF styles template" class="md-nav__link">
+    PDF styles template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-fonts" title="Custom fonts" class="md-nav__link">
+    Custom fonts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-permissions" title="PDF permissions" class="md-nav__link">
+    PDF permissions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-mpdf-options" title="Other mPDF options" class="md-nav__link">
+    Other mPDF options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linking-to-a-generated-pdf" title="Linking to a generated PDF" class="md-nav__link">
+    Linking to a generated PDF
+  </a>
+  
+</li>
+      
+      
+      
     </ul>
-</div></div>
-            <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h1 id="usage">Usage</h1>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../donate/" title="Donate" class="md-nav__link">
+      Donate
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-generation-on-the-fly" title="PDF generation on the fly" class="md-nav__link">
+    PDF generation on the fly
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-options" title="PDF options" class="md-nav__link">
+    PDF options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-based-pdf-options" title="Resource based PDF options" class="md-nav__link">
+    Resource based PDF options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-content-template" title="PDF content template" class="md-nav__link">
+    PDF content template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-styles-template" title="PDF styles template" class="md-nav__link">
+    PDF styles template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-fonts" title="Custom fonts" class="md-nav__link">
+    Custom fonts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf-permissions" title="PDF permissions" class="md-nav__link">
+    PDF permissions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-mpdf-options" title="Other mPDF options" class="md-nav__link">
+    Other mPDF options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linking-to-a-generated-pdf" title="Linking to a generated PDF" class="md-nav__link">
+    Linking to a generated PDF
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
 <p><em>PDFResource</em> works out of the box and creates PDF files from all resources, that have the template variable <code>create_pdf</code> assigned (the template variable name could be changed in MODX system settings). The generated PDF files are saved with the current alias path to <code>{assets_url}/pdf/</code></p>
 <p>So after the installation you only have to assign the template variable <code>create_pdf</code> to the templates of the resources that should be converted to PDF and check that template variable in the resource (checked by default).</p>
-<h3 id="pdf-generation-on-the-fly">PDF generation on the fly</h3>
+<h3 id="pdf-generation-on-the-fly">PDF generation on the fly<a class="headerlink" href="#pdf-generation-on-the-fly" title="Permanent link">&para;</a></h3>
 <p>To generate PDF files on the fly with <em>PDFResource</em> you have to assign the template variable <code>live_pdf</code> to a template (the template variable name could be changed in MODX system settings) and check this template variable on a resource. After this, the resource will be rendered as PDF file in the browser. The file could be saved with the current alias.</p>
-<p><strong>Caution:</strong> This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.</p>
-<h3 id="pdf-options">PDF options</h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.</p>
+</div>
+<h3 id="pdf-options">PDF options<a class="headerlink" href="#pdf-options" title="Permanent link">&para;</a></h3>
 <p>By default the PDF content and the CSS code for the PDF could be changed with the chunks <code>tplPDF</code> and <code>tplCSS</code>. Some other PDF options (pagesize, margins etc.) could be set in MODX system setting.</p>
 <p>The following MODX system settings are available in the namespace <code>pdfresource</code>:</p>
 <table>
@@ -298,9 +704,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="resource-based-pdf-options">Resource based PDF options</h3>
+<h3 id="resource-based-pdf-options">Resource based PDF options<a class="headerlink" href="#resource-based-pdf-options" title="Permanent link">&para;</a></h3>
 <p>All these options could be modified on resource base in a template variable <code>pdf_options</code> (the template variable name could be changed in MODX system settings). This template variable has to contain an JSON encoded object of options without the prefix <code>pdfresource.</code>.</p>
-<h4 id="example">Example</h4>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
 <pre><code>{
     &quot;format&quot;: &quot;A4-L&quot;,
     &quot;mgl&quot;: 20,
@@ -308,13 +714,13 @@
 }
 </code></pre>
 
-<h3 id="pdf-content-template">PDF content template</h3>
+<h3 id="pdf-content-template">PDF content template<a class="headerlink" href="#pdf-content-template" title="Permanent link">&para;</a></h3>
 <p>The content of the PDF is filled with the chunk defined by <code>pdfresource.pdfTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFResource uses the <code>tplPDF</code> chunk. You could fill this chunk like a normal MODX template with resource placeholders, snippet calls etc. Since the PDF is not created on the fly, the content is fixed after saving the resource.</p>
-<h3 id="pdf-styles-template">PDF styles template</h3>
+<h3 id="pdf-styles-template">PDF styles template<a class="headerlink" href="#pdf-styles-template" title="Permanent link">&para;</a></h3>
 <p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX system setting (or on resource base by the <code>pdf_options</code> template variable). By default PDFResource uses the <code>tplCSS</code> chunk. There are some limitations with mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
-<h3 id="custom-fonts">Custom fonts</h3>
+<h3 id="custom-fonts">Custom fonts<a class="headerlink" href="#custom-fonts" title="Permanent link">&para;</a></h3>
 <p>To use custom fonts in your PDF files, you have to add them as JSON encoded object in the MODX system setting <code>pdfresource.customFonts</code>. See <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a> in the mPDF documentation a the full description. </p>
-<h4 id="example_1">Example</h4>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
 <pre><code>{
   &quot;frutiger&quot;: {
     &quot;R&quot;: &quot;Frutiger-Normal.ttf&quot;,
@@ -324,18 +730,18 @@
 </code></pre>
 
 <p>Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
-<h3 id="pdf-permissions">PDF permissions</h3>
+<h3 id="pdf-permissions">PDF permissions<a class="headerlink" href="#pdf-permissions" title="Permanent link">&para;</a></h3>
 <p>The generated PDF could be encrypted to set user permissions. An user password to open the file and an owner password to bypass and/or change the permission restrictions could be set. The PDF encryption is enabled if the user or the owner password is set. </p>
 <p>A list of permissions could be found at <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation. By default all permissions are denied if the file is encrypted. </p>
 <p>The following example JSON will grant copying and printing (low-res) to the end-user of the generated PDF.</p>
-<h4 id="example_2">Example</h4>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
 <pre><code>[&quot;copy&quot;, &quot;print&quot;]
 </code></pre>
 
-<h3 id="other-mpdf-options">Other mPDF options</h3>
+<h3 id="other-mpdf-options">Other mPDF options<a class="headerlink" href="#other-mpdf-options" title="Permanent link">&para;</a></h3>
 <p>If you want to set other mPDF options to modify the PDF file creation, you could call the <a href="https://mpdf.github.io/reference/mpdf-functions/overview.html">mPDF class methods</a> with callbacks.</p>
 <p>To use the callbacs, you first have to fill the MODX system setting <code>pdfresource.mPDFMethods</code> with an JSON encoded array of called method names. After that, you have to fill the according MODX system setting or (on resource base) an according key in <code>pdf_options</code> template variable. The method parameters have to be set by an JSON encoded array.</p>
-<h4 id="example_3">Example</h4>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
 <p>To call the mPDF method <code>SetHTMLFooter</code> you have to set the MODX system setting <code>pdfresource.mPDFMethods</code> to</p>
 <pre><code>[&quot;SetHTMLFooter&quot;]
 </code></pre>
@@ -352,67 +758,99 @@
 }
 </code></pre>
 
-<h3 id="linking-to-a-generated-pdf">Linking to a generated PDF</h3>
+<h3 id="linking-to-a-generated-pdf">Linking to a generated PDF<a class="headerlink" href="#linking-to-a-generated-pdf" title="Permanent link">&para;</a></h3>
 <p>All generated static PDF files are saved with the aliaspath of the generating resource. If you want to create a link to that PDF file, you could use the following code:</p>
 <pre><code>&lt;a href=&quot;[[*id:pdfresourcelink]]&quot;&gt;PDF&lt;/a&gt;
 </code></pre>
-
-<!-- Piwik -->
-
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//piwik.partout.info/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 18]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-
-<noscript><p><img src="//piwik.partout.info/piwik.php?idsite=18" style="border:0;" alt="" /></p></noscript>
-
-<!-- End Piwik Code --></div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-            
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
-        </footer>
-
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../installation/" title="Installation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../donate/" title="Donate" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Donate
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div>&copy; 2015–2017 <a href="https://treehillstudio.com">Treehill Studio</a></div>
+        
+        <div>powered by
+          <a href="http://www.mkdocs.org" title="MkDocs">
+            MkDocs
+          </a>
+          and
+          <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+            Material for MkDocs
+          </a>
         </div>
-    </body>
+      </div>
+      
+        
+<div class="md-footer-logo">
+  <a href="https://treehillstudio.com" class="md-footer-logo__link">
+    <img src="../assets/images/treehillstudio_logo.svg" width="119" height="30">
+  </a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.js"></script>
+      
+      
+      <script>app.initialize({url:{base:".."}})</script>
+      
+    
+    
+      
+      
+    
+  </body>
 </html>
