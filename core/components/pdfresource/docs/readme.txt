@@ -1,11 +1,12 @@
 PDFResource
 ===========
 
-PDFResource is a MODX Revolution extra that converts resources to PDF files using mPDF (https://mpdf.github.io/).
+PDFResource is a MODX Revolution extra that converts resources to PDF files
+using mPDF (https://mpdf.github.io/).
 
-Usage
------
-Install via package manager, assign the needed template variables to the resource that should be converted. Change the default PDF options in the system settings or on resource base in a template variable.
+Installation
+------------
+MODX Package Management
 
 Documentation
 -------------
