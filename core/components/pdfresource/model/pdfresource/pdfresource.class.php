@@ -29,7 +29,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '1.5.6-pl2';
+    public $version = '1.5.6-pl3';
 
     /**
      * The class options

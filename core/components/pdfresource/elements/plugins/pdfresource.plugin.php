@@ -3,11 +3,13 @@
  * PDFResource Plugin
  *
  * @package pdfresource
- * @subpackage plugin
+ * @subpackage pluginfile
  *
  * @var modX $modx
  * @var array $scriptProperties
  */
+
+$className = 'PDFResource' . $modx->event->name;
 
 $corePath = $modx->getOption('pdfresource.core_path', null, $modx->getOption('core_path') . 'components/pdfresource/');
 /** @var PDFResource $pdfresource */
@@ -15,7 +17,6 @@ $pdfresource = $modx->getService('pdfresource', 'PDFResource', $corePath . 'mode
     'core_path' => $corePath
 ));
 
-$className = 'PDFResource' . $modx->event->name;
 $modx->loadClass('PDFResourcePlugin', $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
 $modx->loadClass($className, $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
 if (class_exists($className)) {
