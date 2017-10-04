@@ -1,7 +1,7 @@
 ## Support PDFResource
 
-*PDFResource* is and always will be free and open-source, but it still requires some man-hours of development and bug-fixing 
-between the releases.
+*PDFResource* is and always will be free and open-source, but it still requires many man-hours of development, 
+bug-fixing, support in MODX forums and on GitHub between the releases.
 
 Please support the ongoing and past development of *PDFResource* by making a donation below.
 
