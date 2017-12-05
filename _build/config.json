@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "1.5.6-pl3",
+  "version": "1.5.7",
   "package": {
     "elements": {
       "chunks": [
@@ -220,13 +220,13 @@
     "readme": "docs/readme.txt",
     "license": "docs/license.txt",
     "changelog": "docs/changelog.txt",
-    "attributes": {
-      "chunks": {
-        "update_object": false
-      },
-      "tvs": {
-        "update_object": false
-      }
+    "options": {
+      "modx_version": "2.5",
+      "empty_folders": [
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/graph_cache",
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/tmp",
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfontdata"
+      ]
     },
     "resolver": {
       "after": [

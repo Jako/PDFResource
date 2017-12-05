@@ -29,7 +29,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '1.5.6-pl3';
+    public $version = '1.5.7';
 
     /**
      * The class options
@@ -166,13 +166,13 @@ class PDFResource
     {
         // Create folders
         if (!@is_dir($this->getOption('pdfPath'))) {
-            if (!@mkdir($this->getOption('pdfPath'), $this->modx->getOption('new_folder_permissions', null, 0775), true)) {
+            if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath'))) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
                 return '';
             };
         }
         if ($aliasPath && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
-            if (!@mkdir($this->getOption('pdfPath') . $aliasPath, $this->modx->getOption('new_folder_permissions', null, 0775), true)) {
+            if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath') . $aliasPath)) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return '';
             };
@@ -190,7 +190,7 @@ class PDFResource
 
         // Prepare template variables and resource based options
         $pdfOptions = null;
-        $tvs = $this->modx->getCollection('modTemplateVar');
+        $tvs = $resource->getTemplateVars();
         foreach ($tvs as $tv) {
             /** @var modTemplateVar $tv */
             $placeholder[$tvPrefix . $tv->get('name')] = ($processTVs) ? $tv->renderOutput($id) : $tv->getValue($id);

@@ -2,6 +2,26 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
+        watch: {
+            js: {
+                files: [
+                    'source/**/*.js'
+                ],
+                tasks: ['uglify', 'usebanner:js']
+            },
+            css: {
+                files: [
+                    'source/**/*.scss'
+                ],
+                tasks: ['sass', 'cssmin', 'usebanner:css']
+            },
+            config: {
+                files: [
+                    '_build/config.json'
+                ],
+                tasks: ['default']
+            }
+        },
         bump: {
             copyright: {
                 files: [{
@@ -10,7 +30,7 @@ module.exports = function (grunt) {
                 }],
                 options: {
                     replacements: [{
-                        pattern: /Copyright 2015(-\d{4})? by/g,
+                        pattern: /Copyright \d{4}(-\d{4})? by/g,
                         replacement: 'Copyright ' + (new Date().getFullYear() > 2015 ? '2015-' : '') + new Date().getFullYear() + ' by'
                     }]
                 }
@@ -31,6 +51,7 @@ module.exports = function (grunt) {
     });
 
     //load the packages
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.renameTask('string-replace', 'bump');
 

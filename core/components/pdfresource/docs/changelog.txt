@@ -1,6 +1,10 @@
 Changelog for PDFResource
 =========================
 
+- 1.5.7
+    - GPM options for empty temporary vendor folders
+    - Bugfix for creating temporary vendor folders
+    - Bugfix for allowed memory size exhausted
 - 1.5.6
     - Bugfix for creating folders recursive
 - 1.5.5
