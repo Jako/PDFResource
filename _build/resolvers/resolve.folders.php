@@ -29,6 +29,7 @@ if (isset($object) && isset($object->xpdo)) {
 }
 
 $success = true;
+$output = '';
 
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
@@ -53,6 +54,15 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                     $output .= $message . "\n";
                     $success = false;
                 }
+            } else {
+                if (!@is_writable($folder)) {
+                    if (!@chmod($folder, octdec($modx->getOption('new_folder_permissions', null, '0775')))) {
+                        $message = 'Folder "' . $folder . '" cannot set writable.';
+                        $modx->log(modX::LOG_LEVEL_INFO, $message);
+                        $output .= $message . "\n";
+                        $success = false;
+                    }
+                }
             }
         }
         break;
@@ -63,9 +73,7 @@ if ($success) {
     $output .= $message . "\n";
 }
 
-if ($resolver) {
-    $modx->log(modX::LOG_LEVEL_INFO, $output);
-} else {
+if (!$resolver) {
     exit($output);
 }
 
