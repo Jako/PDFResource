@@ -1,0 +1,17 @@
+{
+  "name": "treehillstudio/pdfresource",
+  "type": "project",
+  "require": {
+    "mpdf/mpdf": "^6.0"
+  },
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Thomas Jakobi",
+      "email": "thomas.jakobi@partout.info"
+    }
+  ],
+  "config": {
+    "vendor-dir": "core/components/pdfresource/vendor"
+  }
+}

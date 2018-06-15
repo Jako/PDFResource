@@ -2,7 +2,7 @@
 /**
  * PDFResource
  *
- * Copyright 2015-2017 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2015-2018 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package pdfresource
  * @subpackage classfile
