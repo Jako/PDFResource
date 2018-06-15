@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "PDFResource\n\n\nPDFResource is a MODX Revolution extra that converts resources to PDF files\nusing \nmPDF\n.\n\n\nRequirements\n\n\n\n\nMODX Revolution 2.4+\n\n\nPHP v5.4+\n\n\n\n\nFeatures\n\n\n\n\nCreate a static PDF file of a MODX resource with \nmPDF\n during saving or on viewing the resource.\n\n\nCreate a PDF file of a MODX resource on the fly with \nmPDF\n.\n\n\nThe options for the generated PDF could be set in MODX system settings and on resource base.\n\n\n\n\nNotes:\n\n\n\n\nUses a \nPHP packer implementation\n\n\nBases on a \ncaptcha idea\n of Peter Kr\u00f6ner", 
+            "text": "PDFResource\n\n\nPDFResource is a MODX Revolution extra that converts resources to PDF files\nusing \nmPDF\n.\n\n\nRequirements\n\n\n\n\nMODX Revolution 2.4+\n\n\nPHP v5.4+\n\n\n\n\nFeatures\n\n\n\n\nCreate a static PDF file of a MODX resource with \nmPDF\n during saving or on viewing the resource.\n\n\nCreate a PDF file of a MODX resource on the fly with \nmPDF\n.\n\n\nThe options for the generated PDF could be set in MODX system settings and on resource base.", 
             "title": "Description"
         }, 
         {
@@ -19,11 +19,6 @@
             "location": "/#features", 
             "text": "Create a static PDF file of a MODX resource with  mPDF  during saving or on viewing the resource.  Create a PDF file of a MODX resource on the fly with  mPDF .  The options for the generated PDF could be set in MODX system settings and on resource base.", 
             "title": "Features"
-        }, 
-        {
-            "location": "/#notes", 
-            "text": "Uses a  PHP packer implementation  Bases on a  captcha idea  of Peter Kr\u00f6ner", 
-            "title": "Notes:"
         }, 
         {
             "location": "/installation/", 
