@@ -46,7 +46,7 @@ pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE bindi
 pdfresource.pdfTv | Name ot the template variable that activates the PDF generation. | create_pdf
 pdfresource.pdfTvLive | Name of the template variable that activates the on the fly PDF generation. | live_pdf
 pdfresource.pdfTvOptions | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change. | pdf_options
-pdfresource.processTVs | Process template variables during PDF generation. | true
+pdfresource.processTVs | Process template variables during PDF generation. | Yes
 pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
 pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
 pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
