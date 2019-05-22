@@ -3,7 +3,7 @@
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi <thomas.jakobi@partout.info>",
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-string-replace": "^1.3.1"
   }
