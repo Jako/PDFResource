@@ -56,19 +56,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bugfix for create_pdf template variable is assigned to the template
 
-## [1.2.2] - TBA
+## [1.2.2] - 2015-11-04
 ### Added
 - pdfresource.generateOnPrerender system setting
 ### Changed
 - Load mPDF/modPDF class only if needed for less memory usage
 
-## [1.2.1] - TBA
+## [1.2.1] - 2015-11-04
 ### Added
 - Check if the create_pdf template variable is assigned to the template
 ### Changed
 - Modified alias path generation
 
-## [1.2.0] - TBA
+## [1.2.0] - 2015-11-01
 ### Added
 - Add custom fonts by pdfresource.customFonts system setting
 
