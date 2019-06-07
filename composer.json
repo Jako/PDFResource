@@ -12,6 +12,9 @@
     }
   ],
   "config": {
-    "vendor-dir": "core/components/pdfresource/vendor"
+    "vendor-dir": "core/components/pdfresource/vendor",
+    "platform": {
+      "php": "5.4"
+    }
   }
 }

@@ -1,6 +1,6 @@
 # PDFResource
 
-Convert MODX resources to PDF
+Convert MODX resources to PDF files using mPDF (https://mpdf.github.io/).
 
 ## Features
 
@@ -13,8 +13,8 @@ MODX Package Management
 
 ## Usage
 
-Install via package manager.
+Install via package manager, modify the system settings, template variables and chunks to create PDF files on resource base.
 
 ## Documentation
 
-For more information please read the [documentation](http://jako.github.io/PDFResource/).
+For more information please read the [documentation](https://jako.github.io/PDFResource/).

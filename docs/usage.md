@@ -32,14 +32,14 @@ Key | Description | Default
 ----|-------------|--------
 pdfresource.mode | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -
 pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
-pdfresource.defaultFontSize | PDF default font size | 0
-pdfresource.defaultFont | PDF default font | -
-pdfresource.mgl | PDF margin left | 15
-pdfresource.mgr | PDF margin right | 15
-pdfresource.mgt | PDF margin top | 16
-pdfresource.mgb | PDF margin bottom | 16
-pdfresource.mgh | PDF margin header | 9
-pdfresource.mgf | PDF margin footer | 9
+pdfresource.defaultFontSize | Default font size of the generated PDF | 0
+pdfresource.defaultFont | Default font of the generated PDF | -
+pdfresource.mgl | Bottom margin of the generated PDF | 15
+pdfresource.mgr | Right margin of the generated PDF | 15
+pdfresource.mgt | Top margin of the generated PDF | 16
+pdfresource.mgb | Bottom margin of the generated PDF | 16
+pdfresource.mgh | Header margin of the generated PDF | 9
+pdfresource.mgf | Footer margin of the generated PDF | 9
 pdfresource.orientation | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | P
 pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file. | tplPDF
 pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file. | tplCSS

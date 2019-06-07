@@ -6,6 +6,10 @@
  *
  * @package pdfresource
  * @subpackage build
+ *
+ * @var mixed $object
+ * @var modX $modx
+ * @var array $options
  */
 
 if ($object->xpdo) {
@@ -18,10 +22,10 @@ if ($object->xpdo) {
   'create_pdf' => 
   array (
   ),
-  'live_pdf' =>
+  'live_pdf' => 
   array (
   ),
-  'pdf_options' =>
+  'pdf_options' => 
   array (
   ),
 );
@@ -60,4 +64,5 @@ if ($object->xpdo) {
             break;
     }
 }
+
 return true;

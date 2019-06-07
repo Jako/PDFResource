@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "package": {
     "elements": {
       "chunks": [
@@ -222,16 +222,28 @@
     "changelog": "docs/changelog.txt",
     "options": {
       "modx_version": "2.5",
-      "empty_folders": [
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/graph_cache",
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/tmp",
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfontdata"
-      ]
+      "empty_folders": {
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/graph_cache": "*",
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/tmp": "*",
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfontdata": "*",
+        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfonts": "!{DejaVu*,Free*}"
+      }
+    },
+    "setupOptions": {
+      "source": "setup.options.php"
     },
     "resolver": {
       "after": [
-        "resolve.folders.php"
+        "resolve.folders.php",
+        "resolve.treehillstudio.php"
       ]
     }
-  }
+  },
+  "dependencies": [{
+    "name": "modx",
+    "version": ">=2.4"
+  },{
+    "name": "php",
+    "version": ">=5.4"
+  }]
 }
