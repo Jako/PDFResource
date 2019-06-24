@@ -75,7 +75,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2015-10-28
 ### Added
 - Create not existing PDF files during OnWebPagePrerender
-
-## [1.0.0] - TBA
-### Added
 - Initial release for MODX Revolution
