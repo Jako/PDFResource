@@ -1,6 +1,5 @@
 {
   "name": "treehillstudio/pdfresource",
-  "type": "project",
   "require": {
     "mpdf/mpdf": "^6.0"
   },
