@@ -2,8 +2,6 @@
 /**
  * modPDF
  *
- * Copyright 2015 by Thomas Jakobi <thomas.jakobi@partout.info>
- *
  * @package modpdf
  * @subpackage classfile
  */
