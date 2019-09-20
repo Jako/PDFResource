@@ -127,7 +127,7 @@ class PDFResource
     /**
      * Initialize the modPDF class
      *
-     * @param array $options
+     * @param array $options The PDF options.
      */
     public function initPDF($options)
     {
@@ -158,11 +158,12 @@ class PDFResource
     /**
      * Create a PDF with the options set in the class
      *
-     * @param modResource $resource
-     * @param string|boolean $aliasPath
-     * @return string
+     * @param modResource $resource The resource the PDF is created with.
+     * @param string $aliasPath The alias path for the saved PDF file. If this is not set, the PDF is returned as string.
+     * @return string The PDF content, if $aliasPath property is empty. Otherwise empty.
+     * @throws MpdfException
      */
-    public function createPDF($resource, $aliasPath)
+    public function createPDF($resource, $aliasPath = '')
     {
         // Create folders
         if (!@is_dir($this->getOption('pdfPath'))) {
@@ -268,10 +269,10 @@ class PDFResource
      * Parse a chunk (with template bindings)
      * Modified parseTplElement method from getResources package (https://github.com/opengeek/getResources)
      *
-     * @param $type
-     * @param $source
-     * @param null $properties
-     * @return bool
+     * @param string type The template binding type.
+     * @param string $source The source of the parsed template (depends on template binding type).
+     * @param array|null $properties An array of options.
+     * @return string|bool The parsed chunk or false.
      */
     private function parseChunk($type, $source, $properties = null)
     {
@@ -338,9 +339,9 @@ class PDFResource
      * Get and parse a chunk (with template bindings)
      * Modified parseTpl method from getResources package (https://github.com/opengeek/getResources)
      *
-     * @param $tpl
-     * @param null $properties
-     * @return bool
+     * @param string $tpl The template to parse
+     * @param array|null $properties  An array of options.
+     * @return string|bool The parsed chunk or false.
      */
     public function getChunk($tpl, $properties = null)
     {
@@ -368,8 +369,10 @@ class PDFResource
     }
 
     /**
-     * @param modResource $resource
-     * @return string
+     * Get the parent path of a MODX resource
+     *
+     * @param modResource $resource The MODX resource to get the parent path from.
+     * @return string The parent path.
      */
     public function getParentPath($resource) {
         return $resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '', rtrim($this->modx->makeUrl($resource->get('parent')), $this->modx->getOption('container_suffix'))) . '/' : '';
