@@ -22,7 +22,7 @@ class PDFResourceOnDocFormSave extends PDFResourcePlugin
                 $createPDF = intval($tv->getValue($resource->get('id')));
                 if (!$createPDF && file_exists($this->pdfresource->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf')) {
                     @unlink($this->pdfresource->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf');
-                } else {
+                } elseif ($createPDF) {
                     $this->modx->invokeEvent('OnHandleRequest', array()); // call ClientConfig if installed
                     $this->modx->resource = &$resource;
                     $this->pdfresource->createPDF($resource, $aliasPath);
