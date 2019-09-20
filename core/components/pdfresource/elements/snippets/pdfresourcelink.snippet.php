@@ -9,6 +9,11 @@
  * @var string $input
  */
 
+$corePath = $modx->getOption('pdfresource.core_path', null, $modx->getOption('core_path') . 'components/pdfresource/');
+$pdfresource = $modx->getService('pdfresource', 'PDFResource', $corePath . 'model/pdfresource/', array(
+    'core_path' => $corePath
+));
+
 $output = '';
 
 if ($input) {
@@ -19,7 +24,7 @@ if ($input) {
     }
     if ($resource) {
         $pdfPath = $modx->getOption('pdfresource.pdf_url', null, $modx->getOption('assets_url') . 'pdf/');
-        $aliasPath = $resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '/', $modx->makeUrl($resource->get('parent'))) : '';
+        $aliasPath = $pdfresource->getParentPath($resource);
         $output = $pdfPath . $aliasPath . $resource->get('alias') . '.pdf';
     }
 }

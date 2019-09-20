@@ -366,4 +366,12 @@ class PDFResource
         }
         return $output;
     }
+
+    /**
+     * @param modResource $resource
+     * @return string
+     */
+    public function getParentPath($resource) {
+        return $resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '', rtrim($this->modx->makeUrl($resource->get('parent')), $this->modx->getOption('container_suffix'))) . '/' : '';
+    }
 }

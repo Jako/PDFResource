@@ -31,7 +31,7 @@ class PDFResourceOnWebPagePrerender extends PDFResourcePlugin
             foreach ($tvs as $tv) {
                 if ($tv->get('name') == $this->pdfresource->getOption('pdfTv', array(), 'create_pdf')) {
                     $this->modx->switchContext($resource->context_key);
-                    $aliasPath = $resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '/', $this->modx->makeUrl($resource->get('parent'))) : '';
+                    $aliasPath = $this->pdfresource->getParentPath($resource);
                     $this->modx->switchContext('mgr');
 
                     $createPDF = intval($tv->getValue($resource->get('id')));
