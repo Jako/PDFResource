@@ -20,7 +20,7 @@ class PDFResourceOnWebPagePrerender extends PDFResourcePlugin
                     $this->modx->invokeEvent('OnHandleRequest', array()); // call ClientConfig if installed
                     header('Content-Type: application/pdf');
                     header('Content-Disposition:inline;filename=' . $resource->get('alias') . '.pdf');
-                    echo $this->pdfresource->createPDF($resource, false);
+                    echo $this->pdfresource->createPDF($resource);
                     exit;
                 }
             }
