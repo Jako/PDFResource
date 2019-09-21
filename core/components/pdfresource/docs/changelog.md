@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.9] - 2019-09-20
+### Changed
+- Bugfix for creating the parent alias with a not default container_suffix system setting
+
 ## [1.5.8] - 2019-06-07
 ### Changed
 - Update mPDF to 6.1.4
