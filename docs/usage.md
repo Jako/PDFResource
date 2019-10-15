@@ -1,9 +1,9 @@
 ## Enable the PDF generation
 
 *PDFResource* works out of the box and creates PDF files from all resources,
-*that have the template variable `create_pdf` assigned (the template variable
-*name could be changed in MODX system settings). The generated PDF files are
-*saved with the current alias path to `{assets_url}/pdf/`
+that have the template variable `create_pdf` assigned (the template variable
+name could be changed in MODX system settings). The generated PDF files are
+saved with the current alias path to `{assets_url}/pdf/`
 
 So after the installation you only have to assign the template variable
 `create_pdf` to the templates of the resources that should be converted to PDF
