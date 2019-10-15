@@ -161,9 +161,8 @@ class PDFResource
      * @param modResource $resource The resource the PDF is created with.
      * @param string $aliasPath The alias path for the saved PDF file. If this is not set, the PDF is returned as string.
      * @return string The PDF content, if $aliasPath property is empty. Otherwise empty.
-     * @throws MpdfException
      */
-    public function createPDF($resource, $aliasPath = '')
+    public function createPDF($resource, $aliasPath = null)
     {
         // Create folders
         if (!@is_dir($this->getOption('pdfPath'))) {
@@ -172,7 +171,7 @@ class PDFResource
                 return '';
             };
         }
-        if ($aliasPath && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
+        if (!isNull($aliasPath) && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath') . $aliasPath)) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return '';
@@ -212,56 +211,61 @@ class PDFResource
         $css = $this->getChunk($cssTpl, $placeholder);
         unset($placeholder);
 
-        // Generate PDF file
-        $this->initPDF(array(
-            'mode' => $this->getOption('mode', $pdfOptions, 'utf-8'),
-            'format' => $this->getOption('format', $pdfOptions, 'A4'),
-            'defaultFontSize' => intval($this->getOption('defaultFontSize', $pdfOptions, 8)),
-            'defaultFont' => $this->getOption('defaultFont', $pdfOptions, ''),
-            'mgl' => intval($this->getOption('mgl', $pdfOptions, 10)),
-            'mgr' => intval($this->getOption('mgr', $pdfOptions, 10)),
-            'mgt' => intval($this->getOption('mgt', $pdfOptions, 7)),
-            'mgb' => intval($this->getOption('mgb', $pdfOptions, 7)),
-            'mgh' => intval($this->getOption('mgh', $pdfOptions, 10)),
-            'mgf' => intval($this->getOption('mgf', $pdfOptions, 10)),
-            'orientation' => $this->getOption('orientation', $pdfOptions, 'P'),
-            'customFonts' => $this->getOption('customFonts', $pdfOptions, '[]')
-        ));
+        try {
+            // Generate PDF file
+            $this->initPDF(array(
+                'mode' => $this->getOption('mode', $pdfOptions, 'utf-8'),
+                'format' => $this->getOption('format', $pdfOptions, 'A4'),
+                'defaultFontSize' => intval($this->getOption('defaultFontSize', $pdfOptions, 8)),
+                'defaultFont' => $this->getOption('defaultFont', $pdfOptions, ''),
+                'mgl' => intval($this->getOption('mgl', $pdfOptions, 10)),
+                'mgr' => intval($this->getOption('mgr', $pdfOptions, 10)),
+                'mgt' => intval($this->getOption('mgt', $pdfOptions, 7)),
+                'mgb' => intval($this->getOption('mgb', $pdfOptions, 7)),
+                'mgh' => intval($this->getOption('mgh', $pdfOptions, 10)),
+                'mgf' => intval($this->getOption('mgf', $pdfOptions, 10)),
+                'orientation' => $this->getOption('orientation', $pdfOptions, 'P'),
+                'customFonts' => $this->getOption('customFonts', $pdfOptions, '[]')
+            ));
 
-        $this->pdf->SetTitle($resource->get('pagetitle'));
-        $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
-        $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFResource/mPDF'));
+            $this->pdf->SetTitle($resource->get('pagetitle'));
+            $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
+            $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFResource/mPDF'));
 
-        // Password protection
-        $userPassword = $this->getOption('userPassword', $pdfOptions, '');
-        $ownerPassword = $this->getOption('ownerPassword', $pdfOptions, '');
-        $permissions = json_decode($this->getOption('permissions', $pdfOptions, ''), true);
-        if ($userPassword || $ownerPassword) {
-            // Set default permissions if needed
-            $permissions = ($permissions) ? $permissions : array();
-            // Random owner password if needed
-            $ownerPassword = ($ownerPassword) ? $ownerPassword : null;
-            $this->pdf->SetProtection($permissions, $userPassword, $ownerPassword, 128);
-        }
-
-        // Call additional mPDF methods
-        $mpdfMethods = json_decode($this->getOption('mPDFMethods', $pdfOptions, ''), true);
-        $mpdfMethods = (is_array($mpdfMethods)) ? $mpdfMethods : array();
-        foreach ($mpdfMethods as $methodName) {
-            $value = $this->getOption($methodName, $pdfOptions, '');
-            $value = (is_array($value)) ? $value : json_decode($value, true);
-            if ($value && method_exists($this->pdf, $methodName)) {
-                call_user_func_array(array($this->pdf, $methodName), $value);
+            // Password protection
+            $userPassword = $this->getOption('userPassword', $pdfOptions, '');
+            $ownerPassword = $this->getOption('ownerPassword', $pdfOptions, '');
+            $permissions = json_decode($this->getOption('permissions', $pdfOptions, ''), true);
+            if ($userPassword || $ownerPassword) {
+                // Set default permissions if needed
+                $permissions = ($permissions) ? $permissions : array();
+                // Random owner password if needed
+                $ownerPassword = ($ownerPassword) ? $ownerPassword : null;
+                $this->pdf->SetProtection($permissions, $userPassword, $ownerPassword, 128);
             }
-        }
 
-        $this->pdf->WriteHTML($css, 1);
-        $this->pdf->WriteHTML($html, 2);
+            // Call additional mPDF methods
+            $mpdfMethods = json_decode($this->getOption('mPDFMethods', $pdfOptions, ''), true);
+            $mpdfMethods = (is_array($mpdfMethods)) ? $mpdfMethods : array();
+            foreach ($mpdfMethods as $methodName) {
+                $value = $this->getOption($methodName, $pdfOptions, '');
+                $value = (is_array($value)) ? $value : json_decode($value, true);
+                if ($value && method_exists($this->pdf, $methodName)) {
+                    call_user_func_array(array($this->pdf, $methodName), $value);
+                }
+            }
 
-        if ($aliasPath) {
-            return $this->pdf->Output($this->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf', 'F');
-        } else {
-            return $this->pdf->Output('', 'S');
+            $this->pdf->WriteHTML($css, 1);
+            $this->pdf->WriteHTML($html, 2);
+
+            if (!isNull($aliasPath)) {
+                return $this->pdf->Output($this->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf', 'F');
+            } else {
+                return $this->pdf->Output('', 'S');
+            }
+        } catch (MpdfException $e) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not generate the pdf: ' . $e->getMessage(), '', 'PDFResource');
+            return '';
         }
     }
 
@@ -340,7 +344,7 @@ class PDFResource
      * Modified parseTpl method from getResources package (https://github.com/opengeek/getResources)
      *
      * @param string $tpl The template to parse
-     * @param array|null $properties  An array of options.
+     * @param array|null $properties An array of options.
      * @return string|bool The parsed chunk or false.
      */
     public function getChunk($tpl, $properties = null)
@@ -374,7 +378,8 @@ class PDFResource
      * @param modResource $resource The MODX resource to get the parent path from.
      * @return string The parent path.
      */
-    public function getParentPath($resource) {
+    public function getParentPath($resource)
+    {
         return $resource->get('parent') ? preg_replace('#(\.[^./]*)$#', '', rtrim($this->modx->makeUrl($resource->get('parent')), $this->modx->getOption('container_suffix'))) . '/' : '';
     }
 }
