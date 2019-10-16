@@ -171,7 +171,7 @@ class PDFResource
                 return '';
             };
         }
-        if (!isNull($aliasPath) && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
+        if (!is_null($aliasPath) && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath') . $aliasPath)) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return '';
@@ -258,7 +258,7 @@ class PDFResource
             $this->pdf->WriteHTML($css, 1);
             $this->pdf->WriteHTML($html, 2);
 
-            if (!isNull($aliasPath)) {
+            if (!is_null($aliasPath)) {
                 return $this->pdf->Output($this->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf', 'F');
             } else {
                 return $this->pdf->Output('', 'S');
