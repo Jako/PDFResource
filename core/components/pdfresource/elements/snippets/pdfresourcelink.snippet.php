@@ -17,7 +17,7 @@ $pdfresource = $modx->getService('pdfresource', 'PDFResource', $corePath . 'mode
 $output = '';
 
 if ($input) {
-    if ($input == $modx->resource->get('id')) {
+    if ($input == (isset($modx->resource)) ? $modx->resource->get('id') : 0) {
         $resource = &$modx->resource;
     } else {
         $resource = $modx->getObject('modResource', $input);
