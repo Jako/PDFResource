@@ -17,12 +17,14 @@ $pdfresource = $modx->getService('pdfresource', 'PDFResource', $corePath . 'mode
     'core_path' => $corePath
 ));
 
-$modx->loadClass('PDFResourcePlugin', $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
-$modx->loadClass($className, $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
-if (class_exists($className)) {
-    /** @var PDFResourcePlugin $handler */
-    $handler = new $className($modx, $scriptProperties);
-    $handler->run();
+if ($pdfresource) {
+    $modx->loadClass('PDFResourcePlugin', $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
+    $modx->loadClass($className, $pdfresource->getOption('modelPath') . 'pdfresource/events/', true, true);
+    if (class_exists($className)) {
+        /** @var PDFResourcePlugin $handler */
+        $handler = new $className($modx, $scriptProperties);
+        $handler->run();
+    }
 }
 
 return;
