@@ -176,7 +176,6 @@ or fill the `PDF Options` template variable of a resource with
 }
 ```
 
-
 ### Linking to a generated PDF
 
 All generated static PDF files are saved with the aliaspath of the generating
