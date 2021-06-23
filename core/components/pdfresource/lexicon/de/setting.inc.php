@@ -14,7 +14,7 @@ $_lang['setting_pdfresource.customFonts'] = 'Benutzerdefinierte Schriftarten';
 $_lang['setting_pdfresource.customFonts_desc'] = 'JSON-kodiertes Objekt mit benutzerdefinierten Schriftarten, siehe <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a> in der mPDF-Dokumentation für das Array-Format. Bitte kopieren Sie die Schriftdateien nach <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
 $_lang['setting_pdfresource.defaultFont'] = 'PDF-Standardschriftart';
 $_lang['setting_pdfresource.defaultFont_desc'] = 'Standardschriftart des erzeugten PDF.';
-$_lang['setting_pdfresource.defaultFontSize'] = 'PDF-Standardschriftgröße';
+$_lang['setting_pdfresource.defaultFontSize'] = 'PDF-Standard-Schriftgröße';
 $_lang['setting_pdfresource.defaultFontSize_desc'] = 'Standard-Schriftgröße des erzeugten PDF.';
 $_lang['setting_pdfresource.format'] = 'PDF-Seitengröße';
 $_lang['setting_pdfresource.format_desc'] = 'Wenn Sie die Ausrichtung einer "benannten" PDF-Seitengröße ändern möchten, müssen Sie -L an den String für die PDF-Seitengröße anhängen (z. B. A4-L).';
