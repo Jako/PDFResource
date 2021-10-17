@@ -12,7 +12,6 @@ nav:
 - Description: 'index.md'
 - Installation: 'installation.md'
 - Usage: 'usage.md'
-- Donate: 'donate.md'
 
 extra:
   analytics:
