@@ -26,7 +26,7 @@ By default the PDF content and the CSS code for the PDF could be changed with
 the chunks `tplPDF` and `tplCSS`. Some other PDF options (pagesize, margins
 etc.) could be set in MODX system setting.
 
-The following MODX system settings are available in the namespace `pdfresource`:
+PDFResource uses the following system settings in the namespace `pdfresource`:
 
 Key | Description | Default
 ----|-------------|--------
