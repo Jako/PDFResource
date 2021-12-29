@@ -169,13 +169,13 @@ class PDFResource
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath'))) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
                 return '';
-            };
+            }
         }
         if (!is_null($aliasPath) && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath') . $aliasPath)) {
                 $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return '';
-            };
+            }
         }
 
         // Get options
