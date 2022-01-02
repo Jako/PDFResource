@@ -1,7 +1,7 @@
 {
   "name": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
-  "author": "Thomas Jakobi <thomas.jakobi@partout.info>",
+  "author": "Thomas Jakobi <office@treehillstudio.com>",
   "private": true,
   "devDependencies": {
     "grunt": "^1.4.1",

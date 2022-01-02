@@ -2,7 +2,7 @@
 
 Convert MODX resources to PDF files using mPDF (https://mpdf.github.io/).
 
-- Author: Thomas Jakobi <thomas.jakobi@partout.info>
+- Author: Thomas Jakobi <office@treehillstudio.com>
 - License: GNU GPLv2
 
 ## Features
