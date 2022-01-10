@@ -134,7 +134,7 @@ class PDFResource
         // Autoload composer classes
         require $this->getOption('corePath') . 'vendor/autoload.php';
 
-        if (!$this->modx->loadClass('modpdf.modpdf', $this->options['modelPath'], true, true)) {
+        if (!$this->modx->loadClass('modpdf.modpdf', $this->getOption('modelPath'), true, true)) {
             $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
             return;
         }
