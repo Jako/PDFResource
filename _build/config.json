@@ -26,8 +26,8 @@
       "plugins": [
         {
           "name": "PDFResource",
+          "description": "Convert MODX resources to PDF files using mPDF",
           "file": "pdfresource.plugin.php",
-          "description": "Convert MODX resources to PDF during saving or rendering the resource.",
           "events": [
             "OnDocFormSave",
             "OnWebPagePrerender"
