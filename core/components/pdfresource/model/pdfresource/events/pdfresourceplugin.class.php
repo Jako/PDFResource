@@ -16,7 +16,7 @@ abstract class PDFResourcePlugin
     public function __construct($modx, &$scriptProperties)
     {
         $this->scriptProperties =& $scriptProperties;
-        $this->modx = &$modx;
+        $this->modx =& $modx;
         $corePath = $this->modx->getOption('pdfresource.core_path', null, $this->modx->getOption('core_path') . 'components/pdfresource/');
         $this->pdfresource = $this->modx->getService('pdfresource', 'PDFResource', $corePath . 'model/pdfresource/', array(
             'core_path' => $corePath

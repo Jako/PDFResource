@@ -46,7 +46,7 @@ class modPDF extends mPDF
      */
     function __construct(modX &$modx, array $options = array())
     {
-        $this->modx = &$modx;
+        $this->modx =& $modx;
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path') . 'components/' . $this->namespace . '/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path') . 'components/' . $this->namespace . '/');
