@@ -58,7 +58,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 if (!@is_writable($folder)) {
                     if (!@chmod($folder, octdec($modx->getOption('new_folder_permissions', null, '0775')))) {
                         $message = 'Folder "' . $folder . '" cannot set writable.';
-                        $modx->log(modX::LOG_LEVEL_INFO, $message);
+                        $modx->log(xPDO::LOG_LEVEL_INFO, $message);
                         $output .= $message . "\n";
                         $success = false;
                     }

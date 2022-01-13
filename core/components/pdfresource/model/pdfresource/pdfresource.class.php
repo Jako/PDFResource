@@ -135,7 +135,7 @@ class PDFResource
         require $this->getOption('corePath') . 'vendor/autoload.php';
 
         if (!$this->modx->loadClass('modpdf.modpdf', $this->getOption('modelPath'), true, true)) {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not load modPDF class.');
             return;
         }
 
@@ -167,13 +167,13 @@ class PDFResource
         // Create folders
         if (!@is_dir($this->getOption('pdfPath'))) {
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath'))) {
-                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
+                $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not create the pdf output path: ' . $this->getOption('pdfPath'), '', 'PDFResource');
                 return '';
             }
         }
         if (!is_null($aliasPath) && !@is_dir($this->getOption('pdfPath') . $aliasPath)) {
             if (!$this->modx->cacheManager->writeTree($this->getOption('pdfPath') . $aliasPath)) {
-                $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
+                $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not create the pdf alias path: ' . $this->getOption('pdfPath') . $aliasPath, '', 'PDFResource');
                 return '';
             }
         }
@@ -264,7 +264,7 @@ class PDFResource
                 return $this->pdf->Output('', 'S');
             }
         } catch (MpdfException $e) {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not generate the pdf: ' . $e->getMessage(), '', 'PDFResource');
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not generate the pdf: ' . $e->getMessage(), '', 'PDFResource');
             return '';
         }
     }

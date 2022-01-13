@@ -105,7 +105,7 @@ class modPDF extends mPDF
                 if (isset($fs['BI']) && $fs['BI']) { $this->available_unifonts[] = $f.'BI'; }
             }
         } elseif ($this->modx->getOption('customFonts', $options, '') != '') {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'customFonts does not contain a JSON encoded array.', '', 'modPDF');
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'customFonts does not contain a JSON encoded array.', '', 'modPDF');
         }
 
         $this->default_available_fonts = $this->available_unifonts;
@@ -140,7 +140,7 @@ class modPDF extends mPDF
      */
     function Error($msg)
     {
-        $this->modx->log(modX::LOG_LEVEL_ERROR, $msg, '', 'modPDF');
+        $this->modx->log(xPDO::LOG_LEVEL_ERROR, $msg, '', 'modPDF');
         throw new MpdfException($msg);
     }
 }
