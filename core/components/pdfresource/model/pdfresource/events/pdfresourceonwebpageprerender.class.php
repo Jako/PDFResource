@@ -21,6 +21,7 @@ class PDFResourceOnWebPagePrerender extends PDFResourcePlugin
                     header('Content-Type: application/pdf');
                     header('Content-Disposition:inline;filename=' . $resource->get('alias') . '.pdf');
                     echo $this->pdfresource->createPDF($resource);
+                    @session_write_close();
                     exit;
                 }
             }
