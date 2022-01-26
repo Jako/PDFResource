@@ -316,22 +316,22 @@
     Enable the PDF generation
   </a>
   
-    <nav class="md-nav" aria-label="Enable the PDF generation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pdf-generation-on-the-fly" class="md-nav__link">
     PDF generation on the fly
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-options" class="md-nav__link">
     PDF options
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="PDF options">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#resource-based-pdf-options" class="md-nav__link">
@@ -353,21 +353,26 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pdf-content-template" class="md-nav__link">
     PDF content template
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-styles-template" class="md-nav__link">
     PDF styles template
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#custom-fonts" class="md-nav__link">
     Custom fonts
   </a>
@@ -386,8 +391,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-permissions" class="md-nav__link">
     PDF permissions
   </a>
@@ -406,8 +411,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#other-mpdf-options" class="md-nav__link">
     Other mPDF options
   </a>
@@ -426,23 +431,18 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#linking-to-a-generated-pdf" class="md-nav__link">
     Linking to a generated PDF
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#debug-htmlcss-output" class="md-nav__link">
     Debug HTML/CSS output
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -482,22 +482,22 @@
     Enable the PDF generation
   </a>
   
-    <nav class="md-nav" aria-label="Enable the PDF generation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pdf-generation-on-the-fly" class="md-nav__link">
     PDF generation on the fly
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-options" class="md-nav__link">
     PDF options
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="PDF options">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#resource-based-pdf-options" class="md-nav__link">
@@ -519,21 +519,26 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pdf-content-template" class="md-nav__link">
     PDF content template
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-styles-template" class="md-nav__link">
     PDF styles template
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#custom-fonts" class="md-nav__link">
     Custom fonts
   </a>
@@ -552,8 +557,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pdf-permissions" class="md-nav__link">
     PDF permissions
   </a>
@@ -572,8 +577,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#other-mpdf-options" class="md-nav__link">
     Other mPDF options
   </a>
@@ -592,23 +597,18 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#linking-to-a-generated-pdf" class="md-nav__link">
     Linking to a generated PDF
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#debug-htmlcss-output" class="md-nav__link">
     Debug HTML/CSS output
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -639,7 +639,7 @@ saved with the current alias path to <code>{assets_url}/pdf/</code></p>
 <p>So after the installation you only have to assign the template variable
 <code>create_pdf</code> to the templates of the resources that should be converted to PDF
 and check that template variable in the resource (checked by default).</p>
-<h3 id="pdf-generation-on-the-fly">PDF generation on the fly</h3>
+<h2 id="pdf-generation-on-the-fly">PDF generation on the fly</h2>
 <p>To generate PDF files on the fly with <em>PDFResource</em> you have to assign the
 template variable <code>live_pdf</code> to a template (the template variable name could be
 changed in MODX system settings) and check this template variable on a resource.
@@ -649,7 +649,7 @@ could be saved with the current alias.</p>
 <p class="admonition-title">Caution</p>
 <p>This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.</p>
 </div>
-<h3 id="pdf-options">PDF options</h3>
+<h2 id="pdf-options">PDF options</h2>
 <p>By default the PDF content and the CSS code for the PDF could be changed with
 the chunks <code>tplPDF</code> and <code>tplCSS</code>. Some other PDF options (pagesize, margins
 etc.) could be set in MODX system setting.</p>
@@ -819,19 +819,19 @@ options without the prefix <code>pdfresource.</code>.</p>
     &quot;mgr&quot;: 20
 }
 </code></pre></div>
-<h3 id="pdf-content-template">PDF content template</h3>
+<h2 id="pdf-content-template">PDF content template</h2>
 <p>The content of the PDF is filled with the chunk defined by <code>pdfresource.pdfTpl</code>
 MODX system setting (or on resource base by the <code>pdf_options</code> template
 variable). By default PDFResource uses the <code>tplPDF</code> chunk. You could fill this
 chunk like a normal MODX template with resource placeholders, snippet calls etc.
 Since the PDF is not created on the fly, the content is fixed after saving the
 resource.</p>
-<h3 id="pdf-styles-template">PDF styles template</h3>
+<h2 id="pdf-styles-template">PDF styles template</h2>
 <p>The style of the PDF is set with the chunk defined by <code>pdfresource.cssTpl</code> MODX
 system setting (or on resource base by the <code>pdf_options</code> template variable). By
 default PDFResource uses the <code>tplCSS</code> chunk. There are some limitations with
 mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on root level).</p>
-<h3 id="custom-fonts">Custom fonts</h3>
+<h2 id="custom-fonts">Custom fonts</h2>
 <p>To use custom fonts in your PDF files, you have to add them as JSON encoded
 object in the MODX system setting <code>pdfresource.customFonts</code>. See
 <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a>
@@ -846,7 +846,7 @@ in the mPDF documentation a the full description.</p>
 </code></pre></div>
 <p>Please copy the font files to
 <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
-<h3 id="pdf-permissions">PDF permissions</h3>
+<h2 id="pdf-permissions">PDF permissions</h2>
 <p>The generated PDF could be encrypted to set user permissions. An user password
 to open the file and an owner password to bypass and/or change the permission
 restrictions could be set. The PDF encryption is enabled if the user or the
@@ -860,7 +860,7 @@ end-user of the generated PDF.</p>
 <h4 id="example_2">Example</h4>
 <div class="highlight"><pre><span></span><code>[&quot;copy&quot;, &quot;print&quot;]
 </code></pre></div>
-<h3 id="other-mpdf-options">Other mPDF options</h3>
+<h2 id="other-mpdf-options">Other mPDF options</h2>
 <p>If you want to set other mPDF options to modify the PDF file creation, you could
 call the <a href="https://mpdf.github.io/reference/mpdf-functions/overview.html">mPDF class
 methods</a> with
@@ -886,13 +886,13 @@ and fill it with</p>
   ]
 }
 </code></pre></div>
-<h3 id="linking-to-a-generated-pdf">Linking to a generated PDF</h3>
+<h2 id="linking-to-a-generated-pdf">Linking to a generated PDF</h2>
 <p>All generated static PDF files are saved with the aliaspath of the generating
 resource. If you want to create a link to that PDF file, you could use the
 following code:</p>
 <div class="highlight"><pre><span></span><code>&lt;a href=&quot;[[*id:pdfresourcelink]]&quot;&gt;PDF&lt;/a&gt;
 </code></pre></div>
-<h3 id="debug-htmlcss-output">Debug HTML/CSS output</h3>
+<h2 id="debug-htmlcss-output">Debug HTML/CSS output</h2>
 <p>The pre-rendered HTML or CSS output handled by mPDF can be debugged with the
 <code>mode</code> url parameter. For this you have to enable the <code>pdfresource.debug</code> system
 setting and load the PDF generating resource with <code>mode=html</code> or <code>mode=css</code> as
