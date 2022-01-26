@@ -434,6 +434,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debug-htmlcss-output" class="md-nav__link">
+    Debug HTML/CSS output
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -593,6 +600,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debug-htmlcss-output" class="md-nav__link">
+    Debug HTML/CSS output
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -639,7 +653,7 @@ could be saved with the current alias.</p>
 <p>By default the PDF content and the CSS code for the PDF could be changed with
 the chunks <code>tplPDF</code> and <code>tplCSS</code>. Some other PDF options (pagesize, margins
 etc.) could be set in MODX system setting.</p>
-<p>The following MODX system settings are available in the namespace <code>pdfresource</code>:</p>
+<p>PDFResource uses the following system settings in the namespace <code>pdfresource</code>:</p>
 <table>
 <thead>
 <tr>
@@ -878,6 +892,13 @@ resource. If you want to create a link to that PDF file, you could use the
 following code:</p>
 <div class="highlight"><pre><span></span><code>&lt;a href=&quot;[[*id:pdfresourcelink]]&quot;&gt;PDF&lt;/a&gt;
 </code></pre></div>
+<h3 id="debug-htmlcss-output">Debug HTML/CSS output</h3>
+<p>The pre-rendered HTML or CSS output handled by mPDF can be debugged with the
+<code>mode</code> url parameter. For this you have to enable the <code>pdfresource.debug</code> system
+setting and load the PDF generating resource with <code>mode=html</code> or <code>mode=css</code> as
+URL parameter. The result will be the HTML or CSS code that is handled by mPDF.</p>
+<p>That way you can identify wrong image paths etc. in this code. Don't forget to
+disable the <code>pdfresource.debug</code> system setting afterwards.</p>
                 
               
               
@@ -919,7 +940,7 @@ following code:</p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy; 2015-2019 <a href="https://treehillstudio.com">Treehill Studio</a>
+            &copy; 2015-2022 <a href="https://treehillstudio.com">Treehill Studio</a>
           </div>
         
         Made with
