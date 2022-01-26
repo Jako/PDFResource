@@ -5,11 +5,9 @@
  * @package pdfresource
  * @subpackage lexicon
  */
-
 $_lang['area_pdf'] = 'PDF';
 $_lang['area_resource'] = 'Resource';
 $_lang['area_template'] = 'Template';
-
 $_lang['setting_pdfresource.cssTpl'] = 'PDF style chunk';
 $_lang['setting_pdfresource.cssTpl_desc'] = 'Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.';
 $_lang['setting_pdfresource.customFonts'] = 'Custom Fonts';

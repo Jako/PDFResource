@@ -22,3 +22,13 @@ https://jako.github.io/PDFResource/
 ## GitHub Repository
 
 https://github.com/Jako/PDFResource
+
+## Third party licenses
+
+This extra includes third party software, for which we are thankful.
+
+- mPDF, GPL 2.0 only License
+- My C-Labs DeepCopy, MIT License
+- Paragon Initiative Enterprises random_compat, MIT License
+- PHP-FIG PSR Log, MIT License
+- Setasign FPDI, MIT License

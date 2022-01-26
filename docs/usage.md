@@ -185,3 +185,13 @@ following code:
 ```
 <a href="[[*id:pdfresourcelink]]">PDF</a>
 ```
+
+### Debug HTML/CSS output
+
+The pre-rendered HTML or CSS output handled by mPDF can be debugged with the
+`mode` url parameter. For this you have to enable the `pdfresource.debug` system
+setting and load the PDF generating resource with `mode=html` or `mode=css` as
+URL parameter. The result will be the HTML or CSS code that is handled by mPDF.
+
+That way you can identify wrong image paths etc. in this code. Don't forget to
+disable the `pdfresource.debug` system setting afterwards.

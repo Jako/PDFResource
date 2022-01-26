@@ -25,7 +25,7 @@ if (isset($object) && isset($object->xpdo)) {
         $modx->getService('xPDOTransport', 'xpdo.transport.xPDOTransport', MODX_CORE_PATH, '');
     }
     $resolver = false;
-    $options = array(xPDOTransport::PACKAGE_ACTION => xPDOTransport::ACTION_INSTALL);
+    $options = [xPDOTransport::PACKAGE_ACTION => xPDOTransport::ACTION_INSTALL];
 }
 
 $success = true;
@@ -38,12 +38,12 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         $assetspath = $modx->getOption('assets_path');
 
         // Create folders
-        $folders = array(
+        $folders = [
             $assetspath . 'pdf',
             $corepath . 'vendor/mpdf/mpdf/graph_cache',
             $corepath . 'vendor/mpdf/mpdf/tmp',
             $corepath . 'vendor/mpdf/mpdf/ttfontdata'
-        );
+        ];
 
         $cacheManager = $modx->getCacheManager();
         foreach ($folders as $folder) {
