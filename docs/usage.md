@@ -9,7 +9,7 @@ So after the installation you only have to assign the template variable
 `create_pdf` to the templates of the resources that should be converted to PDF
 and check that template variable in the resource (checked by default).
 
-### PDF generation on the fly
+## PDF generation on the fly
 
 To generate PDF files on the fly with *PDFResource* you have to assign the
 template variable `live_pdf` to a template (the template variable name could be
@@ -20,7 +20,7 @@ could be saved with the current alias.
 !!! caution 
     This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.
 
-### PDF options
+## PDF options
 
 By default the PDF content and the CSS code for the PDF could be changed with
 the chunks `tplPDF` and `tplCSS`. Some other PDF options (pagesize, margins
@@ -79,7 +79,7 @@ options without the prefix `pdfresource.`.
 }
 ```
 
-### PDF content template
+## PDF content template
 
 The content of the PDF is filled with the chunk defined by `pdfresource.pdfTpl`
 MODX system setting (or on resource base by the `pdf_options` template
@@ -88,14 +88,14 @@ chunk like a normal MODX template with resource placeholders, snippet calls etc.
 Since the PDF is not created on the fly, the content is fixed after saving the
 resource.
 
-### PDF styles template
+## PDF styles template
 
 The style of the PDF is set with the chunk defined by `pdfresource.cssTpl` MODX
 system setting (or on resource base by the `pdf_options` template variable). By
 default PDFResource uses the `tplCSS` chunk. There are some limitations with
 mPDF and CSS (i.e. `position: absolute` works only with elements on root level).
 
-### Custom fonts
+## Custom fonts
 
 To use custom fonts in your PDF files, you have to add them as JSON encoded
 object in the MODX system setting `pdfresource.customFonts`. See
@@ -116,7 +116,7 @@ in the mPDF documentation a the full description.
 Please copy the font files to
 **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
 
-### PDF permissions
+## PDF permissions
 
 The generated PDF could be encrypted to set user permissions. An user password
 to open the file and an owner password to bypass and/or change the permission
@@ -137,7 +137,7 @@ end-user of the generated PDF.
 ["copy", "print"]
 ```
 
-### Other mPDF options
+## Other mPDF options
 
 If you want to set other mPDF options to modify the PDF file creation, you could
 call the [mPDF class
@@ -176,7 +176,7 @@ or fill the `PDF Options` template variable of a resource with
 }
 ```
 
-### Linking to a generated PDF
+## Linking to a generated PDF
 
 All generated static PDF files are saved with the aliaspath of the generating
 resource. If you want to create a link to that PDF file, you could use the
@@ -186,7 +186,7 @@ following code:
 <a href="[[*id:pdfresourcelink]]">PDF</a>
 ```
 
-### Debug HTML/CSS output
+## Debug HTML/CSS output
 
 The pre-rendered HTML or CSS output handled by mPDF can be debugged with the
 `mode` url parameter. For this you have to enable the `pdfresource.debug` system
