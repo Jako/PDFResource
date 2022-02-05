@@ -89,6 +89,7 @@ class PDFResource
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/' . $this->namespace . '/');
         $pdfPath = $this->getOption('pdf_path', $options, $this->modx->getOption('assets_path') . 'pdf/');
         $pdfUrl = $this->getOption('pdf_url', $options, $this->modx->getOption('assets_url') . 'pdf/');
+        $modxversion = $this->modx->getVersionData();
 
         // Load some default paths for easier management
         $this->options = array_merge([
@@ -117,6 +118,7 @@ class PDFResource
         // Add default options
         $this->options = array_merge($this->options, [
             'debug' => (bool)$this->modx->getOption($this->namespace . '.debug', null, '0') == 1,
+            'modxversion' => $modxversion['version'],
         ]);
 
         $lexicon = $this->modx->getService('lexicon', 'modLexicon');

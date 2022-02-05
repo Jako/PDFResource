@@ -23,6 +23,10 @@ https://jako.github.io/PDFResource/
 
 https://github.com/Jako/PDFResource
 
+## License
+
+The project is licensed under the [GPLv2 license](https://github.com/Jako/PDFResource/blob/master/core/components/pdfresource/docs/license.md).
+
 ## Third party licenses
 
 This extra includes third party software, for which we are thankful.
