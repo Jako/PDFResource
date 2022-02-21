@@ -8,7 +8,6 @@
 
 namespace TreehillStudio\PDFResource\Snippets;
 
-use DateInterval;
 use modX;
 use TreehillStudio\PDFResource\PDFResource;
 
@@ -22,11 +21,13 @@ abstract class Snippet
      * @var modX $modx
      */
     protected $modx;
+
     /**
      * A reference to the PDFResource instance
      * @var PDFResource $pdfresource
      */
     protected $pdfresource;
+
     /**
      * The snippet properties
      * @var array $properties
@@ -50,7 +51,6 @@ abstract class Snippet
         $this->modx =& $modx;
 
         $corePath = $this->modx->getOption('pdfresource.core_path', null, $this->modx->getOption('core_path') . 'components/pdfresource/');
-        /** @var PDFResource $pdfresource */
         $this->pdfresource = $this->modx->getService('pdfresource', 'PDFResource', $corePath . 'model/pdfresource/', [
             'core_path' => $corePath
         ]);
@@ -132,26 +132,6 @@ abstract class Snippet
     protected function getExplodeSeparated($value, $separator = ',')
     {
         return (is_string($value) && $value !== '') ? array_map('trim', explode($separator, $value)) : [];
-    }
-
-    /**
-     * @param mixed $value
-     * @param string $default
-     * @return string
-     */
-    protected function getNormalizeDate($value, $default = 'today 0:00')
-    {
-        return $this->pdfresource->normalizeDate($value, $default);
-    }
-
-    /**
-     * @param mixed $value
-     * @param string $default
-     * @return string
-     */
-    protected function getDateInterval($value, $default = '+1 day')
-    {
-        return (!empty($value) && DateInterval::createFromDateString($value)) ? $value : $default;
     }
 
     /**
