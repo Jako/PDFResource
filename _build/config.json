@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "package": {
     "elements": {
       "chunks": [
@@ -149,6 +149,12 @@
         "value": ""
       },
       {
+        "key": "customFontFolder",
+        "type": "textfield",
+        "area": "pdf",
+        "value": ""
+      },
+      {
         "key": "generateOnPrerender",
         "type": "combo-boolean",
         "area": "pdf",
@@ -237,18 +243,14 @@
     "license": "docs/license.md",
     "changelog": "docs/changelog.md",
     "options": {
-      "empty_folders": {
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/graph_cache": "*",
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/tmp": "*",
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfontdata": "*",
-        "{package_path}core/components/pdfresource/vendor/mpdf/mpdf/ttfonts": "!{DejaVu*,Free*}"
-      }
+      "composer": true
     },
     "setupOptions": {
       "source": "setup.options.php"
     },
     "resolver": {
       "after": [
+        "resolve.composer.php",
         "resolve.folders.php",
         "resolve.cleanup.php",
         "resolve.treehillstudio.php"
