@@ -101,8 +101,11 @@ class modPDF extends Mpdf
 
         $customFonts = $this->getOption('customFonts', $options, '[]');
         $customFonts = (!is_array($customFonts)) ? json_decode($customFonts, true) : $customFonts;
+        $customFontsFolder = $this->getOption('customFontsFolder', $options, '');
+        $customFontsFolder = realpath($customFontsFolder) ? realpath($customFontsFolder) . '/' : false;
 
-        if (is_array($customFonts)) {
+        if (is_array($customFonts) && $customFontsFolder) {
+            $this->AddFontDirectory($customFontsFolder);
             foreach ($customFonts as $f => $fs) {
                 $this->fontdata[$f] = $fs;
                 if (isset($fs['R']) && $fs['R']) {
@@ -117,6 +120,9 @@ class modPDF extends Mpdf
                 if (isset($fs['BI']) && $fs['BI']) {
                     $this->available_unifonts[] = $f . 'BI';
                 }
+            }
+            if ($this->getOption('defaultFont', $options, '')) {
+                $this->SetDefaultFont($this->getOption('defaultFont', $options, ''));
             }
         } elseif ($this->getOption('customFonts', $options, '') != '') {
             $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'customFonts does not contain a JSON encoded array.', '', 'modPDF');

@@ -149,10 +149,10 @@
         "value": ""
       },
       {
-        "key": "customFontFolder",
+        "key": "customFontsFolder",
         "type": "textfield",
         "area": "pdf",
-        "value": ""
+        "value": "{core_path}components/customfonts/"
       },
       {
         "key": "generateOnPrerender",
@@ -183,6 +183,18 @@
         "type": "textfield",
         "area": "pdf",
         "value": "[]"
+      },
+      {
+        "key": "author",
+        "type": "textfield",
+        "area": "pdf",
+        "value": ""
+      },
+      {
+        "key": "creator",
+        "type": "textfield",
+        "area": "pdf",
+        "value": ""
       },
       {
         "key": "pdfTv",

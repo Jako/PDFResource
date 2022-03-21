@@ -43,7 +43,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '1.6.0';
+    public $version = '2.0.0';
 
     /**
      * The class options
@@ -168,7 +168,8 @@ class PDFResource
             'mgh' => $this->getOption('mgh', $options),
             'mgf' => $this->getOption('mgf', $options),
             'orientation' => $this->getOption('orientation', $options),
-            'customFonts' => $this->getOption('customFonts', $options)
+            'customFonts' => $this->getOption('customFonts', $options),
+            'customFontsFolder' => $this->getOption('customFontsFolder', $options)
         ]);
     }
 
@@ -260,8 +261,8 @@ class PDFResource
             ]);
 
             $this->pdf->SetTitle($resource->get('pagetitle'));
-            $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
-            $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFResource/mPDF'));
+            $this->pdf->SetAuthor($this->modx->getOption($this->namespace . '.author', $pdfOptions, $this->modx->getOption('site_name'), true));
+            $this->pdf->SetCreator($this->modx->getOption($this->namespace . '.creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by ' . $this->modx->lexicon('pdfresource') . '/mPDF', true));
 
             // Password protection
             $userPassword = $this->getOption('userPassword', $pdfOptions, '');
