@@ -37,6 +37,14 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 
         <p>PDFResource will be upgraded. This open source extra was developed by
         Treehill Studio - MODX development in Münsterland.</p>
+        
+        <p class="red">If you update to Version 2.x from 1.x, please notice 
+        that your custom fonts are searched in the folder referenced with the
+        pdfresources.customFontsFolder system setting after the update. Please
+        move the custom fonts to the new default custom fonts folder
+        `{core_path}components/customfonts/` or create a backup of the folder
+        `{core_path}/components/pdfresource/vendor/mpdf/mpdf/ttfonts` before
+        updating.</p>
 
         During the upgrade, we will collect some statistical data (the hostname,
         the IP address, the PHP version, the MODX version of your MODX

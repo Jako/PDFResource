@@ -30,37 +30,38 @@ PDFResource uses the following system settings in the namespace `pdfresource`:
 
 Key | Description | Default
 ----|-------------|--------
-pdfresource.mode | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -
-pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
-pdfresource.defaultFontSize | Default font size of the generated PDF | 0
+**Area PDF** | |
+pdfresource.author | Author of the PDF file | `site_name` system setting
+pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFResource/mPDF`
+pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to the folder referenced in the `pdfresource.customFontsFolder` system setting. | -
+pdfresource.customFontsFolder | Path to the custom fonts folder. If the path is not set or available, `pdfresource.customFonts` is not used. The `{core_path}`, `{base_path}` and `{assets_path}` placeholders can be used in this setting. | `{core_path}components/customfonts/`
 pdfresource.defaultFont | Default font of the generated PDF | -
+pdfresource.defaultFontSize | Default font size of the generated PDF | 0
+pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
+pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
+pdfresource.mPDFMethods | JSON encoded array of callable mPDF method names. | []
+pdfresource.mgb | Bottom margin of the generated PDF | 16
+pdfresource.mgf | Footer margin of the generated PDF | 9
+pdfresource.mgh | Header margin of the generated PDF | 9
 pdfresource.mgl | Bottom margin of the generated PDF | 15
 pdfresource.mgr | Right margin of the generated PDF | 15
 pdfresource.mgt | Top margin of the generated PDF | 16
-pdfresource.mgb | Bottom margin of the generated PDF | 16
-pdfresource.mgh | Header margin of the generated PDF | 9
-pdfresource.mgf | Footer margin of the generated PDF | 9
+pdfresource.mode | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -
 pdfresource.orientation | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | P
-pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file. | tplPDF
-pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file. | tplCSS
+pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
+pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation for possible values. | []
+pdfresource.userPassword | Password required to open the generated PDF. | -
+**Area Resource** | |
 pdfresource.pdfTv | Name ot the template variable that activates the PDF generation. | create_pdf
 pdfresource.pdfTvLive | Name of the template variable that activates the on the fly PDF generation. | live_pdf
 pdfresource.pdfTvOptions | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change. | pdf_options
+**Area System and Server ** | |
+pdfresource.debug | Log debug information in the MODX error log. | No
+**Area Template ** | |
+pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file. | tplCSS
+pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file. | tplPDF
 pdfresource.processTVs | Process template variables during PDF generation. | Yes
 pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
-pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**. | -
-pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
-pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation for possible values. | []
-pdfresource.userPassword | Password required to open the generated PDF. | -
-pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
-pdfresource.mPDFMethods | JSON encoded array of callable mPDF method names. | []
-
-The following MODX system settings have to be created to use them:
-
-Key | Description | Default
-----|-------------|--------
-pdfresource.author | Author of the PDF file | `site_name` system setting
-pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFResource/mPDF`
 
 ### Resource based PDF options
 
@@ -99,7 +100,7 @@ mPDF and CSS (i.e. `position: absolute` works only with elements on root level).
 
 To use custom fonts in your PDF files, you have to add them as JSON encoded
 object in the MODX system setting `pdfresource.customFonts`. See
-[Fonts](https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example)
+[Fonts](https://mpdf.github.io/fonts-languages/fonts-in-mpdf-7-x.html#example)
 in the mPDF documentation a the full description.
 
 #### Example
@@ -113,8 +114,9 @@ in the mPDF documentation a the full description.
 }
 ```
 
-Please copy the font files to
-**{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
+Please copy the font files to the folder referenced in the MODX system setting
+`pdfresource.customFontsFolder.` Before PDFResource version 2 they have to
+copied to **{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/**.
 
 ## PDF permissions
 
