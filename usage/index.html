@@ -457,6 +457,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributors/" class="md-nav__link">
+        Contributors
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -667,14 +682,34 @@ etc.) could be set in MODX system setting.</p>
 </thead>
 <tbody>
 <tr>
-<td>pdfresource.mode</td>
-<td>mPDF mode, see <a href="https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters">mode parameter</a> and <a href="https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html">choosing a configuration</a> in the mPDF documentation for possible values.</td>
+<td><strong>Area PDF</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pdfresource.author</td>
+<td>Author of the PDF file</td>
+<td><code>site_name</code> system setting</td>
+</tr>
+<tr>
+<td>pdfresource.creator</td>
+<td>Creator of the PDF file</td>
+<td><code>site_url</code> system setting + <code>powered by PDFResource/mPDF</code></td>
+</tr>
+<tr>
+<td>pdfresource.customFonts</td>
+<td>JSON encoded object of custom fonts, see <a href="#custom-fonts">Custom fonts</a> for an example. Please copy the font files to the folder referenced in the <code>pdfresource.customFontsFolder</code> system setting.</td>
 <td>-</td>
 </tr>
 <tr>
-<td>pdfresource.format</td>
-<td>PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).</td>
-<td>A4</td>
+<td>pdfresource.customFontsFolder</td>
+<td>Path to the custom fonts folder. If the path is not set or available, <code>pdfresource.customFonts</code> is not used. The <code>{core_path}</code>, <code>{base_path}</code> and <code>{assets_path}</code> placeholders can be used in this setting.</td>
+<td><code>{core_path}components/customfonts/</code></td>
+</tr>
+<tr>
+<td>pdfresource.defaultFont</td>
+<td>Default font of the generated PDF</td>
+<td>-</td>
 </tr>
 <tr>
 <td>pdfresource.defaultFontSize</td>
@@ -682,9 +717,34 @@ etc.) could be set in MODX system setting.</p>
 <td>0</td>
 </tr>
 <tr>
-<td>pdfresource.defaultFont</td>
-<td>Default font of the generated PDF</td>
-<td>-</td>
+<td>pdfresource.format</td>
+<td>PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>pdfresource.generateOnPrerender</td>
+<td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
+<td>false</td>
+</tr>
+<tr>
+<td>pdfresource.mPDFMethods</td>
+<td>JSON encoded array of callable mPDF method names.</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>pdfresource.mgb</td>
+<td>Bottom margin of the generated PDF</td>
+<td>16</td>
+</tr>
+<tr>
+<td>pdfresource.mgf</td>
+<td>Footer margin of the generated PDF</td>
+<td>9</td>
+</tr>
+<tr>
+<td>pdfresource.mgh</td>
+<td>Header margin of the generated PDF</td>
+<td>9</td>
 </tr>
 <tr>
 <td>pdfresource.mgl</td>
@@ -702,19 +762,9 @@ etc.) could be set in MODX system setting.</p>
 <td>16</td>
 </tr>
 <tr>
-<td>pdfresource.mgb</td>
-<td>Bottom margin of the generated PDF</td>
-<td>16</td>
-</tr>
-<tr>
-<td>pdfresource.mgh</td>
-<td>Header margin of the generated PDF</td>
-<td>9</td>
-</tr>
-<tr>
-<td>pdfresource.mgf</td>
-<td>Footer margin of the generated PDF</td>
-<td>9</td>
+<td>pdfresource.mode</td>
+<td>mPDF mode, see <a href="https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters">mode parameter</a> and <a href="https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html">choosing a configuration</a> in the mPDF documentation for possible values.</td>
+<td>-</td>
 </tr>
 <tr>
 <td>pdfresource.orientation</td>
@@ -722,14 +772,24 @@ etc.) could be set in MODX system setting.</p>
 <td>P</td>
 </tr>
 <tr>
-<td>pdfresource.pdfTpl</td>
-<td>Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file.</td>
-<td>tplPDF</td>
+<td>pdfresource.ownerPassword</td>
+<td>Password for full access and permissions to the generated PDF.</td>
+<td>-</td>
 </tr>
 <tr>
-<td>pdfresource.cssTpl</td>
-<td>Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.</td>
-<td>tplCSS</td>
+<td>pdfresource.permissions</td>
+<td>JSON encoded array of permissions granted to the end-user of the PDF file. See <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation for possible values.</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>pdfresource.userPassword</td>
+<td>Password required to open the generated PDF.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Area Resource</strong></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>pdfresource.pdfTv</td>
@@ -747,6 +807,31 @@ etc.) could be set in MODX system setting.</p>
 <td>pdf_options</td>
 </tr>
 <tr>
+<td><strong>Area System and Server </strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pdfresource.debug</td>
+<td>Log debug information in the MODX error log.</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Area Template </strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pdfresource.cssTpl</td>
+<td>Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.</td>
+<td>tplCSS</td>
+</tr>
+<tr>
+<td>pdfresource.pdfTpl</td>
+<td>Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file.</td>
+<td>tplPDF</td>
+</tr>
+<tr>
 <td>pdfresource.processTVs</td>
 <td>Process template variables during PDF generation.</td>
 <td>Yes</td>
@@ -755,58 +840,6 @@ etc.) could be set in MODX system setting.</p>
 <td>pdfresource.tvPrefix</td>
 <td>Template variable prefix in the template chunk.</td>
 <td>.tv</td>
-</tr>
-<tr>
-<td>pdfresource.customFonts</td>
-<td>JSON encoded object of custom fonts, see <a href="#custom-fonts">Custom fonts</a> for an example. Please copy the font files to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</td>
-<td>-</td>
-</tr>
-<tr>
-<td>pdfresource.generateOnPrerender</td>
-<td>Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.</td>
-<td>false</td>
-</tr>
-<tr>
-<td>pdfresource.permissions</td>
-<td>JSON encoded array of permissions granted to the end-user of the PDF file. See <a href="https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters">permissions</a> in the mPDF documentation for possible values.</td>
-<td>[]</td>
-</tr>
-<tr>
-<td>pdfresource.userPassword</td>
-<td>Password required to open the generated PDF.</td>
-<td>-</td>
-</tr>
-<tr>
-<td>pdfresource.ownerPassword</td>
-<td>Password for full access and permissions to the generated PDF.</td>
-<td>-</td>
-</tr>
-<tr>
-<td>pdfresource.mPDFMethods</td>
-<td>JSON encoded array of callable mPDF method names.</td>
-<td>[]</td>
-</tr>
-</tbody>
-</table>
-<p>The following MODX system settings have to be created to use them:</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pdfresource.author</td>
-<td>Author of the PDF file</td>
-<td><code>site_name</code> system setting</td>
-</tr>
-<tr>
-<td>pdfresource.creator</td>
-<td>Creator of the PDF file</td>
-<td><code>site_url</code> system setting + <code>powered by PDFResource/mPDF</code></td>
 </tr>
 </tbody>
 </table>
@@ -837,7 +870,7 @@ mPDF and CSS (i.e. <code>position: absolute</code> works only with elements on r
 <h2 id="custom-fonts">Custom fonts</h2>
 <p>To use custom fonts in your PDF files, you have to add them as JSON encoded
 object in the MODX system setting <code>pdfresource.customFonts</code>. See
-<a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a>
+<a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-7-x.html#example">Fonts</a>
 in the mPDF documentation a the full description.</p>
 <h4 id="example_1">Example</h4>
 <div class="highlight"><pre><span></span><code>{
@@ -847,8 +880,9 @@ in the mPDF documentation a the full description.</p>
   }
 }
 </code></pre></div>
-<p>Please copy the font files to
-<strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
+<p>Please copy the font files to the folder referenced in the MODX system setting
+<code>pdfresource.customFontsFolder.</code> Before PDFResource version 2 they have to
+copied to <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.</p>
 <h2 id="pdf-permissions">PDF permissions</h2>
 <p>The generated PDF could be encrypted to set user permissions. An user password
 to open the file and an owner password to bypass and/or change the permission
@@ -935,6 +969,21 @@ disable the <code>pdfresource.debug</code> system setting afterwards.</p>
           </div>
         </a>
       
+      
+        
+        <a href="../contributors/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributors" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Contributors
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
