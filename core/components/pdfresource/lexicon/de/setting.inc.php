@@ -15,7 +15,7 @@ $_lang['setting_pdfresource.creator_desc'] = 'Ersteller der PDF-Datei';
 $_lang['setting_pdfresource.cssTpl'] = 'PDF-Style-Chunk';
 $_lang['setting_pdfresource.cssTpl_desc'] = 'Template-Chunk für den PDF-Style. Sie könnten die @FILE-Bindung verwenden, um den Chunk aus einer Datei abzurufen.';
 $_lang['setting_pdfresource.customFonts'] = 'Benutzerdefinierte Schriftarten';
-$_lang['setting_pdfresource.customFonts_desc'] = 'JSON-kodiertes Objekt mit benutzerdefinierten Schriftarten, siehe <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-6-x.html#example">Fonts</a> in der mPDF-Dokumentation für das Array-Format. Bitte kopieren Sie die Schriftdateien nach <strong>{core_path}components/pdfresource/vendor/mpdf/mpdf/ttfonts/</strong>.';
+$_lang['setting_pdfresource.customFonts_desc'] = 'JSON-kodiertes Objekt mit benutzerdefinierten Schriftarten, siehe <a href="https://mpdf.github.io/fonts-languages/fonts-in-mpdf-7-x.html#example">Fonts</a> in der mPDF-Dokumentation für das Array-Format. Bitte kopieren Sie die Schriftdateien in den Ordner, auf den in der Systemeinstellung <strong>pdfresource.customFontsFolder</strong> verwiesen wird.';
 $_lang['setting_pdfresource.customFontsFolder'] = 'Ordner für benutzerdefinierte Schriftarten';
 $_lang['setting_pdfresource.customFontsFolder_desc'] = 'Der Ordner, der die benutzerdefinierten Schriftarten enthält. Die Platzhalter {core_path}, {base_path} und {assets_path} können in dieser Einstellung benutzt werden.';
 $_lang['setting_pdfresource.debug'] = 'Debug';
