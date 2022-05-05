@@ -417,7 +417,11 @@ class PDFResource
     public function getParentPath($resource)
     {
         if ($resource->get('parent')) {
-            return preg_replace('#(\.[^./]*)$#', '', rtrim($this->modx->makeUrl($resource->get('parent')), $this->modx->getOption('container_suffix'))) . '/';
+            $containerSuffix = $this->modx->getOption('container_suffix');
+            // remove a container suffix from the end of the url
+            $url = substr($this->modx->makeUrl($resource->get('parent')), 0, -strlen($containerSuffix));
+            // remove a remaining extension from the end of the url
+            return preg_replace('#(\.[^./]*)$#', '', $url) . '/';
         } else {
             return '';
         }
