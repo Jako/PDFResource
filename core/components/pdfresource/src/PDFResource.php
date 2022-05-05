@@ -421,7 +421,7 @@ class PDFResource
             // remove a container suffix from the end of the url
             $url = substr($this->modx->makeUrl($resource->get('parent')), 0, -strlen($containerSuffix));
             // remove a remaining extension from the end of the url
-            return preg_replace('#(\.[^./]*)$#', '', $url) . '/';
+            return preg_replace('#(\.[^.]*)$#', '', $url) . '/';
         } else {
             return '';
         }
