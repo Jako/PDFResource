@@ -5,10 +5,15 @@
     {
       "name": "Thomas Jakobi",
       "email": "office@treehillstudio.com",
-      "homepage": "https://github.com/Jako"
+      "homepage": "https://treehillstudio.com"
     }
   ],
   "license": "GPL-2.0-or-later",
+  "config": {
+    "platform": {
+      "php": "7.2.5"
+    }
+  },
   "require": {
     "php": ">=7.2.5",
     "mpdf/mpdf": "^8.0"

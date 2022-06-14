@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2022-03-28
+
+### Fixed
+
+- Fix removing the container suffix, when it is not a slash [#38]
+
+## [2.0.0] - 2022-03-28
+
+### Added
+
+- Add pdfresource.customFontsFolder system setting for custom fonts folder
+- Add empty pdfresource.author system setting to make manual creation unnecessary
+- Add empty pdfresource.creator system setting to make manual creation unnecessary
+
+### Changed
+
+- Install the Composer dependencies directly on the server (semantic major version change because of the custom fonts location)
+
+### Fixed
+
+- Bugfix for default font is always 'dejavusanscondensed' when using custom fonts [#15]
+
 ## [1.6.0] - 2022-01-27
 
 ### Added
@@ -23,13 +45,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.5.10] - 2019-10-20
 
-### Changed
+### Fixed
 
 - Bugfix for saving the PDF with an empty parent resource path
 
 ## [1.5.9] - 2019-09-20
 
-### Changed
+### Fixed
 
 - Bugfix for creating the parent alias with a not default container_suffix system setting
 
@@ -44,18 +66,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - GPM options for empty temporary vendor folders
+
+### Fixed
+
 - Bugfix for creating temporary vendor folders
 - Bugfix for allowed memory size exhausted
 
 ## [1.5.6] - 2017-09-18
 
-### Changed
+### Fixed
 
 - Bugfix for creating folders recursive
 
 ## [1.5.5] - 2016-10-14
 
-### Changed
+### Fixed
 
 - Bugfix for PHP version specific issues
 
@@ -73,13 +98,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.5.2] - 2016-04-16
 
-### Changed
+### Fixed
 
 - Bugfix for wrong PDF margin header
 
 ## [1.5.1] - 2016-03-15
 
-### Changed
+### Fixed
 
 - Bugfix for resource based PDF options
 
@@ -107,7 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.3] - 2015-11-04
 
-### Changed
+### Fixed
 
 - Bugfix for create_pdf template variable is assigned to the template
 

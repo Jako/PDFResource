@@ -12,6 +12,7 @@ nav:
 - Description: 'index.md'
 - Installation: 'installation.md'
 - Usage: 'usage.md'
+- Contributors: 'contributors.md'
 
 extra:
   analytics:

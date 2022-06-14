@@ -2,7 +2,7 @@
 
 # PDFResource
 
-Convert MODX resources to PDF files using mPDF (https://mpdf.github.io/).
+Convert MODX resources to PDF files.
 
 ## Features
 

@@ -3,7 +3,7 @@
  * PDFResource Plugin
  *
  * @package pdfresource
- * @subpackage pluginfile
+ * @subpackage plugin
  *
  * @var modX $modx
  * @var array $scriptProperties

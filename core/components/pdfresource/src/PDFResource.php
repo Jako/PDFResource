@@ -43,7 +43,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '1.6.0';
+    public $version = '2.0.1';
 
     /**
      * The class options
@@ -89,6 +89,7 @@ class PDFResource
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/' . $this->namespace . '/');
         $pdfPath = $this->getOption('pdf_path', $options, $this->modx->getOption('assets_path') . 'pdf/');
         $pdfUrl = $this->getOption('pdf_url', $options, $this->modx->getOption('assets_url') . 'pdf/');
+        $modxversion = $this->modx->getVersionData();
 
         // Load some default paths for easier management
         $this->options = array_merge([
@@ -117,6 +118,7 @@ class PDFResource
         // Add default options
         $this->options = array_merge($this->options, [
             'debug' => (bool)$this->modx->getOption($this->namespace . '.debug', null, '0') == 1,
+            'modxversion' => $modxversion['version'],
         ]);
 
         $lexicon = $this->modx->getService('lexicon', 'modLexicon');
@@ -166,7 +168,8 @@ class PDFResource
             'mgh' => $this->getOption('mgh', $options),
             'mgf' => $this->getOption('mgf', $options),
             'orientation' => $this->getOption('orientation', $options),
-            'customFonts' => $this->getOption('customFonts', $options)
+            'customFonts' => $this->getOption('customFonts', $options),
+            'customFontsFolder' => $this->getOption('customFontsFolder', $options)
         ]);
     }
 
@@ -258,8 +261,8 @@ class PDFResource
             ]);
 
             $this->pdf->SetTitle($resource->get('pagetitle'));
-            $this->pdf->SetAuthor($this->getOption('author', $pdfOptions, $this->modx->getOption('site_name')));
-            $this->pdf->SetCreator($this->getOption('creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by PDFResource/mPDF'));
+            $this->pdf->SetAuthor($this->modx->getOption($this->namespace . '.author', $pdfOptions, $this->modx->getOption('site_name'), true));
+            $this->pdf->SetCreator($this->modx->getOption($this->namespace . '.creator', $pdfOptions, $this->modx->getOption('site_url') . ' powered by ' . $this->modx->lexicon('pdfresource') . '/mPDF', true));
 
             // Password protection
             $userPassword = $this->getOption('userPassword', $pdfOptions, '');
@@ -414,7 +417,11 @@ class PDFResource
     public function getParentPath($resource)
     {
         if ($resource->get('parent')) {
-            return preg_replace('#(\.[^./]*)$#', '', rtrim($this->modx->makeUrl($resource->get('parent')), $this->modx->getOption('container_suffix'))) . '/';
+            $containerSuffix = $this->modx->getOption('container_suffix');
+            // remove a container suffix from the end of the url
+            $url = substr($this->modx->makeUrl($resource->get('parent')), 0, -strlen($containerSuffix));
+            // remove a remaining extension from the end of the url
+            return preg_replace('#(\.[^.]*)$#', '', $url) . '/';
         } else {
             return '';
         }

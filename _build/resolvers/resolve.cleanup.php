@@ -47,7 +47,7 @@ if ($object->xpdo) {
                 }
             }
             if ($countFolders || $countFiles) {
-                $modx->log(xPDO::LOG_LEVEL_INFO, 'Removed ' . $countFiles . ' legacy files and ' . $countFolders . ' legacy folders before ' . $package . ' .' . $version);
+                $modx->log(xPDO::LOG_LEVEL_INFO, 'Removed ' . $countFiles . ' legacy files and ' . $countFolders . ' legacy folders before ' . $package . ' ' . $version . '.');
             }
         }
     }
@@ -68,6 +68,26 @@ if ($object->xpdo) {
                     $menu->save();
                 }
                 $action->remove();
+            }
+        }
+    }
+
+    if (!function_exists('cleanupPluginEvents')) {
+        function cleanupPluginEvents($modx, $plugin, $events)
+        {
+            foreach ($events as $event) {
+                $c = $modx->newQuery('modPluginEvent');
+                $c->leftJoin('modPlugin', 'Plugin', ['modPluginEvent.pluginid = Plugin.id']);
+                $c->where([
+                    'event' => $event,
+                    'Plugin.name' => $plugin
+                ]);
+                /** @var modPluginEvent $pluginEvent */
+                $pluginEvent = $modx->getObject('modPluginEvent', $c);
+                if ($pluginEvent) {
+                    $pluginEvent->remove();
+                    $modx->log(xPDO::LOG_LEVEL_INFO, 'Removed ' . $event . ' from ' . $plugin . ' plugin.');
+                }
             }
         }
     }
