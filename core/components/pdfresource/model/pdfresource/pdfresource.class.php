@@ -11,7 +11,7 @@
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
 /**
- * Class AnchorsAway
+ * Class PDFResource
  */
 class PDFResource extends \TreehillStudio\PDFResource\PDFResource
 {
