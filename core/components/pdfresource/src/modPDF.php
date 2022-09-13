@@ -89,7 +89,7 @@ class modPDF extends Mpdf
             'mode' => $this->getOption('mode', $options, ''),
             'format' => $this->getOption('format', $options, 'A4'),
             'default_font_size' => (int)$this->getOption('defaultFontSize', $options, ''),
-            'default_font' => $this->getOption('defaultFont', $options, 'A4'),
+            'default_font' => $this->getOption('defaultFont', $options, ''),
             'margin_left' => (int)$this->getOption('mgl', $options, 15),
             'margin_right' => (int)$this->getOption('mgr', $options, 15),
             'margin_top' => (int)$this->getOption('mgt', $options, 16),
