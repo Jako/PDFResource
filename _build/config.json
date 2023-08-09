@@ -78,67 +78,56 @@
       },
       {
         "key": "mode",
-        "type": "textfield",
         "area": "pdf",
         "value": ""
       },
       {
         "key": "format",
-        "type": "textfield",
         "area": "pdf",
         "value": "A4"
       },
       {
         "key": "defaultFontSize",
-        "type": "textfield",
         "area": "pdf",
         "value": "0"
       },
       {
         "key": "defaultFont",
-        "type": "textfield",
         "area": "pdf",
         "value": ""
       },
       {
         "key": "mgl",
-        "type": "textfield",
         "area": "pdf",
         "value": "15"
       },
       {
         "key": "mgr",
-        "type": "textfield",
         "area": "pdf",
         "value": "15"
       },
       {
         "key": "mgt",
-        "type": "textfield",
         "area": "pdf",
         "value": "16"
       },
       {
         "key": "mgb",
-        "type": "textfield",
         "area": "pdf",
         "value": "16"
       },
       {
         "key": "mgh",
-        "type": "textfield",
         "area": "pdf",
         "value": "9"
       },
       {
         "key": "mgf",
-        "type": "textfield",
         "area": "pdf",
         "value": "9"
       },
       {
         "key": "orientation",
-        "type": "textfield",
         "area": "pdf",
         "value": "P"
       },
@@ -150,7 +139,6 @@
       },
       {
         "key": "customFontsFolder",
-        "type": "textfield",
         "area": "pdf",
         "value": "{core_path}components/customfonts/"
       },
@@ -180,49 +168,41 @@
       },
       {
         "key": "mPDFMethods",
-        "type": "textfield",
         "area": "pdf",
         "value": "[]"
       },
       {
         "key": "author",
-        "type": "textfield",
         "area": "pdf",
         "value": ""
       },
       {
         "key": "creator",
-        "type": "textfield",
         "area": "pdf",
         "value": ""
       },
       {
         "key": "pdfTv",
-        "type": "textfield",
         "area": "resource",
         "value": "create_pdf"
       },
       {
         "key": "pdfTvLive",
-        "type": "textfield",
         "area": "resource",
         "value": "live_pdf"
       },
       {
         "key": "pdfTvOptions",
-        "type": "textfield",
         "area": "resource",
         "value": "pdf_options"
       },
       {
         "key": "pdfTpl",
-        "type": "textfield",
         "area": "template",
         "value": "tplPDF"
       },
       {
         "key": "cssTpl",
-        "type": "textfield",
         "area": "template",
         "value": "tplCSS"
       },
@@ -234,7 +214,6 @@
       },
       {
         "key": "tvPrefix",
-        "type": "textfield",
         "area": "template",
         "value": "tv."
       }
