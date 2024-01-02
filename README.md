@@ -1,4 +1,4 @@
-[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/-/modx-pdfresource-standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/modx-pdfresource-standard/)
+[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/pdfresource/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/pdfresource/standard/)
 
 # PDFResource
 
@@ -27,4 +27,4 @@ The project is licensed under the [GPLv2 license](https://github.com/Jako/PDFRes
 
 ## Translations
 
-Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-pdfresource-standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-pdfresource-system-settings/)
+Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/pdfresource/standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/pdfresource/system-settings/)
