@@ -1,4 +1,4 @@
-[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/pdfresource/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/pdfresource/standard/)
+[![Default Lexicon](https://hosted.weblate.org/widget/modx-extras/pdfresource/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/pdfresource/standard/)
 
 # PDFResource
 
