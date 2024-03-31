@@ -4,8 +4,8 @@
   "author": "Thomas Jakobi <office@treehillstudio.com>",
   "private": true,
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-replace": "^1.1.3"
+    "gulp": "^5.0.0",
+    "gulp-replace": "^1.1.4"
   },
   "browserslist": [
     "last 2 version",
