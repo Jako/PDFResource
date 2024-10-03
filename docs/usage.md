@@ -17,7 +17,8 @@ changed in MODX system settings) and check this template variable on a resource.
 After this, the resource will be rendered as PDF file in the browser. The file
 could be saved with the current alias.
 
-!!! caution 
+!!! caution "Don't create a DDOS attacking vector"
+
     This option should only be activated, if the content of the resource is dynamically changed. Generating the PDF is a quite resource consuming process and it could take some time.
 
 ## PDF options
