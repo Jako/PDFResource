@@ -73,7 +73,7 @@ options without the prefix `pdfresource.`.
 
 #### Example
 
-```
+```json
 {
     "format": "A4-L",
     "mgl": 20,
@@ -106,7 +106,7 @@ in the mPDF documentation a the full description.
 
 #### Example
 
-```
+```json
 {
   "frutiger": {
     "R": "Frutiger-Normal.ttf",
@@ -136,7 +136,7 @@ end-user of the generated PDF.
 
 #### Example
 
-```
+```json
 ["copy", "print"]
 ```
 
@@ -158,20 +158,20 @@ have to be set by an JSON encoded array.
 To call the mPDF method `SetHTMLFooter` you have to set the MODX system setting
 `pdfresource.mPDFMethods` to
 
-```
+```json
 ["SetHTMLFooter"]
 ```
 
 After that you have to create a MODX system setting `pdfresource.SetHTMLFooter`
 and fill it with
 
-```
+```json
 ["<div align='right' style='font-size: 8pt;'>{PAGENO}</div><div align='center' style='font-size: 8pt; font-style: italic;'><hr>My footer text.</div>"]
 ```
 
 or fill the `PDF Options` template variable of a resource with
 
-```
+```json
 {
   "SetHTMLFooter": [
     "<div align='right' style='font-size: 8pt;'>{PAGENO}</div><div align='center' style='font-size: 8pt; font-style: italic;'><hr>My footer text.</div>"
@@ -185,7 +185,7 @@ All generated static PDF files are saved with the aliaspath of the generating
 resource. If you want to create a link to that PDF file, you could use the
 following code:
 
-```
+```html
 <a href="[[*id:pdfresourcelink]]">PDF</a>
 ```
 
