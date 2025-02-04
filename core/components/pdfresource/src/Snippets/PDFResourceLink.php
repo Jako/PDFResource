@@ -32,7 +32,7 @@ class PDFResourceLink extends Snippet
      */
     public function execute()
     {
-        $output = '';
+        $output = '-';
         $input = $this->getProperty('input');
 
         if ($input) {
@@ -42,9 +42,12 @@ class PDFResourceLink extends Snippet
                 $resource = $this->modx->getObject('modResource', $input);
             }
             if ($resource) {
-                $pdfPath = $this->modx->getOption('pdfresource.pdf_url', null, $this->modx->getOption('assets_url') . 'pdf/');
+                $pdfUrl = $this->pdfresource->getOption('pdfUrl');
+                $pdfPath = $this->pdfresource->getOption('pdfPath');
                 $aliasPath = $this->pdfresource->getParentPath($resource);
-                $output = $pdfPath . $aliasPath . $resource->get('alias') . '.pdf';
+                if (file_exists($pdfPath . $aliasPath . $resource->get('alias') . '.pdf')) {
+                    $output = $pdfUrl . $aliasPath . $resource->get('alias') . '.pdf';
+                }
             }
         }
 

@@ -29,40 +29,40 @@ etc.) could be set in MODX system setting.
 
 PDFResource uses the following system settings in the namespace `pdfresource`:
 
-Key | Description | Default
-----|-------------|--------
-**Area PDF** | |
-pdfresource.author | Author of the PDF file | `site_name` system setting
-pdfresource.creator | Creator of the PDF file | `site_url` system setting + ` powered by PDFResource/mPDF`
-pdfresource.customFonts | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to the folder referenced in the `pdfresource.customFontsFolder` system setting. | -
-pdfresource.customFontsFolder | Path to the custom fonts folder. If the path is not set or available, `pdfresource.customFonts` is not used. The `{core_path}`, `{base_path}` and `{assets_path}` placeholders can be used in this setting. | `{core_path}components/customfonts/`
-pdfresource.defaultFont | Default font of the generated PDF | -
-pdfresource.defaultFontSize | Default font size of the generated PDF | 0
-pdfresource.format | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | A4
-pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then. | false
-pdfresource.mPDFMethods | JSON encoded array of callable mPDF method names. | []
-pdfresource.mgb | Bottom margin of the generated PDF | 16
-pdfresource.mgf | Footer margin of the generated PDF | 9
-pdfresource.mgh | Header margin of the generated PDF | 9
-pdfresource.mgl | Bottom margin of the generated PDF | 15
-pdfresource.mgr | Right margin of the generated PDF | 15
-pdfresource.mgt | Top margin of the generated PDF | 16
-pdfresource.mode | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -
-pdfresource.orientation | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L). | P
-pdfresource.ownerPassword | Password for full access and permissions to the generated PDF. | -
-pdfresource.permissions | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation for possible values. | []
-pdfresource.userPassword | Password required to open the generated PDF. | -
-**Area Resource** | |
-pdfresource.pdfTv | Name ot the template variable that activates the PDF generation. | create_pdf
-pdfresource.pdfTvLive | Name of the template variable that activates the on the fly PDF generation. | live_pdf
-pdfresource.pdfTvOptions | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change. | pdf_options
-**Area System and Server ** | |
-pdfresource.debug | Log debug information in the MODX error log. | No
-**Area Template ** | |
-pdfresource.cssTpl | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file. | tplCSS
-pdfresource.pdfTpl | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file. | tplPDF
-pdfresource.processTVs | Process template variables during PDF generation. | Yes
-pdfresource.tvPrefix | Template variable prefix in the template chunk. | .tv
+| Key                             | Description                                                                                                                                                                                                                                                    | Default                                                    |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| **Area PDF**                    |                                                                                                                                                                                                                                                                |                                                            |
+| pdfresource.author              | Author of the PDF file                                                                                                                                                                                                                                         | `site_name` system setting                                 |
+| pdfresource.creator             | Creator of the PDF file                                                                                                                                                                                                                                        | `site_url` system setting + ` powered by PDFResource/mPDF` |
+| pdfresource.customFonts         | JSON encoded object of custom fonts, see [Custom fonts](#custom-fonts) for an example. Please copy the font files to the folder referenced in the `pdfresource.customFontsFolder` system setting.                                                              | -                                                          |
+| pdfresource.customFontsFolder   | Path to the custom fonts folder. If the path is not set or available, `pdfresource.customFonts` is not used. The `{core_path}`, `{base_path}` and `{assets_path}` placeholders can be used in this setting.                                                    | `{core_path}components/customfonts/`                       |
+| pdfresource.defaultFont         | Default font of the generated PDF                                                                                                                                                                                                                              | -                                                          |
+| pdfresource.defaultFontSize     | Default font size of the generated PDF                                                                                                                                                                                                                         | 0                                                          |
+| pdfresource.format              | PDF page size. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).                                                                                                                 | A4                                                         |
+| pdfresource.generateOnPrerender | Generate not existing PDF files during OnWebPagePrerender. This option is useful, if you have installed PDFResource in an existing MODX installation. You don't have to save all resources that could generate a PDF file then.                                | false                                                      |
+| pdfresource.mPDFMethods         | JSON encoded array of callable mPDF method names.                                                                                                                                                                                                              | []                                                         |
+| pdfresource.mgb                 | Bottom margin of the generated PDF                                                                                                                                                                                                                             | 16                                                         |
+| pdfresource.mgf                 | Footer margin of the generated PDF                                                                                                                                                                                                                             | 9                                                          |
+| pdfresource.mgh                 | Header margin of the generated PDF                                                                                                                                                                                                                             | 9                                                          |
+| pdfresource.mgl                 | Bottom margin of the generated PDF                                                                                                                                                                                                                             | 15                                                         |
+| pdfresource.mgr                 | Right margin of the generated PDF                                                                                                                                                                                                                              | 15                                                         |
+| pdfresource.mgt                 | Top margin of the generated PDF                                                                                                                                                                                                                                | 16                                                         |
+| pdfresource.mode                | mPDF mode, see [mode parameter](https://mpdf.github.io/reference/mpdf-functions/mpdf.html#parameters) and [choosing a configuration](https://mpdf.github.io/fonts-languages/choosing-a-configuration-v5-x.html) in the mPDF documentation for possible values. | -                                                          |
+| pdfresource.orientation         | PDF orientation. If you want to change the orientation of a "named" PDF page size you have to append -L to the PDF page size string (i.e. A4-L).                                                                                                               | P                                                          |
+| pdfresource.ownerPassword       | Password for full access and permissions to the generated PDF.                                                                                                                                                                                                 | -                                                          |
+| pdfresource.permissions         | JSON encoded array of permissions granted to the end-user of the PDF file. See [permissions](https://mpdf.github.io/reference/mpdf-functions/setprotection.html#parameters) in the mPDF documentation for possible values.                                     | []                                                         |
+| pdfresource.userPassword        | Password required to open the generated PDF.                                                                                                                                                                                                                   | -                                                          |
+| **Area Resource**               |                                                                                                                                                                                                                                                                |                                                            |
+| pdfresource.pdfTv               | Name ot the template variable that activates the PDF generation.                                                                                                                                                                                               | create_pdf                                                 |
+| pdfresource.pdfTvLive           | Name of the template variable that activates the on the fly PDF generation.                                                                                                                                                                                    | live_pdf                                                   |
+| pdfresource.pdfTvOptions        | Name of the template variable that change the options of the generated PDF. The content of this template variable has to contain a JSON encoded object of the options you want to change.                                                                      | pdf_options                                                |
+| **Area System and Server**      |                                                                                                                                                                                                                                                                |                                                            |
+| pdfresource.debug               | Log debug information in the MODX error log.                                                                                                                                                                                                                   | No                                                         |
+| **Area Template**               |                                                                                                                                                                                                                                                                |                                                            |
+| pdfresource.cssTpl              | Template chunk for the PDF style. You could use @FILE binding to retreive the chunk from a file.                                                                                                                                                               | tplCSS                                                     |
+| pdfresource.pdfTpl              | Template chunk for the PDF content. You could use @FILE binding to retreive the chunk from a file.                                                                                                                                                             | tplPDF                                                     |
+| pdfresource.processTVs          | Process template variables during PDF generation.                                                                                                                                                                                                              | Yes                                                        |
+| pdfresource.tvPrefix            | Template variable prefix in the template chunk.                                                                                                                                                                                                                | .tv                                                        |
 
 ### Resource based PDF options
 
@@ -183,10 +183,10 @@ or fill the `PDF Options` template variable of a resource with
 
 All generated static PDF files are saved with the aliaspath of the generating
 resource. If you want to create a link to that PDF file, you could use the
-following code:
+following code. The output filter returns `-` if the file does not exist:
 
 ```html
-<a href="[[*id:pdfresourcelink]]">PDF</a>
+[[*id:pdfresourcelink:ne=`-`:then=`<a href="[[*id:pdfresourcelink]]">PDF</a>`:else=``]]
 ```
 
 ## Debug HTML/CSS output
@@ -198,3 +198,11 @@ URL parameter. The result will be the HTML or CSS code that is handled by mPDF.
 
 That way you can identify wrong image paths etc. in this code. Don't forget to
 disable the `pdfresource.debug` system setting afterwards.
+
+## Tips and tricks
+
+If you want to change the filename of the generated PDF on the fly, you have to
+create a new plugin that runs before PDFResource in OnWebPagePrerender. This
+plugin has to execute `$modx->resource->set('alias', 'invoice_'
+. date('Ymd', $invoice->get('date')) . '_' . $invoice->get('client_id'))` to set the
+alias on the fly (it works even without saving $modx->resource).

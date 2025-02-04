@@ -2,7 +2,7 @@
 /**
  * PDFResource
  *
- * Copyright 2015-2022 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2015-2025 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package pdfresource
  * @subpackage classfile
@@ -43,7 +43,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '2.0.1';
+    public $version = '2.0.2';
 
     /**
      * The class options
