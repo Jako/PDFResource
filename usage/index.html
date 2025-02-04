@@ -516,6 +516,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tips-and-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips and tricks
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -728,6 +737,15 @@
   <a href="#debug-htmlcss-output" class="md-nav__link">
     <span class="md-ellipsis">
       Debug HTML/CSS output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-and-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips and tricks
     </span>
   </a>
   
@@ -1030,8 +1048,8 @@ and fill it with</p>
 <h2 id="linking-to-a-generated-pdf">Linking to a generated PDF</h2>
 <p>All generated static PDF files are saved with the aliaspath of the generating
 resource. If you want to create a link to that PDF file, you could use the
-following code:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;[[*id:pdfresourcelink]]&quot;</span><span class="p">&gt;</span>PDF<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+following code. The output filter returns <code>-</code> if the file does not exist:</p>
+<div class="highlight"><pre><span></span><code>[[*id:pdfresourcelink:ne=`-`:then=`<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;[[*id:pdfresourcelink]]&quot;</span><span class="p">&gt;</span>PDF<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>`:else=``]]
 </code></pre></div>
 <h2 id="debug-htmlcss-output">Debug HTML/CSS output</h2>
 <p>The pre-rendered HTML or CSS output handled by mPDF can be debugged with the
@@ -1040,6 +1058,12 @@ setting and load the PDF generating resource with <code>mode=html</code> or <cod
 URL parameter. The result will be the HTML or CSS code that is handled by mPDF.</p>
 <p>That way you can identify wrong image paths etc. in this code. Don't forget to
 disable the <code>pdfresource.debug</code> system setting afterwards.</p>
+<h2 id="tips-and-tricks">Tips and tricks</h2>
+<p>If you want to change the filename of the generated PDF on the fly, you have to
+create a new plugin that runs before PDFResource in OnWebPagePrerender. This
+plugin has to execute <code>$modx-&gt;resource-&gt;set('alias', 'invoice_'
+. date('Ymd', $invoice-&gt;get('date')) . '_' . $invoice-&gt;get('client_id'))</code> to set the
+alias on the fly (it works even without saving $modx-&gt;resource).</p>
 
 
 
@@ -1071,7 +1095,7 @@ disable the <code>pdfresource.debug</code> system setting afterwards.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      &copy; 2015-2022 <a href="https://treehillstudio.com">Treehill Studio</a>
+      &copy; 2015-2025 <a href="https://treehillstudio.com">Treehill Studio</a>
     </div>
   
   
