@@ -1,6 +1,7 @@
 {
   "name": "treehillstudio/pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
+  "version": "2.0.3",
   "authors": [
     {
       "name": "Thomas Jakobi",

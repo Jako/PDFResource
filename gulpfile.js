@@ -47,7 +47,14 @@ const bumpRequirements = function () {
         .pipe(replace(/[*-] PHP (v)?\d.\d.*/g, '* PHP ' + phpversion + '+'))
         .pipe(gulp.dest('.'));
 };
-gulp.task('bump', gulp.series(bumpCopyright, bumpVersion, bumpDocs, bumpRequirements));
+const bumpComposer = function () {
+    return gulp.src([
+        'core/components/pdfresource/composer.json',
+    ], {base: './'})
+        .pipe(replace(/"version": "\d+\.\d+\.\d+-?[0-9a-z]*"/ig, '"version": "' + pkg.version + '"'))
+        .pipe(gulp.dest('.'));
+};
+gulp.task('bump', gulp.series(bumpCopyright, bumpVersion, bumpDocs, bumpRequirements, bumpComposer));
 
 // Default Task
 gulp.task('default', gulp.series('bump'));
