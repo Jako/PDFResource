@@ -21,28 +21,28 @@ const bumpCopyright = function () {
     return gulp.src([
         'core/components/pdfresource/model/pdfresource/pdfresource.class.php',
         'core/components/pdfresource/src/PDFResource.php'
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/Copyright 2015(-\d{4})? by/g, 'Copyright ' + (year > 2015 ? '2015-' : '') + year + ' by'))
         .pipe(gulp.dest('.'));
 };
 const bumpVersion = function () {
     return gulp.src([
         'core/components/pdfresource/src/PDFResource.php'
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/version = '\d+\.\d+\.\d+-?[0-9a-z]*'/ig, 'version = \'' + pkg.version + '\''))
         .pipe(gulp.dest('.'));
 };
 const bumpDocs = function () {
     return gulp.src([
-        'mkdocs.yml',
-    ], {base: './'})
+        'zensical.toml',
+    ], { base: './' })
         .pipe(replace(/&copy; 2015(-\d{4})?/g, '&copy; ' + (year > 2015 ? '2015-' : '') + year))
         .pipe(gulp.dest('.'));
 };
 const bumpRequirements = function () {
     return gulp.src([
         'docs/index.md',
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/[*-] MODX Revolution \d.\d.*/g, '* MODX Revolution ' + modxversion + '+'))
         .pipe(replace(/[*-] PHP (v)?\d.\d.*/g, '* PHP ' + phpversion + '+'))
         .pipe(gulp.dest('.'));
@@ -50,7 +50,7 @@ const bumpRequirements = function () {
 const bumpComposer = function () {
     return gulp.src([
         'core/components/pdfresource/composer.json',
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/"version": "\d+\.\d+\.\d+-?[0-9a-z]*"/ig, '"version": "' + pkg.version + '"'))
         .pipe(gulp.dest('.'));
 };
