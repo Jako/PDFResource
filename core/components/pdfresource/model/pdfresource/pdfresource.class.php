@@ -2,7 +2,7 @@
 /**
  * PDFResource
  *
- * Copyright 2015-2025 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2015-2026 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package pdfresource
  * @subpackage classfile
