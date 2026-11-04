@@ -38,4 +38,4 @@ This extra includes third party software, for which we are thankful.
 * paragonie/random_compat@v9.99.100 [MIT]
 * psr/http-message@2.0 [MIT]
 * psr/log@1.1.4 [MIT]
-* setasign/fpdi@v2.6.7 [MIT]
+* setasign/fpdi@v2.6.9 [MIT]
