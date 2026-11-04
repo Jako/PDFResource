@@ -43,7 +43,7 @@ class PDFResource
      * The version
      * @var string $version
      */
-    public $version = '2.0.4';
+    public $version = '2.1.0';
 
     /**
      * The class options
@@ -199,6 +199,8 @@ class PDFResource
         $id = $resource->get('id');
         $pdfTpl = $this->getOption('pdfTpl', null, 'tplPDF');
         $cssTpl = $this->getOption('cssTpl', null, 'tplCSS');
+        $headerTpl = $this->getOption('headerTpl', null, '');
+        $footerTpl = $this->getOption('footerTpl', null, '');
         $optionsTV = $this->getOption('pdfTvOptions', null, 'pdf_options');
         $processTVs = $this->getOption('processTVs', null, false);
         $tvPrefix = $this->getOption('tvPrefix', null, 'tv.');
@@ -216,15 +218,17 @@ class PDFResource
                 if ($pdfOptions) {
                     $pdfTpl = $this->modx->getOption('pdfTpl', $pdfOptions, $pdfTpl);
                     $cssTpl = $this->modx->getOption('cssTpl', $pdfOptions, $cssTpl);
+                    $headerTpl = $this->modx->getOption('headerTpl', $pdfOptions, $headerTpl);
+                    $footerTpl = $this->modx->getOption('footerTpl', $pdfOptions, $footerTpl);
                 }
             }
         }
 
         // Parse template chunks
         $placeholder['tplPath'] = $this->modx->getOption('assets_path');
-        $html = $this->getChunk($pdfTpl, $placeholder);
-        $this->modx->getParser()->processElementTags('', $html, false, false, '[[', ']]', [], $this->modx->getOption('max_iterations'));
-        $this->modx->getParser()->processElementTags('', $html, true, true, '[[', ']]', [], $this->modx->getOption('max_iterations'));
+        $html = $this->parseTemplate($pdfTpl, $placeholder);
+        $header = $this->parseTemplate($headerTpl, $placeholder);
+        $footer = $this->parseTemplate($footerTpl, $placeholder);
         $css = $this->getChunk($cssTpl, $placeholder);
         unset($placeholder);
 
@@ -237,6 +241,14 @@ class PDFResource
                     exit;
                 case 'css':
                     echo $css;
+                    @session_write_close();
+                    exit;
+                case 'header':
+                    echo $header;
+                    @session_write_close();
+                    exit;
+                case 'footer':
+                    echo $footer;
                     @session_write_close();
                     exit;
             }
@@ -275,6 +287,19 @@ class PDFResource
                 $this->pdf->SetProtection($permissions, $userPassword, $ownerPassword, 128);
             }
 
+            // The stylesheet has to be loaded before the header and footer, so that their height is calculated with the styles
+            $this->pdf->WriteHTML($css, 1);
+
+            // HTML header and footer, the top/bottom margin is increased if the header/footer needs more space
+            if ($header !== '') {
+                $this->pdf->setAutoTopMargin = 'stretch';
+                $this->pdf->SetHTMLHeader($header);
+            }
+            if ($footer !== '') {
+                $this->pdf->setAutoBottomMargin = 'stretch';
+                $this->pdf->SetHTMLFooter($footer);
+            }
+
             // Call additional mPDF methods
             $mpdfMethods = json_decode($this->getOption('mPDFMethods', $pdfOptions, ''), true);
             $mpdfMethods = (is_array($mpdfMethods)) ? $mpdfMethods : [];
@@ -286,7 +311,6 @@ class PDFResource
                 }
             }
 
-            $this->pdf->WriteHTML($css, 1);
             $this->pdf->WriteHTML($html, 2);
 
             if (!is_null($aliasPath)) {
@@ -302,6 +326,28 @@ class PDFResource
             $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not generate the pdf: ' . $e->getMessage(), '', 'PDFResource');
             return '';
         }
+    }
+
+    /**
+     * Get a chunk (with template bindings) and process all remaining MODX tags in the result
+     *
+     * @param string $tpl The template to parse.
+     * @param array $placeholder The placeholders used in the template.
+     * @return string The parsed template or an empty string.
+     */
+    private function parseTemplate($tpl, $placeholder)
+    {
+        $output = $this->getChunk($tpl, $placeholder);
+        if ($output === false && !empty($tpl)) {
+            $this->modx->log(xPDO::LOG_LEVEL_WARN, 'Could not load the template chunk: ' . $tpl, '', 'PDFResource');
+        }
+        if (!is_string($output) || $output === '') {
+            return '';
+        }
+        $maxIterations = $this->modx->getOption('max_iterations');
+        $this->modx->getParser()->processElementTags('', $output, false, false, '[[', ']]', [], $maxIterations);
+        $this->modx->getParser()->processElementTags('', $output, true, true, '[[', ']]', [], $maxIterations);
+        return $output;
     }
 
     /**

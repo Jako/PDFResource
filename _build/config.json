@@ -3,7 +3,7 @@
   "lowCaseName": "pdfresource",
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "package": {
     "elements": {
       "chunks": [
@@ -207,6 +207,16 @@
         "value": "tplCSS"
       },
       {
+        "key": "headerTpl",
+        "area": "template",
+        "value": ""
+      },
+      {
+        "key": "footerTpl",
+        "area": "template",
+        "value": ""
+      },
+      {
         "key": "processTVs",
         "type": "combo-boolean",
         "area": "template",
@@ -222,11 +232,11 @@
   "dependencies": [
     {
       "name": "php",
-      "version": ">=7.2"
+      "version": ">=7.4"
     },
     {
       "name": "modx",
-      "version": ">=2.6"
+      "version": ">=2.8"
     }
   ],
   "build": {

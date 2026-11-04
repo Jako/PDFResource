@@ -40,7 +40,7 @@ class OnWebPagePrerender extends Plugin
 
                     $createPDF = intval($tv->getValue($resource->get('id')));
                     if (($createPDF && !file_exists($this->pdfresource->getOption('pdfPath') . $aliasPath . $resource->get('alias') . '.pdf')) ||
-                        ($this->pdfresource->getOption('debug') && in_array($this->modx->getOption('mode', $_GET, ''), ['html', 'css']))
+                        ($this->pdfresource->getOption('debug') && in_array($this->modx->getOption('mode', $_GET, ''), ['html', 'css', 'header', 'footer']))
                     ) {
                         $this->modx->invokeEvent('OnHandleRequest', []); // call ClientConfig if installed
                         $this->pdfresource->createPDF($resource, $aliasPath);

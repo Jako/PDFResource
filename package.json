@@ -4,9 +4,9 @@
   "description": "Convert MODX resources to PDF files using mPDF",
   "author": "Thomas Jakobi <office@treehillstudio.com>",
   "private": true,
-  "version": "2.0.4",
-  "phpversion": "7.2",
-  "modxversion": "2.6",
+  "version": "2.1.0",
+  "phpversion": "7.4",
+  "modxversion": "2.8",
   "startYear": "2015",
   "scripts": {
     "build": "node build.js",

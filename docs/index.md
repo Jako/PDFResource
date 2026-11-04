@@ -5,8 +5,8 @@ using [mPDF](https://mpdf.github.io/).
 
 ### Requirements
 
-* MODX Revolution 2.6+
-* PHP 7.2+
+* MODX Revolution 2.8+
+* PHP 7.4+
 
 ### Features
 

@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-11-04
+
+### Added
+
+- Add `headerTpl` and `footerTpl` options to set the HTML header and footer of the PDF pages with a template chunk
+- Increase the top/bottom margin automatically, if the HTML header/footer needs more space
+- Log a warning, if a template chunk could not be loaded
+
+### Changed
+
+- Load the PDF stylesheet before the mPDF methods set by `mPDFMethods` are called
+- Update Composer dependencies
+
 ## [2.0.4] - 2026-05-20
 
 ### Security
