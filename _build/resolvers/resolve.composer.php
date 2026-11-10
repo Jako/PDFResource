@@ -17,6 +17,7 @@ use Symfony\Component\Console\Output\StreamOutput;
 
 /** @var modX $modx */
 $modx = $transport->xpdo;
+@set_time_limit(0);
 
 $success = true;
 
