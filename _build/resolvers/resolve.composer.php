@@ -35,7 +35,11 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         // Change the path to the package namespace folder, to prevent autoloading other namespaces
         chdir($path);
 
-        require "phar://{$path}composer.phar/vendor/autoload.php";
+        // Another package resolver (i.e. of a package dependency) could have loaded a composer.phar in the same
+        // request. Loading a second composer.phar autoloader causes a fatal error, the loaded one is used instead.
+        if (!class_exists(Factory::class)) {
+            require "phar://{$path}composer.phar/vendor/autoload.php";
+        }
 
         // Run Composer without proc_open/exec
         $io = new BufferIO('', StreamOutput::VERBOSITY_NORMAL, new HtmlOutputFormatter());
