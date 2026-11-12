@@ -33,6 +33,9 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         putenv("COMPOSER_HOME={$path}.composer");
         putenv("COMPOSER_VENDOR_DIR={$path}vendor/");
 
+        // Remember the current working directory, it is restored after running Composer
+        $cwd = getcwd();
+
         // Change the path to the package namespace folder, to prevent autoloading other namespaces
         chdir($path);
 
@@ -54,7 +57,11 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             ->setPreferStable();
 
         try {
-            $install->run();
+            $result = $install->run();
+            if ($result !== 0) {
+                $modx->log(xPDO::LOG_LEVEL_ERROR, 'Composer could not install the dependencies (exit code ' . $result . ').');
+                $success = false;
+            }
         } catch (Exception $e) {
             $modx->log(xPDO::LOG_LEVEL_ERROR, get_class($e) . ' installing dependencies: ' . $e->getMessage());
             echo get_class($e) . ': ' . $e->getMessage() . "\n";
@@ -64,6 +71,9 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         $output = $io->getOutput();
         $output = nl2br(trim($output));
         $modx->log(xPDO::LOG_LEVEL_INFO, $output);
+
+        // Restore the previous working directory for the following resolvers
+        chdir($cwd);
         break;
     case xPDOTransport::ACTION_UNINSTALL:
         break;
